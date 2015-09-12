@@ -28,9 +28,7 @@ TODO
 [dedication]
 == Dedication
 
-For S.S.T.--
-
-thank you for the plague of archetypes.
+TODO
 
 [abstract]
 == Abstract
