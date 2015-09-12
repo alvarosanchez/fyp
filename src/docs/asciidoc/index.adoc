@@ -39,6 +39,9 @@ rain:: water falling from the sky
 _The Pragmatic Programmer_ <<prag>> should be required reading for
 all developers.
 
+[[fig-cat,A cute cat]]
+image::http://ar.cdn01.mundotkm.com/2015/08/Los-gatos-nos-ignoran-1.jpg[role=fig]
+
 === Motivation
 
 === Goals
