@@ -1,0 +1,2 @@
+languague: groovy
+script: ./gradlew publishGhPages
