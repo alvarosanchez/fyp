@@ -5,7 +5,7 @@ plugins {
 }
 
 githubPages {
-  repoUri = '' // Set this to the destination repo
+  repoUri = 'https://github.com/alvarosanchez/fyp.git' // Set this to the destination repo
 
   credentials {
     username = project.hasProperty('githubToken') ? project.githubToken : ''
