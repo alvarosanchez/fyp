@@ -34,7 +34,8 @@ thank you for the plague of archetypes.
 
 [abstract]
 == Abstract
-Documentation is a distillation of many long, squiggly adventures.
+
+TODO
 
 [glossary]
 
