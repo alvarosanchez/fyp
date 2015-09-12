@@ -1,8 +1,3 @@
-page:
-  layout: portrait
-  margin: [0.75in, 1in, 0.75in, 1in]
-  size: A4
-  
 font:
   catalog:
     OpenSans:
@@ -13,3 +8,15 @@ font:
 
 base:
   font_family: OpenSans
+
+page:
+  layout: portrait
+  margin: [0.75in, 1in, 0.75in, 1in]
+  size: A4
+
+footer:
+  height: 0.75in
+  recto_content:
+    right: '{section-or-chapter-title} | *{page-number}*'
+  verso_content:
+    left: '*{page-number}* | {chapter-title}'

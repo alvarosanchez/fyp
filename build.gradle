@@ -32,17 +32,22 @@ task prependCoverPage << {
     PDFMergerUtility merger = new PDFMergerUtility()
     merger.addSource(file('src/docs/themes/cover.pdf'))
     merger.addSource(file(asciidoctor.outputDir.path + '/pdf/index.pdf'))
-    merger.setDestinationFileName('memoria.pdf')
+    merger.setDestinationFileName('out.pdf')
     merger.mergeDocuments()
 
-    file('memoria.pdf').renameTo file(asciidoctor.outputDir.path + '/pdf/index.pdf')
+    file('out.pdf').renameTo file(asciidoctor.outputDir.path + '/pdf/index.pdf')
 }
 
 asciidoctor {
     backends    'html5','pdf'
-    attributes  'pdf-stylesdir': '../themes',
-                'pdf-fontsdir': '../fonts',
-                'pdf-style': 'main'
+    attributes  'pdf-stylesdir' : '../themes',
+                'pdf-fontsdir'  : '../fonts',
+                'pdf-style'     : 'main',
+                'doctype'       : 'book',
+                'experimental'  : 'true',
+                'compat-mode'   : 'true',
+                'toc'           : 'true',
+                'icons'         : 'font'
 }
 
 prependCoverPage.dependsOn asciidoctor
