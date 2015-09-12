@@ -1,5 +1,11 @@
-import org.ajoberstar.grgit.*
+import org.apache.pdfbox.util.PDFMergerUtility
 
+buildscript {
+	dependencies {
+		classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.9'
+        classpath 'org.apache.pdfbox:pdfbox:1.8.10'
+	}
+}
 plugins {
   id 'org.ajoberstar.github-pages' version '1.1.0'
   id 'org.asciidoctor.gradle.asciidoctor' version '1.5.1'
@@ -16,20 +22,28 @@ githubPages {
 
   pages {
     from file(asciidoctor.outputDir.path + '/html5')
+    from file(asciidoctor.outputDir.path + '/pdf')
   }
 }
 
 version = '1.0.0-SNAPSHOT'
 
-asciidoctor {
-    options doctype: 'book', ruby: 'erubis'
+task prependCoverPage << {
+    PDFMergerUtility merger = new PDFMergerUtility()
+    merger.addSource(file('src/docs/themes/cover.pdf'))
+    merger.addSource(file(asciidoctor.outputDir.path + '/pdf/index.pdf'))
+    merger.setDestinationFileName('memoria.pdf')
+    merger.mergeDocuments()
 
-    attributes  'build-gradle'      : file('build.gradle'),
-                'source-highlighter': 'coderay',
-                toc                 : '',
-                idprefix            : '',
-                idseparator         : '-',
-                docinfo1            : ''           
+    file('memoria.pdf').renameTo file(asciidoctor.outputDir.path + '/pdf/index.pdf')
 }
 
-publishGhPages.dependsOn asciidoctor
+asciidoctor {
+    backends    'html5','pdf'
+    attributes  'pdf-stylesdir': '../themes',
+                'pdf-fontsdir': '../fonts',
+                'pdf-style': 'main'
+}
+
+prependCoverPage.dependsOn asciidoctor
+publishGhPages.dependsOn prependCoverPage

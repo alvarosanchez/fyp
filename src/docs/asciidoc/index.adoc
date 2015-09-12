@@ -1,19 +1,16 @@
 = Stateless authentication for microservices
-:toc:
-:doctype: book
-:docinfo1:
+:author: Álvaro Sánchez-Mariscal Arnaiz
+:email: alvaro.sanchezmariscal@gmail.com
+:revnumber: 0.1 
 :description: This document catalogs a set of recommended practices for writing in AsciiDoc.
-:title-logo: logo.jpg
+:notitle:
+
 // Settings:
+:doctype: book
 :compat-mode:
 :experimental:
 :icons: font
 :toc:
-ifdef::backend-pdf[]
-:pagenums:
-:pygments-style: bw
-:source-highlighter: pygments
-endif::[]
 
 :numbered!:
 
