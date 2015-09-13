@@ -3,92 +3,50 @@
 :email: alvaro.sanchezmariscal@gmail.com
 ifdef::backend-pdf[:notitle:]
 :revnumber: 0.1 
-:description: This document catalogs a set of recommended practices for writing in AsciiDoc.
+:description: This document is the Final Year Project of {author}
 
 :numbered!:
-
-== List of Figures
-
-TODO
-
-== List of Tables
-
-TODO
 
 [dedication]
 == Dedication
 
-TODO
+include::a-dedication.adoc[]
 
 [abstract]
 == Abstract
 
-TODO
+include::b-abstract.adoc[]
 
 [glossary]
-
 == Glossary 
 
-mud:: wet, cold dirt
-rain:: water falling from the sky
+include::c-glossary.adoc[]
 
 :numbered:
 
 == Introduction
 
-_The Pragmatic Programmer_ <<prag>> should be required reading for
-all developers.
-
-[[fig-cat,A cute cat]]
-image::http://ar.cdn01.mundotkm.com/2015/08/Los-gatos-nos-ignoran-1.jpg[role=fig]
-
-=== Motivation
-
-=== Goals
-
-=== Rest of the document
+include::1-introduction.adoc[]
 
 == State of the art
 
-=== Introduction
-
-=== Similar solution #1
-
-=== Similar solution #2
-
-=== Comparision
+include::2-state-of-the-art.adoc[]
 
 == Analysis, design, development and deployment
 
-=== Introduction
-
-=== Analysis
-
-=== Design
-
-=== Development
-
-=== Deployment
+include::3-analysis.adoc[]
 
 == Evaluation
 
+include::4-evaluation.adoc[]
+
 == Planning and budget
 
-=== Planning
-
-=== Budget
+include::5-planning-and-budget.adoc[]
 
 == Conclusions and future improvements
 
-=== Conclusions
-
-==== Product
-
-==== Process
-
-==== Personal
-
-=== Personal improvements
+include::6-conclusions.adoc[]
 
 [appendix]
 
@@ -99,8 +57,3 @@ image::http://ar.cdn01.mundotkm.com/2015/08/Los-gatos-nos-ignoran-1.jpg[role=fig
 :numbered!:
 
 == Bibliography
-
-- [[[prag]]] Andy Hunt & Dave Thomas. The Pragmatic Programmer:
-  From Journeyman to Master. Addison-Wesley. 1999.
-- [[[seam]]] Dan Allen. Seam in Action. Manning Publications.
-  2008.
