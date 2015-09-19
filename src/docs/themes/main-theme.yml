@@ -20,3 +20,6 @@ footer:
     right: '{section-or-chapter-title} | *{page-number}*'
   verso_content:
     left: '*{page-number}* | {chapter-title}'
+
+toc:
+  dot_leader_content: ' '

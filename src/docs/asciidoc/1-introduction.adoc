@@ -40,7 +40,7 @@ Angular JS (built by Google), that effectively enabled the posibility of creatin
 executed in the browser, and the communication with the server was using the mentioned JSON over HTTP.
 
 The API's that the backends were converted into had a special requirement per the definition of REST (_REpresentational
-State Transfer): they had to be *stateless*.
+State Transfer_): they had to be *stateless*.
 
 More or less, developers managed to create stateless busines logic, using the front-end frameworks to keep client state
 and ensuring that such state was sent to the server on each and every round-trip. However, authentication and

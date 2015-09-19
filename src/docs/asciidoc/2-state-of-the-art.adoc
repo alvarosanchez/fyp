@@ -1,5 +1,8 @@
 === Introduction
 
+.Cool caption
+image::logo.jpg[]
+
 === Similar solution #1
 
 === Similar solution #2

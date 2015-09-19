@@ -2,7 +2,7 @@
 :author: Álvaro Sánchez-Mariscal Arnaiz
 :email: alvaro.sanchezmariscal@gmail.com
 ifdef::backend-pdf[:notitle:]
-:revnumber: 0.1 
+:revnumber: 0.1
 :description: This document is the Final Year Project of {author}
 
 :numbered!:
