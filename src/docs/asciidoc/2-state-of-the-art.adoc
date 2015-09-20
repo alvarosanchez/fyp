@@ -1,7 +1,43 @@
+[.lead]
+This chapter explains the starting point with regards to authentication mechanisms in RESTful applications, as well as a
+comparision between the existing alternatives.
+
 === Introduction
 
-.Cool caption
-image::logo.jpg[]
+In the Grails framework, the option to perform authentication and authorisation is the Spring Security Core plugin.
+Before going deeper into it, let's describe first its foundations: the Groovy programming language and the Grails
+framework.
+
+==== The Groovy programming language
+
+Groovy is a dynamic, object-oriented programming language for the Java Platform. It is compiled into Java Bytecode. Its
+design has been influenced by Python, Ruby, Perl and Smalltalk. It was designed by James Strachan and Guillaume LaForge
+in 2003. It supports multiple programming paradigms, such as functional, imperative and object-oriented.
+
+===== Features
+
+- Dynamic language
+- Duck typing
+- It is compiled into the Java Virtual Machine • Support closures
+- Support operators-overload
+
+===== Syntax
+
+- Indentation is not mandatory
+- Semicolons are not mandatory. They can be used for writing more than one statement in a line
+- It uses a Java-like bracket syntax
+
+In <<listing-hw>> we can see how a _hello world_ looks like in Groovy.
+
+[[listing-hw]]
+[source,groovy]
+.Listing {counter:listing}. Hello world in Groovy
+----
+println "Hello world!"
+----
+
+
+
 
 === Similar solution #1
 

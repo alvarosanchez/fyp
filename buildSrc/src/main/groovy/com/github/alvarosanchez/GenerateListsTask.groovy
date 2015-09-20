@@ -28,6 +28,7 @@ class GenerateListsTask extends DefaultTask {
         PDFTextStripper stripper = new PDFTextStripper()
         Map<String, Integer> figures = [:]
         Map<String, Integer> tables = [:]
+        Map<String, Integer> listings = [:]
 
         (1..document.numberOfPages + 1).each { int absolutePage ->
             int actualPage = absolutePage - 1
@@ -37,12 +38,16 @@ class GenerateListsTask extends DefaultTask {
             String text = stripper.getText(document)
 
             text.readLines().each { String line ->
+                //TODO refactor this shit
                 Matcher figMatcher = line =~ /^Figure \d+\. .*$/
                 Matcher tableMatcher = line =~ /^Table \d+\. .*$/
+                Matcher listingsMatcher = line =~ /^Listing \d+\. .*$/
                 if (figMatcher.matches()) {
                     figures[line] = actualPage
                 } else if (tableMatcher.matches()) {
                     tables[line] = actualPage
+                } else if (listingsMatcher.matches()) {
+                    listings[line] = actualPage
                 }
             }
         }
@@ -50,6 +55,7 @@ class GenerateListsTask extends DefaultTask {
         StringBuilder sb = new StringBuilder()
         generateList('figures', sb, figures)
         generateList('tables', sb, tables)
+        generateList('listings', sb, listings)
 
         destination.append(sb.toString())
 

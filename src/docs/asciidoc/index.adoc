@@ -1,9 +1,16 @@
 = Stateless authentication for microservices
 :author: Álvaro Sánchez-Mariscal Arnaiz
 :email: alvaro.sanchezmariscal@gmail.com
-ifdef::backend-pdf[:notitle:]
+ifdef::backend-pdf[]
+:notitle:
+:source-highlighter: rouge
+endif::[]
+ifdef::backend-html5[]
+:source-highlighter: coderay
+endif::[]
 :revnumber: 0.1
 :description: This document is the Final Year Project of {author}
+:toclevels: 4
 
 :numbered!:
 
