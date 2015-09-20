@@ -17,11 +17,6 @@ include::a-dedication.adoc[]
 
 include::b-abstract.adoc[]
 
-[glossary]
-== Glossary 
-
-include::c-glossary.adoc[]
-
 :numbered:
 
 == Introduction
