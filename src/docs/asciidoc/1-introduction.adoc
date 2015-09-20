@@ -1,3 +1,4 @@
+[.lead]
 This chapter describes the goals that motivated the development of this software. It also specifies the format of this
 document.
 
@@ -5,7 +6,7 @@ document.
 
 Back in 2012, I was researching about the death era of monolithic applications, and how the industry was moving towards
 a separation of front-end and backend. I talked to the community about this research in the conference session
-_"Embrace the front-end revolution"_, given at Codemotion Rome in March 2013.
+_"Single-page applications and Grails"_ <<spi-greach>>, given at Greach Madrid in January. 2013.
 
 Traditionally, software developers have been used to create applications where the views and the business logic,
 although probably separated in software layers according to best practices and design patterns, are packaged together in
@@ -30,6 +31,8 @@ manager and Yeoman as project creation and scaffolding tool. Those projects attr
 were highly skilled in HTML5, CSS3 and Javascript, and for the first time in forever had a specific toolset where no
 backend was involved.
 
+<<<
+
 On the other hand, backend development was experiencing the rise of the new buzzword of the moment: *microservices*.
 After several years since REST architecture was first introduced, and more and more teams trying to adopt such
 architecture with relative success, the industry finally agreed on a preferred way of building the business logic:
@@ -46,8 +49,11 @@ In my job at that moment, as Web Architect, I introduced the necessary changes i
 set of monolithic Grails-based applications, into Grails REST backends plus Angular JS front-ends.
 
 In another conference in December 2013, the Groovy & Grails eXchange (GGX) in London, I was talking to the audience about
-this idea to separate front-ends and backends, and eventually one of the attendees asked a relevant question: "how can
-we do authentication with this new approach?".
+this idea to separate front-ends and backends (<<spi-ggx>>), and eventually one of the attendees asked a relevant question:
+
+.After my presentation in the Groovy & Grails eXchange London:
+[quote, @javazquez, 12th December 2013]
+How do you handle authentication/authorization with this setup?.
 
 More or less, developers managed to create stateless business logic, using the front-end frameworks to keep client state
 and ensuring that such state was sent to the server on each and every round-trip. However, authentication and
@@ -59,6 +65,8 @@ Therefore, to not only answer that attendee but also provide a potential solutio
 that ended up in the development of *Spring Security REST*: a plugin for Grails framework, on top of Spring Security,
 that offered developers a way to implement authentication and authorization in a stateless way, as well as it made the
 necessary transformations over core Spring Security to make it more REST-friendly.
+
+<<<
 
 === Goals
 

@@ -52,3 +52,5 @@ include::6-conclusions.adoc[]
 :numbered!:
 
 == Bibliography
+
+include::z-bibliography.adoc[]
