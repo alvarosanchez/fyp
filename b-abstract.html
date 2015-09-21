@@ -418,11 +418,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div id="content">
-
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nowadays, most of the software is built using the REST architecture. In addition to that, developers are creating
+applications where the backend is nomally serving JSON over HTTTP, whereas the front-end is a separate application
+built in Javascript, that consumes such REST endpoints.</p>
+</div>
+<div class="paragraph">
+<p>One of the restrictions of REST is that the systems must be <strong>stateless</strong>, in such a way that the client must transfer
+its state to the server on every request. In this scenario, doing authentication and authorisation in a stateless way is
+tricky, as the vast majority of the existing solutions are stateful implementations based on the HTTP session.</p>
+</div>
+<div class="paragraph">
+<p>For this reason was created <strong>Spring Security REST</strong>, a plugin for the Grails framework based on Spring Security that
+enables developers to secure their applications in a pure REST, stateless way.</p>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-09-19 22:45:10 UTC
+Last updated 2015-09-21 22:18:19 UTC
 </div>
 </div>
 </body>

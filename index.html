@@ -411,6 +411,97 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .show-for-print{display:inherit!important}}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+<style>
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+/*pre.CodeRay {background-color:#f7f7f8;}*/
+.CodeRay .line-numbers{border-right:1px solid #d8d8d8;padding:0 0.5em 0 .25em}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.5em;color:rgba(0,0,0,.3)}
+.CodeRay .line-numbers strong{font-weight: normal}
+table.CodeRay{border-collapse:separate;border-spacing:0;margin-bottom:0;border:0;background:none}
+table.CodeRay td{vertical-align: top}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.line-numbers>pre{padding:0;color:rgba(0,0,0,.3)}
+table.CodeRay td.code{padding:0 0 0 .5em}
+table.CodeRay td.code>pre{padding:0}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#00}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+</style>
 </head>
 <body class="book">
 <div id="header">
@@ -425,7 +516,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#_dedication">Dedication</a></li>
 <li><a href="#_abstract">Abstract</a></li>
-<li><a href="#_glossary">Glossary</a></li>
 <li><a href="#_introduction">1. Introduction</a>
 <ul class="sectlevel2">
 <li><a href="#_motivation">1.1. Motivation</a></li>
@@ -435,10 +525,23 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_state_of_the_art">2. State of the art</a>
 <ul class="sectlevel2">
-<li><a href="#_introduction_2">2.1. Introduction</a></li>
-<li><a href="#_similar_solution_1">2.2. Similar solution #1</a></li>
-<li><a href="#_similar_solution_2">2.3. Similar solution #2</a></li>
-<li><a href="#_comparision">2.4. Comparision</a></li>
+<li><a href="#_introduction_2">2.1. Introduction</a>
+<ul class="sectlevel3">
+<li><a href="#_the_groovy_programming_language">2.1.1. The Groovy programming language</a>
+<ul class="sectlevel4">
+<li><a href="#_features">Features</a></li>
+<li><a href="#_differences_with_java">Differences with Java</a></li>
+<li><a href="#_syntax">Syntax</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_grails_framework">2.2. Grails framework</a></li>
+<li><a href="#_oauth_2_0">2.3. OAuth 2.0</a></li>
+<li><a href="#_asciidoctor">2.4. Asciidoctor</a></li>
+<li><a href="#_similar_solution_1">2.5. Similar solution #1</a></li>
+<li><a href="#_similar_solution_2">2.6. Similar solution #2</a></li>
+<li><a href="#_comparision">2.7. Comparision</a></li>
 </ul>
 </li>
 <li><a href="#_analysis_design_development_and_deployment">3. Analysis, design, development and deployment</a>
@@ -459,7 +562,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_conclusions_and_future_improvements">6. Conclusions and future improvements</a>
 <ul class="sectlevel2">
-<li><a href="#_conclusions">6.1. Conclusions</a></li>
+<li><a href="#_conclusions">6.1. Conclusions</a>
+<ul class="sectlevel3">
+<li><a href="#_product">6.1.1. Product</a></li>
+<li><a href="#_process">6.1.2. Process</a></li>
+<li><a href="#_personal">6.1.3. Personal</a></li>
+</ul>
+</li>
 <li><a href="#_personal_improvements">6.2. Personal improvements</a></li>
 </ul>
 </li>
@@ -472,25 +581,47 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_dedication">Dedication</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>I would like to start offering my gratitude to my parents, as they funded my studies and my cost of living during the
+first years of the university.</p>
+</div>
+<div class="paragraph">
+<p>To Laura, for constantly chasing me to finish this work and get the degree.</p>
+</div>
+<div class="paragraph">
+<p>To all the companies and people that I have worked with across my 14+ years of experience.</p>
+</div>
+<div class="paragraph">
+<p>To the open-source community, for being so grateful with the job I have done, and encouraging me to continue working on it.</p>
+</div>
+<div class="paragraph">
+<p>To Alejandro Calderón, for allowing me to complete this work with such short notice and his dedication towards my success in doing it.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_abstract">Abstract</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>Nowadays, most of the software is built using the REST architecture. In addition to that, developers are creating
+applications where the backend is nomally serving JSON over HTTTP, whereas the front-end is a separate application
+built in Javascript, that consumes such REST endpoints.</p>
 </div>
+<div class="paragraph">
+<p>One of the restrictions of REST is that the systems must be <strong>stateless</strong>, in such a way that the client must transfer
+its state to the server on every request. In this scenario, doing authentication and authorisation in a stateless way is
+tricky, as the vast majority of the existing solutions are stateful implementations based on the HTTP session.</p>
 </div>
-<div class="sect1">
-<h2 id="_glossary">Glossary</h2>
-<div class="sectionbody">
-
+<div class="paragraph">
+<p>For this reason was created <strong>Spring Security REST</strong>, a plugin for the Grails framework based on Spring Security that
+enables developers to secure their applications in a pure REST, stateless way.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
-<div class="paragraph">
+<div class="paragraph lead">
 <p>This chapter describes the goals that motivated the development of this software. It also specifies the format of this
 document.</p>
 </div>
@@ -499,12 +630,12 @@ document.</p>
 <div class="paragraph">
 <p>Back in 2012, I was researching about the death era of monolithic applications, and how the industry was moving towards
 a separation of front-end and backend. I talked to the community about this research in the conference session
-<em>"Embrace the front-end revolution"</em>, given at Codemotion Rome in March 2013.</p>
+<em>"Single-page applications and Grails"</em> <a href="#spi-greach">[spi-greach]</a>, given at Greach Madrid in January. 2013.</p>
 </div>
 <div class="paragraph">
 <p>Traditionally, software developers have been used to create applications where the views and the business logic,
-although probably separated in software layers according to best practices, are packaged together in the resulting
-application deployable artifact. This approach has several disadvantages:</p>
+although probably separated in software layers according to best practices and design patterns, are packaged together in
+the resulting application deployable artifact. This approach has several disadvantages:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -518,22 +649,23 @@ simply HTML, but a framework-specific view templating technology.</p>
 </li>
 <li>
 <p><strong>UI changes</strong> cannot be made and deployed independently of the business logic, due to the way of packaging and
-deployment. This reduces or even prevents doing frequent interface changes to improve converstion, A/B testing, etc.</p>
+deployment. This reduces or even prevents doing frequent interface changes to improve conversation, A/B testing, etc.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p>Those problems were not significant to the development industry because the majority of the developers were considering
-themselves <strong>full-stack developers</strong>: proficient in doing backend and front-end. However, some years before a technology was
-created and it changed the game rules: <strong>Node JS</strong>.</p>
+themselves <strong>full-stack developers</strong>: proficient in doing backend and front-end. However, a technology was created and it
+changed the game rules: <strong>Node JS</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Node JS not only enabled for the first time using the same language for front-end and backend (Javascript), but also
-set the foundation for a large number of tools, such as Grunt or Gulp as bulding tools, Bower as dependency manager and
-Yeoman as project creation and scaffolding tool. Those tools attracted a large number of developers that were highly
-skilled in HTML5, CSS3 and Javscript, and for the first time in forever had a specific toolset where no backend was
-involved.</p>
+<p>Node JS not only enabled developers for the first time to use the same language for front-end and backend (Javascript),
+but also set the foundation for a large number of tools, such as Grunt or Gulp as bulding tools, Bower as dependency
+manager and Yeoman as project creation and scaffolding tool. Those projects attracted a large number of developers that
+were highly skilled in HTML5, CSS3 and Javascript, and for the first time in forever had a specific toolset where no
+backend was involved.</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>On the other hand, backend development was experiencing the rise of the new buzzword of the moment: <strong>microservices</strong>.
 After several years since REST architecture was first introduced, and more and more teams trying to adopt such
@@ -542,7 +674,7 @@ they should be REST API&#8217;s, producing and consuming JSON over HTTP.</p>
 </div>
 <div class="paragraph">
 <p>The last necessary contributors in this shift were the frontend development frameworks, like Ember but specially
-Angular JS (built by Google), that effectively enabled the posibility of creating applications where the UI was entirely
+Angular JS (built by Google), that effectively enabled the possibility of creating applications where the UI was entirely
 executed in the browser, and the communication with the server was using the mentioned JSON over HTTP.</p>
 </div>
 <div class="paragraph">
@@ -550,17 +682,37 @@ executed in the browser, and the communication with the server was using the men
 State Transfer</em>): they had to be <strong>stateless</strong>.</p>
 </div>
 <div class="paragraph">
-<p>More or less, developers managed to create stateless busines logic, using the front-end frameworks to keep client state
-and ensuring that such state was sent to the server on each and every round-trip. However, authentication and
-authorisation was different. <strong>Security</strong> in a web application has traditionally been a stateful service: it heavily relies on the HTTP Session,
-which itself represents a state in the server side. Therefore, there was a friction when applying stateless restrictions
-to operations like login or logout.</p>
+<p>In my job at that moment, as Web Architect, I introduced the necessary changes in the company to break down a existing
+set of monolithic Grails-based applications, into Grails REST backends plus Angular JS front-ends.</p>
 </div>
 <div class="paragraph">
-<p>The result of this developent ended up in the development of <strong>Spring Security REST</strong>: a plugin for Grails framework, on top
-of Spring Security, that offered developers a way to implement authentication and authorization in a stateless way, as
-well as it made the necessary transformations over core Spring Security to make it more REST-friendly.</p>
+<p>In another conference in December 2013, the Groovy &amp; Grails eXchange (GGX) in London, I was talking to the audience about
+this idea to separate front-ends and backends (<a href="#spi-ggx">[spi-ggx]</a>), and eventually one of the attendees asked a relevant question:</p>
 </div>
+<div class="quoteblock">
+<div class="title">After my presentation in the Groovy &amp; Grails eXchange London:</div>
+<blockquote>
+How do you handle authentication/authorization with this setup?.
+</blockquote>
+<div class="attribution">
+&#8212; @javazquez<br>
+<cite>12th December 2013</cite>
+</div>
+</div>
+<div class="paragraph">
+<p>More or less, developers managed to create stateless business logic, using the front-end frameworks to keep client state
+and ensuring that such state was sent to the server on each and every round-trip. However, authentication and
+authorisation was different. <strong>Security</strong> in a web application has traditionally been a stateful service: it heavily relies
+on the HTTP Session, which itself represents a state in the server side. Therefore, there was a friction when applying
+stateless restrictions to operations like login or logout.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, to not only answer that attendee but also provide a potential solution, I continued my research on this subject
+that ended up in the development of <strong>Spring Security REST</strong>: a plugin for Grails framework, on top of Spring Security,
+that offered developers a way to implement authentication and authorization in a stateless way, as well as it made the
+necessary transformations over core Spring Security to make it more REST-friendly.</p>
+</div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_goals">1.2. Goals</h3>
@@ -569,6 +721,9 @@ well as it made the necessary transformations over core Spring Security to make 
 </div>
 <div class="olist arabic">
 <ol class="arabic">
+<li>
+<p>Provide an implementation for the Grails framework.</p>
+</li>
 <li>
 <p>Make core Spring Security, which only offered form-based authentication using the HTTP Session, more REST-friendly.</p>
 </li>
@@ -590,7 +745,37 @@ well as it made the necessary transformations over core Spring Security to make 
 <div class="sect2">
 <h3 id="_rest_of_the_document">1.3. Rest of the document</h3>
 <div class="paragraph">
-<p>asdasd</p>
+<p>This document is structured in the following way:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Introduction</strong>. This chapter explains the motivations that originated the need to create this project, the goals that
+were pretended to achieve with it, as well as this document structure.</p>
+</li>
+<li>
+<p><strong>State of the art</strong>. In this chapter an evaluation of the starting point is performed, as well as a comparision of the
+existing solutions, to conclude that none is able to achieve all the goals.</p>
+</li>
+<li>
+<p><strong>Analysis, design, development and deployment</strong>. Here are described in detail the requirements that the system must
+complete, including documentation about the use cases.</p>
+</li>
+<li>
+<p><strong>Evaluation</strong>. It contains an analysis of the project success, based on different metrics.</p>
+</li>
+<li>
+<p><strong>Planning and budget</strong>. In this chapter it is described the planning of the different tasks performed to complete the
+project. It also contains a budget estimation, considering the cost of the resources used to develop the project.</p>
+</li>
+<li>
+<p><strong>Conclusions and future work</strong>. It is explained how the goals have been met, what is the result of having applied
+the software development process, which are the personal improvements obtained, as well as possible future improvements.</p>
+</li>
+<li>
+<p><strong>Appendices</strong>. It contains the official software documentation.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -598,25 +783,476 @@ well as it made the necessary transformations over core Spring Security to make 
 <div class="sect1">
 <h2 id="_state_of_the_art">2. State of the art</h2>
 <div class="sectionbody">
+<div class="paragraph lead">
+<p>This chapter explains the starting point with regards to authentication mechanisms in RESTful applications, as well as a
+comparision between the existing alternatives.</p>
+</div>
 <div class="sect2">
 <h3 id="_introduction_2">2.1. Introduction</h3>
-<div class="imageblock">
+<div class="paragraph">
+<p>In the Grails framework, the option to perform authentication and authorisation is the Spring Security Core plugin.
+Before going deeper into it, let&#8217;s describe first the foundations of the project.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_groovy_programming_language">2.1.1. The Groovy programming language</h4>
+<div class="paragraph">
+<p>Groovy is developed to be a feature rich Java friendly programming language. The idea is to bring features we can find
+in dynamic programming languages like Python, Ruby to the Java platform. The Java platform is widely supported and a lot
+of developers know Java.</p>
+</div>
+<div class="paragraph">
+<p>The Groovy web site gives one of the best definitions of Groovy: Groovy is an agile dynamic language for the Java Platform
+with many features that are inspired by languages like Python, Ruby and Smalltalk, making them available to Java developers
+using a Java-like syntax.</p>
+</div>
+<div class="paragraph">
+<p>Groovy is closely tied to the Java platform. This means Groovy has a perfect fit for Java developers, because we get
+advanced language features like closures, dynamic typing and the meta object protocol within the Java platform. Also we
+can reuse Java libraries in our Groovy code.</p>
+</div>
+<div class="paragraph">
+<p>Groovy is often called a scripting language, but this is not quite true. We can write scripts with Groovy, but also full
+blown applications. Groovy is very flexible.</p>
+</div>
+<div class="sect4">
+<h5 id="_features">Features</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Dynamic language</p>
+</li>
+<li>
+<p>Duck typing</p>
+</li>
+<li>
+<p>It is compiled into the Java Virtual Machine • Support closures</p>
+</li>
+<li>
+<p>Support operators-overload</p>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="_differences_with_java">Differences with Java</h5>
+<div class="paragraph">
+<p>Groovy tries to be as natural as possible for Java developers. Here we list all the major differences between Java and Groovy.</p>
+</div>
+<div class="sect5">
+<h6 id="_default_imports">Default imports</h6>
+<div class="paragraph">
+<p>All these packages and classes are imported by default, i.e. you do not have to use an explicit import statement to use them:</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<img src="logo.jpg" alt="logo">
+<pre class="CodeRay highlight"><code data-lang="groovy">java.io.*
+java.lang.*
+java.math.BigDecimal
+java.math.BigInteger
+java.net.*
+java.util.*
+groovy.lang.*
+groovy.util.*</code></pre>
 </div>
-<div class="title">Figure 1. Cool caption</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_multi_methods">Multi-methods</h6>
+<div class="paragraph">
+<p>In Groovy, the methods which will be invoked are chosen at runtime. This is called runtime dispatch or multi-methods. It
+means that the method will be chosen based on the types of the arguments at runtime. In Java, this is the opposite: methods
+are chosen at compile time, based on the declared types.</p>
+</div>
+<div class="paragraph">
+<p>The following code, written as Java code, can be compiled in both Java and Groovy, but it will behave differently:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="type">int</span> method(<span class="predefined-type">String</span> arg) {
+    <span class="keyword">return</span> <span class="integer">1</span>;
+}
+<span class="type">int</span> method(<span class="predefined-type">Object</span> arg) {
+    <span class="keyword">return</span> <span class="integer">2</span>;
+}
+<span class="predefined-type">Object</span> o = <span class="string"><span class="delimiter">&quot;</span><span class="content">Object</span><span class="delimiter">&quot;</span></span>;
+<span class="type">int</span> result = method(o);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In Java, you would have:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">assertEquals(<span class="integer">2</span>, result);</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>Whereas in Groovy:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">assertEquals(<span class="integer">1</span>, result);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That is because Java will use the static information type, which is that o is declared as an <code>Object</code>, whereas Groovy will
+choose at runtime, when the method is actually called. Since it is called with a <code>String</code>, then the String version is called.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_array_initialisers">Array initialisers</h6>
+<div class="paragraph">
+<p>In Groovy, the <code>{ ...​ }</code> block is reserved for closures. That means that you cannot create array literals with this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">int</span><span class="type">[]</span> array = { <span class="integer">1</span>, <span class="integer">2</span>, <span class="integer">3</span>}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You actually have to use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">int</span><span class="type">[]</span> array = [<span class="integer">1</span>,<span class="integer">2</span>,<span class="integer">3</span>]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_package_scope_visibility">Package scope visibility</h6>
+<div class="paragraph">
+<p>In Groovy, omitting a modifier on a field doesn&#8217;t result in a package-private field like in Java:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">class</span> <span class="class">Person</span> {
+    <span class="predefined-type">String</span> name
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Instead, it is used to create a property, that is to say a private field, an associated getter and an associated setter.</p>
+</div>
+<div class="paragraph">
+<p>It is possible to create a package-private field by annotating it with <code>@PackageScope</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">class</span> <span class="class">Person</span> {
+    <span class="annotation">@PackageScope</span> <span class="predefined-type">String</span> name
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_arm_blocks">ARM blocks</h6>
+<div class="paragraph">
+<p>ARM (Automatic Resource Management) block from Java 7 are not supported in Groovy. Instead, Groovy provides various
+methods relying on closures, which have the same effect while being more idiomatic. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">Path file = Paths.get(<span class="string"><span class="delimiter">&quot;</span><span class="content">/path/to/file</span><span class="delimiter">&quot;</span></span>);
+<span class="predefined-type">Charset</span> charset = <span class="predefined-type">Charset</span>.forName(<span class="string"><span class="delimiter">&quot;</span><span class="content">UTF-8</span><span class="delimiter">&quot;</span></span>);
+<span class="keyword">try</span> (<span class="predefined-type">BufferedReader</span> reader = Files.newBufferedReader(file, charset)) {
+    <span class="predefined-type">String</span> line;
+    <span class="keyword">while</span> ((line = reader.readLine()) != <span class="predefined-constant">null</span>) {
+        <span class="predefined-type">System</span>.out.println(line);
+    }
+
+} <span class="keyword">catch</span> (<span class="exception">IOException</span> e) {
+    e.printStackTrace();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>can be written like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">new</span> <span class="predefined-type">File</span>(<span class="string"><span class="delimiter">'</span><span class="content">/path/to/file</span><span class="delimiter">'</span></span>).eachLine(<span class="string"><span class="delimiter">'</span><span class="content">UTF-8</span><span class="delimiter">'</span></span>) {
+   println <span class="local-variable">it</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or, if you want a version closer to Java:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">new</span> <span class="predefined-type">File</span>(<span class="string"><span class="delimiter">'</span><span class="content">/path/to/file</span><span class="delimiter">'</span></span>).withReader(<span class="string"><span class="delimiter">'</span><span class="content">UTF-8</span><span class="delimiter">'</span></span>) { reader -&gt;
+   reader.eachLine {
+       println <span class="local-variable">it</span>
+   }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_inner_classes">Inner classes</h6>
+<div class="paragraph">
+<p>The implementation of anonymous inner classes and nested classes follows the Java lead, but you should not take out the
+Java Language Spec and keep shaking the head about things that are different. The implementation done looks much like what
+we do for <code>groovy.lang.Closure</code>, with some benefits and some differences. Accessing private fields and methods for example
+can become a problem, but on the other hand local variables don&#8217;t have to be final.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Static inner classes</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example of static inner class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">class</span> <span class="class">A</span> {
+    <span class="directive">static</span> <span class="type">class</span> <span class="class">B</span> {}
+}
+
+<span class="keyword">new</span> A.B()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The usage of static inner classes is the best supported one. If you absolutely need an inner class, you should make it a static one.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="ulist">
+<ul>
+<li>
+<p>Anonymous Inner Classes</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">import</span> <span class="include">java.util.concurrent.CountDownLatch</span>
+<span class="keyword">import</span> <span class="include">java.util.concurrent.TimeUnit</span>
+
+<span class="predefined-type">CountDownLatch</span> called = <span class="keyword">new</span> <span class="predefined-type">CountDownLatch</span>(<span class="integer">1</span>)
+
+<span class="predefined-type">Timer</span> timer = <span class="keyword">new</span> <span class="predefined-type">Timer</span>()
+timer.schedule(<span class="keyword">new</span> <span class="predefined-type">TimerTask</span>() {
+    <span class="type">void</span> run() {
+        called.countDown()
+    }
+}, <span class="integer">0</span>)
+
+<span class="keyword">assert</span> called.await(<span class="integer">10</span>, <span class="predefined-type">TimeUnit</span>.SECONDS)</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Creating Instances of Non-Static Inner Classes</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In Java you can do this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">Y</span> {
+    <span class="directive">public</span> <span class="type">class</span> <span class="class">X</span> {}
+    <span class="directive">public</span> X foo() {
+        <span class="keyword">return</span> <span class="keyword">new</span> X();
+    }
+    <span class="directive">public</span> <span class="directive">static</span> X createX(Y y) {
+        <span class="keyword">return</span> y.new X();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Groovy doesn&#8217;t support the <code>y.new X()</code> syntax. Instead, you have to write <code>new X(y)</code>, like in the code below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="directive">public</span> <span class="type">class</span> <span class="class">Y</span> {
+    <span class="directive">public</span> <span class="type">class</span> <span class="class">X</span> {}
+    <span class="directive">public</span> X foo() {
+        <span class="keyword">return</span> <span class="keyword">new</span> X()
+    }
+    <span class="directive">public</span> <span class="directive">static</span> X createX(Y y) {
+        <span class="keyword">return</span> <span class="keyword">new</span> X(y)
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Caution though, Groovy supports calling methods with one parameter without giving an argument. The parameter will then
+have the value null. Basically the same rules apply to calling a constructor. There is a danger that you will write
+<code>new X()</code> instead of <code>new X(this)</code> for example. Since this might also be the regular way we have not yet found a good way
+to prevent this problem.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect5">
+<h6 id="_lambdas">Lambdas</h6>
+<div class="paragraph">
+<p>Java 8 supports lambdas and method references:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="predefined-type">Runnable</span> run = () -&gt; <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Run</span><span class="delimiter">&quot;</span></span>);
+list.forEach(<span class="predefined-type">System</span>.out::println);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Java 8 lambdas can be more or less considered as anonymous inner classes. Groovy doesn&#8217;t support that syntax, but has
+closures instead:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="predefined-type">Runnable</span> run = { println <span class="string"><span class="delimiter">'</span><span class="content">run</span><span class="delimiter">'</span></span> }
+list.each { println <span class="local-variable">it</span> } <span class="comment">// or list.each(this.&amp;println)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_gstrings">GStrings</h6>
+<div class="paragraph">
+<p>As double-quoted string literals are interpreted as <code>GString</code> values, Groovy may fail with compile error or produce
+subtly different code if a class with <code>String</code> literal containing a dollar character is compiled with Groovy and Java compiler.</p>
+</div>
+<div class="paragraph">
+<p>While typically, Groovy will auto-cast between <code>GString</code> and <code>String</code> if an API declares the type of a parameter, beware
+of Java APIs that accept an Object parameter and then check the actual type.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_string_and_character_literals">String and Character literals</h6>
+<div class="paragraph">
+<p>Singly-quoted literals in Groovy are used for <code>String</code>, and double-quoted result in <code>String</code> or <code>GString</code>, depending
+whether there is interpolation in the literal.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">assert</span> <span class="string"><span class="delimiter">'</span><span class="content">c</span><span class="delimiter">'</span></span>.getClass()==<span class="predefined-type">String</span>
+<span class="keyword">assert</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">c</span><span class="delimiter">&quot;</span></span>.getClass()==<span class="predefined-type">String</span>
+<span class="keyword">assert</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">c</span><span class="inline"><span class="inline-delimiter">${</span><span class="integer">1</span><span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>.getClass() <span class="keyword">in</span> GString</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Groovy will automatically cast a single-character <code>String</code> to char when assigning to a variable of type <code>char</code>. When
+calling methods with arguments of type char we need to either cast explicitly or make sure the value has been cast in
+advance.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">char</span> a=<span class="string"><span class="delimiter">'</span><span class="content">a</span><span class="delimiter">'</span></span>
+<span class="keyword">assert</span> <span class="predefined-type">Character</span>.digit(a, <span class="integer">16</span>)==<span class="integer">10</span> : <span class="string"><span class="delimiter">'</span><span class="content">But Groovy does boxing</span><span class="delimiter">'</span></span>
+<span class="keyword">assert</span> <span class="predefined-type">Character</span>.digit((<span class="type">char</span>) <span class="string"><span class="delimiter">'</span><span class="content">a</span><span class="delimiter">'</span></span>, <span class="integer">16</span>)==<span class="integer">10</span>
+
+<span class="keyword">try</span> {
+  <span class="keyword">assert</span> <span class="predefined-type">Character</span>.digit(<span class="string"><span class="delimiter">'</span><span class="content">a</span><span class="delimiter">'</span></span>, <span class="integer">16</span>)==<span class="integer">10</span>
+  <span class="keyword">assert</span> <span class="predefined-constant">false</span>: <span class="string"><span class="delimiter">'</span><span class="content">Need explicit cast</span><span class="delimiter">'</span></span>
+} <span class="keyword">catch</span>(MissingMethodException e) {
+}</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>Groovy supports two styles of casting and in the case of casting to <code>char</code> there are subtle differences when casting a
+multi-char strings. The Groovy style cast is more lenient and will take the first character, while the C-style cast will
+fail with exception.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">// for single char strings, both are the same</span>
+<span class="keyword">assert</span> ((<span class="type">char</span>) <span class="string"><span class="delimiter">&quot;</span><span class="content">c</span><span class="delimiter">&quot;</span></span>).class==<span class="predefined-type">Character</span>
+<span class="keyword">assert</span> (<span class="string"><span class="delimiter">&quot;</span><span class="content">c</span><span class="delimiter">&quot;</span></span> <span class="keyword">as</span> <span class="type">char</span>).class==<span class="predefined-type">Character</span>
+
+<span class="comment">// for multi char strings they are not</span>
+<span class="keyword">try</span> {
+  ((<span class="type">char</span>) <span class="string"><span class="delimiter">'</span><span class="content">cx</span><span class="delimiter">'</span></span>) == <span class="string"><span class="delimiter">'</span><span class="content">c</span><span class="delimiter">'</span></span>
+  <span class="keyword">assert</span> <span class="predefined-constant">false</span>: <span class="string"><span class="delimiter">'</span><span class="content">will fail - not castable</span><span class="delimiter">'</span></span>
+} <span class="keyword">catch</span>(GroovyCastException e) {
+}
+<span class="keyword">assert</span> (<span class="string"><span class="delimiter">'</span><span class="content">cx</span><span class="delimiter">'</span></span> <span class="keyword">as</span> <span class="type">char</span>) == <span class="string"><span class="delimiter">'</span><span class="content">c</span><span class="delimiter">'</span></span>
+<span class="keyword">assert</span> <span class="string"><span class="delimiter">'</span><span class="content">cx</span><span class="delimiter">'</span></span>.asType(<span class="type">char</span>) == <span class="string"><span class="delimiter">'</span><span class="content">c</span><span class="delimiter">'</span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_behaviour_of_code_code">Behaviour of <code>==</code></h6>
+<div class="paragraph">
+<p>In Java <code>==</code> means equality of primitive types or identity for objects. In Groovy <code>==</code> translates to <code>a.compareTo(b)==0</code>,
+if they are <code>Comparable</code>, and <code>a.equals(b)</code> otherwise. To check for identity, there is <code>is</code>. E.g. <code>a.is(b)</code>.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_different_keywords">Different keywords</h6>
+<div class="paragraph">
+<p>There are a few more keywords in Groovy than in Java. Don&#8217;t use them for variable names etc.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>in</code>.</p>
+</li>
+<li>
+<p><code>trait</code>.</p>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_syntax">Syntax</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Indentation is not mandatory</p>
+</li>
+<li>
+<p>Semicolons are not mandatory. They can be used for writing more than one statement in a line</p>
+</li>
+<li>
+<p>It uses a Java-like bracket syntax</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In <a href="#listing-hw">Listing 1. Hello world in Groovy</a> we can see how a <em>hello world</em> looks like in Groovy.</p>
+</div>
+<div id="listing-hw" class="listingblock">
+<div class="title">Listing 1. Hello world in Groovy</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">println <span class="string"><span class="delimiter">&quot;</span><span class="content">Hello world!</span><span class="delimiter">&quot;</span></span></code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_similar_solution_1">2.2. Similar solution #1</h3>
+<h3 id="_grails_framework">2.2. Grails framework</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_similar_solution_2">2.3. Similar solution #2</h3>
+<h3 id="_oauth_2_0">2.3. OAuth 2.0</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_comparision">2.4. Comparision</h3>
+<h3 id="_asciidoctor">2.4. Asciidoctor</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_similar_solution_1">2.5. Similar solution #1</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_similar_solution_2">2.6. Similar solution #2</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_comparision">2.7. Comparision</h3>
 
 </div>
 </div>
@@ -698,14 +1334,26 @@ well as it made the necessary transformations over core Spring Security to make 
 <div class="sect1">
 <h2 id="_bibliography">Bibliography</h2>
 <div class="sectionbody">
-
+<div class="ulist">
+<ul>
+<li>
+<p><a id="spi-greach"></a>[spi-greach] Álvaro Sánchez-Mariscal. <a href="http://www.slideshare.net/alvarosanchezmariscal/singlepage-applications-and-grails">Single-page applications and Grails</a>. Greach Madrid. January 2013.</p>
+</li>
+<li>
+<p><a id="revolution"></a>[revolution] Álvaro Sánchez-Mariscal. <a href="http://www.slideshare.net/alvarosanchezmariscal/embrace-the-frontend-revolution">Embrace the front-end revolution</a>. Codemotion Rome. March 2014.</p>
+</li>
+<li>
+<p><a id="spi-ggx"></a>[spi-ggx] Álvaro Sánchez-Mariscal. <a href="http://www.slideshare.net/alvarosanchezmariscal/developing-spi-applications-using-grails-and-angularjs">Developing SPI applications using Grails and AngularJS</a>. Groovy &amp; Grails eXchange London. Decembre 2013.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2015-09-19 22:45:10 UTC
+Last updated 2015-09-21 22:18:19 UTC
 </div>
 </div>
 </body>

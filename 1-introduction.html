@@ -424,7 +424,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph">
+<div class="paragraph lead">
 <p>This chapter describes the goals that motivated the development of this software. It also specifies the format of this
 document.</p>
 </div>
@@ -435,12 +435,12 @@ document.</p>
 <div class="paragraph">
 <p>Back in 2012, I was researching about the death era of monolithic applications, and how the industry was moving towards
 a separation of front-end and backend. I talked to the community about this research in the conference session
-<em>"Embrace the front-end revolution"</em>, given at Codemotion Rome in March 2013.</p>
+<em>"Single-page applications and Grails"</em> <a href="#spi-greach">[spi-greach]</a>, given at Greach Madrid in January. 2013.</p>
 </div>
 <div class="paragraph">
 <p>Traditionally, software developers have been used to create applications where the views and the business logic,
-although probably separated in software layers according to best practices, are packaged together in the resulting
-application deployable artifact. This approach has several disadvantages:</p>
+although probably separated in software layers according to best practices and design patterns, are packaged together in
+the resulting application deployable artifact. This approach has several disadvantages:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -454,22 +454,23 @@ simply HTML, but a framework-specific view templating technology.</p>
 </li>
 <li>
 <p><strong>UI changes</strong> cannot be made and deployed independently of the business logic, due to the way of packaging and
-deployment. This reduces or even prevents doing frequent interface changes to improve converstion, A/B testing, etc.</p>
+deployment. This reduces or even prevents doing frequent interface changes to improve conversation, A/B testing, etc.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p>Those problems were not significant to the development industry because the majority of the developers were considering
-themselves <strong>full-stack developers</strong>: proficient in doing backend and front-end. However, some years before a technology was
-created and it changed the game rules: <strong>Node JS</strong>.</p>
+themselves <strong>full-stack developers</strong>: proficient in doing backend and front-end. However, a technology was created and it
+changed the game rules: <strong>Node JS</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Node JS not only enabled for the first time using the same language for front-end and backend (Javascript), but also
-set the foundation for a large number of tools, such as Grunt or Gulp as bulding tools, Bower as dependency manager and
-Yeoman as project creation and scaffolding tool. Those tools attracted a large number of developers that were highly
-skilled in HTML5, CSS3 and Javscript, and for the first time in forever had a specific toolset where no backend was
-involved.</p>
+<p>Node JS not only enabled developers for the first time to use the same language for front-end and backend (Javascript),
+but also set the foundation for a large number of tools, such as Grunt or Gulp as bulding tools, Bower as dependency
+manager and Yeoman as project creation and scaffolding tool. Those projects attracted a large number of developers that
+were highly skilled in HTML5, CSS3 and Javascript, and for the first time in forever had a specific toolset where no
+backend was involved.</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>On the other hand, backend development was experiencing the rise of the new buzzword of the moment: <strong>microservices</strong>.
 After several years since REST architecture was first introduced, and more and more teams trying to adopt such
@@ -478,7 +479,7 @@ they should be REST API&#8217;s, producing and consuming JSON over HTTP.</p>
 </div>
 <div class="paragraph">
 <p>The last necessary contributors in this shift were the frontend development frameworks, like Ember but specially
-Angular JS (built by Google), that effectively enabled the posibility of creating applications where the UI was entirely
+Angular JS (built by Google), that effectively enabled the possibility of creating applications where the UI was entirely
 executed in the browser, and the communication with the server was using the mentioned JSON over HTTP.</p>
 </div>
 <div class="paragraph">
@@ -486,17 +487,37 @@ executed in the browser, and the communication with the server was using the men
 State Transfer</em>): they had to be <strong>stateless</strong>.</p>
 </div>
 <div class="paragraph">
-<p>More or less, developers managed to create stateless busines logic, using the front-end frameworks to keep client state
-and ensuring that such state was sent to the server on each and every round-trip. However, authentication and
-authorisation was different. <strong>Security</strong> in a web application has traditionally been a stateful service: it heavily relies on the HTTP Session,
-which itself represents a state in the server side. Therefore, there was a friction when applying stateless restrictions
-to operations like login or logout.</p>
+<p>In my job at that moment, as Web Architect, I introduced the necessary changes in the company to break down a existing
+set of monolithic Grails-based applications, into Grails REST backends plus Angular JS front-ends.</p>
 </div>
 <div class="paragraph">
-<p>The result of this developent ended up in the development of <strong>Spring Security REST</strong>: a plugin for Grails framework, on top
-of Spring Security, that offered developers a way to implement authentication and authorization in a stateless way, as
-well as it made the necessary transformations over core Spring Security to make it more REST-friendly.</p>
+<p>In another conference in December 2013, the Groovy &amp; Grails eXchange (GGX) in London, I was talking to the audience about
+this idea to separate front-ends and backends (<a href="#spi-ggx">[spi-ggx]</a>), and eventually one of the attendees asked a relevant question:</p>
 </div>
+<div class="quoteblock">
+<div class="title">After my presentation in the Groovy &amp; Grails eXchange London:</div>
+<blockquote>
+How do you handle authentication/authorization with this setup?.
+</blockquote>
+<div class="attribution">
+&#8212; @javazquez<br>
+<cite>12th December 2013</cite>
+</div>
+</div>
+<div class="paragraph">
+<p>More or less, developers managed to create stateless business logic, using the front-end frameworks to keep client state
+and ensuring that such state was sent to the server on each and every round-trip. However, authentication and
+authorisation was different. <strong>Security</strong> in a web application has traditionally been a stateful service: it heavily relies
+on the HTTP Session, which itself represents a state in the server side. Therefore, there was a friction when applying
+stateless restrictions to operations like login or logout.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, to not only answer that attendee but also provide a potential solution, I continued my research on this subject
+that ended up in the development of <strong>Spring Security REST</strong>: a plugin for Grails framework, on top of Spring Security,
+that offered developers a way to implement authentication and authorization in a stateless way, as well as it made the
+necessary transformations over core Spring Security to make it more REST-friendly.</p>
+</div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_goals">Goals</h3>
@@ -505,6 +526,9 @@ well as it made the necessary transformations over core Spring Security to make 
 </div>
 <div class="olist arabic">
 <ol class="arabic">
+<li>
+<p>Provide an implementation for the Grails framework.</p>
+</li>
 <li>
 <p>Make core Spring Security, which only offered form-based authentication using the HTTP Session, more REST-friendly.</p>
 </li>
@@ -526,13 +550,43 @@ well as it made the necessary transformations over core Spring Security to make 
 <div class="sect2">
 <h3 id="_rest_of_the_document">Rest of the document</h3>
 <div class="paragraph">
-<p>asdasd</p>
+<p>This document is structured in the following way:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Introduction</strong>. This chapter explains the motivations that originated the need to create this project, the goals that
+were pretended to achieve with it, as well as this document structure.</p>
+</li>
+<li>
+<p><strong>State of the art</strong>. In this chapter an evaluation of the starting point is performed, as well as a comparision of the
+existing solutions, to conclude that none is able to achieve all the goals.</p>
+</li>
+<li>
+<p><strong>Analysis, design, development and deployment</strong>. Here are described in detail the requirements that the system must
+complete, including documentation about the use cases.</p>
+</li>
+<li>
+<p><strong>Evaluation</strong>. It contains an analysis of the project success, based on different metrics.</p>
+</li>
+<li>
+<p><strong>Planning and budget</strong>. In this chapter it is described the planning of the different tasks performed to complete the
+project. It also contains a budget estimation, considering the cost of the resources used to develop the project.</p>
+</li>
+<li>
+<p><strong>Conclusions and future work</strong>. It is explained how the goals have been met, what is the result of having applied
+the software development process, which are the personal improvements obtained, as well as possible future improvements.</p>
+</li>
+<li>
+<p><strong>Appendices</strong>. It contains the official software documentation.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-09-19 22:45:10 UTC
+Last updated 2015-09-21 22:18:19 UTC
 </div>
 </div>
 </body>
