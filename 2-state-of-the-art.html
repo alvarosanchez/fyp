@@ -461,6 +461,7 @@ can reuse Java libraries in our Groovy code.</p>
 <p>Groovy is often called a scripting language, but this is not quite true. We can write scripts with Groovy, but also full
 blown applications. Groovy is very flexible.</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="sect4">
 <h5 id="_features">Features</h5>
 <div class="ulist">
@@ -479,7 +480,6 @@ blown applications. Groovy is very flexible.</p>
 </li>
 </ul>
 </div>
-<div style="page-break-after: always;"></div>
 </div>
 <div class="sect4">
 <h5 id="_differences_with_java">Differences with Java</h5>
@@ -492,6 +492,7 @@ blown applications. Groovy is very flexible.</p>
 <p>All these packages and classes are imported by default, i.e. you do not have to use an explicit import statement to use them:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 1. Default imports in Groovy</div>
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">java.io.*
 java.lang.*
@@ -503,6 +504,7 @@ groovy.lang.*
 groovy.util.*</code></pre>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect5">
 <h6 id="_multi_methods">Multi-methods</h6>
@@ -515,6 +517,7 @@ are chosen at compile time, based on the declared types.</p>
 <p>The following code, written as Java code, can be compiled in both Java and Groovy, but it will behave differently:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 2. Method dispatching code in Java/Groovy</div>
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">int method(String arg) {
     return 1;
@@ -530,15 +533,16 @@ int result = method(o);</code></pre>
 <p>In Java, you would have:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 3. Method dispatch in Java</div>
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">assertEquals(2, result);</code></pre>
 </div>
 </div>
-<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>Whereas in Groovy:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 4. Method dispatch in Groovy</div>
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">assertEquals(1, result);</code></pre>
 </div>
@@ -547,13 +551,15 @@ int result = method(o);</code></pre>
 <p>That is because Java will use the static information type, which is that o is declared as an <code>Object</code>, whereas Groovy will
 choose at runtime, when the method is actually called. Since it is called with a <code>String</code>, then the String version is called.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect5">
 <h6 id="_array_initialisers">Array initialisers</h6>
 <div class="paragraph">
-<p>In Groovy, the <code>{ ...​ }</code> block is reserved for closures. That means that you cannot create array literals with this syntax:</p>
+<p>In Groovy, the <code>{ ... }</code> block is reserved for closures. That means that you cannot create array literals with this syntax:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 5. Invalid syntax to declare an array in Groovy</div>
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">int[] array = { 1, 2, 3}</code></pre>
 </div>
@@ -562,6 +568,7 @@ choose at runtime, when the method is actually called. Since it is called with a
 <p>You actually have to use:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 6. Array declaration in Groovy</div>
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">int[] array = [1,2,3]</code></pre>
 </div>
@@ -573,6 +580,7 @@ choose at runtime, when the method is actually called. Since it is called with a
 <p>In Groovy, omitting a modifier on a field doesn&#8217;t result in a package-private field like in Java:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 7. Default visibility in Groovy</div>
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">class Person {
     String name
@@ -586,12 +594,14 @@ choose at runtime, when the method is actually called. Since it is called with a
 <p>It is possible to create a package-private field by annotating it with <code>@PackageScope</code>:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 8. Package scope visibility in Groovy</div>
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">class Person {
     @PackageScope String name
 }</code></pre>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect5">
 <h6 id="_arm_blocks">ARM blocks</h6>
@@ -600,6 +610,7 @@ choose at runtime, when the method is actually called. Since it is called with a
 methods relying on closures, which have the same effect while being more idiomatic. For example:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 9. Automatic resource management in Java</div>
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">Path file = Paths.get("/path/to/file");
 Charset charset = Charset.forName("UTF-8");
@@ -618,6 +629,7 @@ try (BufferedReader reader = Files.newBufferedReader(file, charset)) {
 <p>can be written like this:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 10. Using Groovy closures as an ARM alternative</div>
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">new File('/path/to/file').eachLine('UTF-8') {
    println it
@@ -628,6 +640,7 @@ try (BufferedReader reader = Files.newBufferedReader(file, charset)) {
 <p>or, if you want a version closer to Java:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 11. ARM in Groovy, alternative edition</div>
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">new File('/path/to/file').withReader('UTF-8') { reader -&gt;
    reader.eachLine {
@@ -636,6 +649,7 @@ try (BufferedReader reader = Files.newBufferedReader(file, charset)) {
 }</code></pre>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect5">
 <h6 id="_inner_classes">Inner classes</h6>
@@ -656,6 +670,7 @@ can become a problem, but on the other hand local variables don&#8217;t have to 
 <p>Here&#8217;s an example of static inner class:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 12. Static inner class in Groovy</div>
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">class A {
     static class B {}
@@ -667,7 +682,6 @@ new A.B()</code></pre>
 <div class="paragraph">
 <p>The usage of static inner classes is the best supported one. If you absolutely need an inner class, you should make it a static one.</p>
 </div>
-<div style="page-break-after: always;"></div>
 <div class="ulist">
 <ul>
 <li>
@@ -676,6 +690,7 @@ new A.B()</code></pre>
 </ul>
 </div>
 <div class="listingblock">
+<div class="title">Listing 13. Anonymous inner class in Groovy</div>
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
@@ -692,6 +707,7 @@ timer.schedule(new TimerTask() {
 assert called.await(10, TimeUnit.SECONDS)</code></pre>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="ulist">
 <ul>
 <li>
@@ -703,6 +719,7 @@ assert called.await(10, TimeUnit.SECONDS)</code></pre>
 <p>In Java you can do this:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 14. Non-static inner classes in Groovy</div>
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">public class Y {
     public class X {}
@@ -719,6 +736,7 @@ assert called.await(10, TimeUnit.SECONDS)</code></pre>
 <p>Groovy doesn&#8217;t support the <code>y.new X()</code> syntax. Instead, you have to write <code>new X(y)</code>, like in the code below:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 15. Instantiating non-static inner classes in Groovy</div>
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">public class Y {
     public class X {}
@@ -745,6 +763,7 @@ to prevent this problem.</p>
 <p>Java 8 supports lambdas and method references:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 16. Lambdas in Java</div>
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">Runnable run = () -&gt; System.out.println("Run");
 list.forEach(System.out::println);</code></pre>
@@ -755,6 +774,7 @@ list.forEach(System.out::println);</code></pre>
 closures instead:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 17. Closures in Groovy as an alternative to Java lambdas</div>
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">Runnable run = { println 'run' }
 list.each { println it } // or list.each(this.&amp;println)</code></pre>
@@ -779,22 +799,25 @@ of Java APIs that accept an Object parameter and then check the actual type.</p>
 whether there is interpolation in the literal.</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 18. String definitions in Groovy</div>
 <div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">assert 'c'.getClass()==String
-assert "c".getClass()==String
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">assert 'c'.getClass() == String
+assert "c".getClass() == String
 assert "c${1}".getClass() in GString</code></pre>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>Groovy will automatically cast a single-character <code>String</code> to char when assigning to a variable of type <code>char</code>. When
 calling methods with arguments of type char we need to either cast explicitly or make sure the value has been cast in
 advance.</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 19. Groovy String to char conversion</div>
 <div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">char a='a'
-assert Character.digit(a, 16)==10 : 'But Groovy does boxing'
-assert Character.digit((char) 'a', 16)==10
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">char a = 'a'
+assert Character.digit(a, 16) == 10 : 'But Groovy does boxing'
+assert Character.digit((char) 'a', 16) == 10
 
 try {
   assert Character.digit('a', 16)==10
@@ -803,17 +826,17 @@ try {
 }</code></pre>
 </div>
 </div>
-<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>Groovy supports two styles of casting and in the case of casting to <code>char</code> there are subtle differences when casting a
 multi-char strings. The Groovy style cast is more lenient and will take the first character, while the C-style cast will
 fail with exception.</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 20. String casting in Groovy</div>
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">// for single char strings, both are the same
-assert ((char) "c").class==Character
-assert ("c" as char).class==Character
+assert ((char) "c").class == Character
+assert ("c" as char).class == Character
 
 // for multi char strings they are not
 try {
@@ -832,6 +855,7 @@ assert 'cx'.asType(char) == 'c'</code></pre>
 <p>In Java <code>==</code> means equality of primitive types or identity for objects. In Groovy <code>==</code> translates to <code>a.compareTo(b)==0</code>,
 if they are <code>Comparable</code>, and <code>a.equals(b)</code> otherwise. To check for identity, there is <code>is</code>. E.g. <code>a.is(b)</code>.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect5">
 <h6 id="_different_keywords">Different keywords</h6>
@@ -848,55 +872,124 @@ if they are <code>Comparable</code>, and <code>a.equals(b)</code> otherwise. To 
 </li>
 </ul>
 </div>
-<div style="page-break-after: always;"></div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_syntax">Syntax</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>Indentation is not mandatory</p>
-</li>
-<li>
-<p>Semicolons are not mandatory. They can be used for writing more than one statement in a line</p>
-</li>
-<li>
-<p>It uses a Java-like bracket syntax</p>
-</li>
-</ul>
+</div>
+<div class="sect3">
+<h4 id="_examples">Examples</h4>
+<div class="listingblock">
+<div class="title">Listing 21. Hello world in Groovy</div>
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">println "hello world" // (1)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>In <a href="#listing-hw">Listing 1. Hello world in Groovy</a> we can see how a <em>hello world</em> looks like in Groovy.</p>
+<p>(1) The simplest Groovy code is a script. As this is going to be compiled to Java anyways, the Groovy compiler takes
+care of all the noise required by Java: it generates a class with a <code>main</code> method calling your code.</p>
 </div>
-<div id="listing-hw" class="listingblock">
-<div class="title">Listing 1. Hello world in Groovy</div>
+<div style="page-break-after: always;"></div>
+<div class="listingblock">
+<div class="title">Listing 22. Basic syntax elements in Groovy</div>
 <div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">println "Hello world!"</code></pre>
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">class Team { // (1)
+
+    String name // (1)
+    BigDecimal budget
+    List&lt;Player&gt; squad = [] // (2)
+
+}
+
+class Player { String name, int age }
+
+Team realMadrid = new Team(name: 'Real Madrid CF', players:[new Player(name: 'Cristiano Ronaldo'), ...]) (3)
+realMadrid.budget = 100_000_000 // (4)
+
+def youngPlayers = realMadrid.players.collect { it.age &lt; 20} // (5)</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>(1) Groovy applies common sense default for visibilities: public for classes and methods and private for attributes</p>
 </div>
+<div class="paragraph">
+<p>(2) There is native grammar syntax for lists (<code>[a,b,c]</code>) and maps (<code>[a: b, c: d]</code>)</p>
+</div>
+<div class="paragraph">
+<p>(3) Groovy enhances constructors with named parameters</p>
+</div>
+<div class="paragraph">
+<p>(4) Getters and setters are auto-generated and hidden. Property-access assignments are calling implicit setters. It also
+    honours Java 7 Project Coin&#8217;s features such as numeral literal formatting</p>
+</div>
+<div class="paragraph">
+<p>(5) Groovy super-vitamines the JDK with many methods in the collections, file, etc API&#8217;s with the so called GDK.</p>
+</div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_grails_framework">Grails framework</h3>
-
+<div class="paragraph">
+<p>Java web development as it stands today is dramatically more complicated than it needs to be. Most modern web frameworks
+in the Java space are over complicated and don&#8217;t embrace the Don&#8217;t Repeat Yourself (DRY) principles.</p>
+</div>
+<div class="paragraph">
+<p>Dynamic frameworks like Rails, Django and TurboGears helped pave the way to a more modern way of thinking about web
+applications. Grails builds on these concepts and dramatically reduces the complexity of building web applications on the
+Java platform. What makes it different, however, is that it does so by building on already established Java technologies
+like Spring and Hibernate.</p>
+</div>
+<div class="paragraph">
+<p>Grails is a full stack framework and attempts to solve as many pieces of the web development puzzle through the core
+technology and its associated plugins. Included out the box are things like:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An easy to use Object Relational Mapping (ORM) layer built on Hibernate</p>
+</li>
+<li>
+<p>An expressive view technology called Groovy Server Pages (GSP)</p>
+</li>
+<li>
+<p>A controller layer built on Spring MVC</p>
+</li>
+<li>
+<p>An interactive command line environment and build system based on Gradle</p>
+</li>
+<li>
+<p>An embedded Tomcat container which is configured for on the fly reloading</p>
+</li>
+<li>
+<p>Dependency injection with the inbuilt Spring container</p>
+</li>
+<li>
+<p>Support for internationalization (i18n) built on Spring&#8217;s core MessageSource concept</p>
+</li>
+<li>
+<p>A transactional service layer built on Spring&#8217;s transaction abstraction</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All of these are made easy to use through the power of the Groovy language and the extensive use of Domain Specific Languages (DSLs)</p>
+</div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_oauth_2_0">OAuth 2.0</h3>
-
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_asciidoctor">Asciidoctor</h3>
-
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_similar_solution_1">Similar solution #1</h3>
-
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_similar_solution_2">Similar solution #2</h3>
-
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_comparision">Comparision</h3>
@@ -905,7 +998,7 @@ if they are <code>Comparable</code>, and <code>a.equals(b)</code> otherwise. To 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-09-21 22:18:19 UTC
+Last updated 2015-09-23 00:27:28 UTC
 </div>
 </div>
 </body>

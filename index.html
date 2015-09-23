@@ -531,9 +531,9 @@ table.CodeRay td.code>pre{padding:0}
 <ul class="sectlevel4">
 <li><a href="#_features">Features</a></li>
 <li><a href="#_differences_with_java">Differences with Java</a></li>
-<li><a href="#_syntax">Syntax</a></li>
 </ul>
 </li>
+<li><a href="#_examples">2.1.2. Examples</a></li>
 </ul>
 </li>
 <li><a href="#_grails_framework">2.2. Grails framework</a></li>
@@ -572,7 +572,107 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_personal_improvements">6.2. Personal improvements</a></li>
 </ul>
 </li>
-<li><a href="#_documentation">Appendix A: Documentation</a></li>
+<li><a href="#_official_documentation">Appendix A: Official Documentation</a>
+<ul class="sectlevel2">
+<li><a href="#_introduction_to_the_spring_security_rest_plugin">A.1. Introduction to the Spring Security REST plugin</a>
+<ul class="sectlevel3">
+<li><a href="#_release_history">A.1.1. Release History</a></li>
+</ul>
+</li>
+<li><a href="#_what_s_new_in_1_5">A.2. What&#8217;s new in 1.5?</a>
+<ul class="sectlevel3">
+<li><a href="#_jwt_support">A.2.1. JWT support</a></li>
+<li><a href="#_redis_support">A.2.2. Redis support</a></li>
+<li><a href="#_new_package_base">A.2.3. New package base</a></li>
+<li><a href="#_other_minor_changes">A.2.4. Other minor changes</a></li>
+</ul>
+</li>
+<li><a href="#_what_s_new_in_1_4">A.3. What&#8217;s new in 1.4?</a>
+<ul class="sectlevel3">
+<li><a href="#_full_compatibility_with_spring_security_core">A.3.1. Full compatibility with Spring Security core.</a></li>
+<li><a href="#_rfc_6750_bearer_token_support_by_default">A.3.2. RFC 6750 Bearer Token support by default</a></li>
+<li><a href="#_credentials_are_extracted_from_json_by_default">A.3.3. Credentials are extracted from JSON by default</a></li>
+<li><a href="#_anonymous_access_is_allowed">A.3.4. Anonymous access is allowed</a></li>
+<li><a href="#_other_minor_changes_2">A.3.5. Other minor changes</a></li>
+</ul>
+</li>
+<li><a href="#_configuration">A.4. Configuration</a>
+<ul class="sectlevel3">
+<li><a href="#_plugin_configuration">A.4.1. Plugin configuration</a></li>
+</ul>
+</li>
+<li><a href="#_events">A.5. Events</a>
+<ul class="sectlevel3">
+<li><a href="#_event_notification">A.5.1. Event Notification</a>
+<ul class="sectlevel4">
+<li><a href="#_authenticationeventpublisher">AuthenticationEventPublisher</a></li>
+<li><a href="#_token_creation">Token Creation</a></li>
+</ul>
+</li>
+<li><a href="#_registering_an_event_listener">A.5.2. Registering an Event Listener</a></li>
+<li><a href="#_registering_callback_closures">A.5.3. Registering Callback Closures</a></li>
+</ul>
+</li>
+<li><a href="#_authentication_endpoint">A.6. Authentication Endpoint</a>
+<ul class="sectlevel3">
+<li><a href="#_extracting_credentials_from_the_request">A.6.1. Extracting credentials from the request</a>
+<ul class="sectlevel4">
+<li><a href="#_from_a_json_request">From a JSON request</a></li>
+<li><a href="#_from_request_parameters">From request parameters</a></li>
+</ul>
+</li>
+<li><a href="#_logout">A.6.2. Logout</a></li>
+</ul>
+</li>
+<li><a href="#_token_generation">A.7. Token Generation</a></li>
+<li><a href="#_token_storage">A.8. Token Storage</a>
+<ul class="sectlevel3">
+<li><a href="#_json_web_token">A.8.1. JSON Web Token</a>
+<ul class="sectlevel4">
+<li><a href="#_how_does_a_jwt_looks_like">How does a JWT looks like?</a></li>
+<li><a href="#_signed_jwt_s">Signed JWT&#8217;s</a></li>
+<li><a href="#_encrypted_jwt_s">Encrypted JWT&#8217;s</a></li>
+<li><a href="#_token_expiration_and_refresh_tokens">Token expiration and refresh tokens</a></li>
+<li><a href="#_memcached">Memcached</a></li>
+<li><a href="#_gorm">GORM</a></li>
+<li><a href="#_redis">Redis</a></li>
+</ul>
+</li>
+<li><a href="#_grails_cache">A.8.2. Grails Cache</a></li>
+</ul>
+</li>
+<li><a href="#_token_rendering">A.9. Token Rendering</a>
+<ul class="sectlevel3">
+<li><a href="#_disabling_bearer_tokens_support_for_full_response_customisation">A.9.1. Disabling bearer tokens support for full response customisation</a></li>
+</ul>
+</li>
+<li><a href="#_token_validation_filter">A.10. Token Validation Filter</a>
+<ul class="sectlevel3">
+<li><a href="#_sending_tokens_in_the_request">A.10.1. Sending tokens in the request</a></li>
+<li><a href="#_anonymous_access">A.10.2. Anonymous access</a></li>
+<li><a href="#_validation_endpoint">A.10.3. Validation Endpoint</a></li>
+</ul>
+</li>
+<li><a href="#_cors_support">A.11. CORS support</a></li>
+<li><a href="#_delegating_authentication_to_oauth_providers">A.12. Delegating authentication to OAuth providers</a>
+<ul class="sectlevel4">
+<li><a href="#_google">Google</a></li>
+<li><a href="#_facebook">Facebook</a></li>
+<li><a href="#_twitter">Twitter</a></li>
+<li><a href="#_cas_central_authentication_service">CAS (Central Authentication Service)</a></li>
+</ul>
+</li>
+<li><a href="#_debugging">A.13. Debugging</a></li>
+<li><a href="#_frequently_asked_questions">A.14. Frequently Asked Questions</a>
+<ul class="sectlevel5">
+<li><a href="#_why_this_token_based_implementation_can_t_i_use_http_basic_authentication">Why this token-based implementation? Can&#8217;t I use HTTP basic authentication?</a></li>
+<li><a href="#_why_can_t_the_api_be_secured_with_oauth">Why can&#8217;t the API be secured with OAuth?</a></li>
+<li><a href="#_why_you_didn_t_use_any_of_the_existing_oauth_plugins_why_pac4j">Why you didn&#8217;t use any of the existing OAuth plugins? Why pac4j?</a></li>
+<li><a href="#_dude_this_is_awesome_how_can_i_compensate_you">Dude, this is awesome. How can I compensate you?</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#_bibliography">Bibliography</a></li>
 </ul>
 </div>
@@ -658,6 +758,7 @@ deployment. This reduces or even prevents doing frequent interface changes to im
 themselves <strong>full-stack developers</strong>: proficient in doing backend and front-end. However, a technology was created and it
 changed the game rules: <strong>Node JS</strong>.</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>Node JS not only enabled developers for the first time to use the same language for front-end and backend (Javascript),
 but also set the foundation for a large number of tools, such as Grunt or Gulp as bulding tools, Bower as dependency
@@ -665,7 +766,6 @@ manager and Yeoman as project creation and scaffolding tool. Those projects attr
 were highly skilled in HTML5, CSS3 and Javascript, and for the first time in forever had a specific toolset where no
 backend was involved.</p>
 </div>
-<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>On the other hand, backend development was experiencing the rise of the new buzzword of the moment: <strong>microservices</strong>.
 After several years since REST architecture was first introduced, and more and more teams trying to adopt such
@@ -699,6 +799,7 @@ How do you handle authentication/authorization with this setup?.
 <cite>12th December 2013</cite>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>More or less, developers managed to create stateless business logic, using the front-end frameworks to keep client state
 and ensuring that such state was sent to the server on each and every round-trip. However, authentication and
@@ -712,7 +813,6 @@ that ended up in the development of <strong>Spring Security REST</strong>: a plu
 that offered developers a way to implement authentication and authorization in a stateless way, as well as it made the
 necessary transformations over core Spring Security to make it more REST-friendly.</p>
 </div>
-<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_goals">1.2. Goals</h3>
@@ -741,6 +841,7 @@ necessary transformations over core Spring Security to make it more REST-friendl
 <div class="paragraph">
 <p>This document describes in detail all the stages of the process followed to achieve the mentioned goals.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_rest_of_the_document">1.3. Rest of the document</h3>
@@ -814,6 +915,7 @@ can reuse Java libraries in our Groovy code.</p>
 <p>Groovy is often called a scripting language, but this is not quite true. We can write scripts with Groovy, but also full
 blown applications. Groovy is very flexible.</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="sect4">
 <h5 id="_features">Features</h5>
 <div class="ulist">
@@ -832,7 +934,6 @@ blown applications. Groovy is very flexible.</p>
 </li>
 </ul>
 </div>
-<div style="page-break-after: always;"></div>
 </div>
 <div class="sect4">
 <h5 id="_differences_with_java">Differences with Java</h5>
@@ -845,6 +946,7 @@ blown applications. Groovy is very flexible.</p>
 <p>All these packages and classes are imported by default, i.e. you do not have to use an explicit import statement to use them:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 1. Default imports in Groovy</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">java.io.*
 java.lang.*
@@ -856,6 +958,7 @@ groovy.lang.*
 groovy.util.*</code></pre>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect5">
 <h6 id="_multi_methods">Multi-methods</h6>
@@ -868,6 +971,7 @@ are chosen at compile time, based on the declared types.</p>
 <p>The following code, written as Java code, can be compiled in both Java and Groovy, but it will behave differently:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 2. Method dispatching code in Java/Groovy</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="type">int</span> method(<span class="predefined-type">String</span> arg) {
     <span class="keyword">return</span> <span class="integer">1</span>;
@@ -883,15 +987,16 @@ are chosen at compile time, based on the declared types.</p>
 <p>In Java, you would have:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 3. Method dispatch in Java</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java">assertEquals(<span class="integer">2</span>, result);</code></pre>
 </div>
 </div>
-<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>Whereas in Groovy:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 4. Method dispatch in Groovy</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">assertEquals(<span class="integer">1</span>, result);</code></pre>
 </div>
@@ -900,13 +1005,15 @@ are chosen at compile time, based on the declared types.</p>
 <p>That is because Java will use the static information type, which is that o is declared as an <code>Object</code>, whereas Groovy will
 choose at runtime, when the method is actually called. Since it is called with a <code>String</code>, then the String version is called.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect5">
 <h6 id="_array_initialisers">Array initialisers</h6>
 <div class="paragraph">
-<p>In Groovy, the <code>{ ...​ }</code> block is reserved for closures. That means that you cannot create array literals with this syntax:</p>
+<p>In Groovy, the <code>{ ... }</code> block is reserved for closures. That means that you cannot create array literals with this syntax:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 5. Invalid syntax to declare an array in Groovy</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">int</span><span class="type">[]</span> array = { <span class="integer">1</span>, <span class="integer">2</span>, <span class="integer">3</span>}</code></pre>
 </div>
@@ -915,6 +1022,7 @@ choose at runtime, when the method is actually called. Since it is called with a
 <p>You actually have to use:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 6. Array declaration in Groovy</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">int</span><span class="type">[]</span> array = [<span class="integer">1</span>,<span class="integer">2</span>,<span class="integer">3</span>]</code></pre>
 </div>
@@ -926,6 +1034,7 @@ choose at runtime, when the method is actually called. Since it is called with a
 <p>In Groovy, omitting a modifier on a field doesn&#8217;t result in a package-private field like in Java:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 7. Default visibility in Groovy</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">class</span> <span class="class">Person</span> {
     <span class="predefined-type">String</span> name
@@ -939,12 +1048,14 @@ choose at runtime, when the method is actually called. Since it is called with a
 <p>It is possible to create a package-private field by annotating it with <code>@PackageScope</code>:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 8. Package scope visibility in Groovy</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">class</span> <span class="class">Person</span> {
     <span class="annotation">@PackageScope</span> <span class="predefined-type">String</span> name
 }</code></pre>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect5">
 <h6 id="_arm_blocks">ARM blocks</h6>
@@ -953,6 +1064,7 @@ choose at runtime, when the method is actually called. Since it is called with a
 methods relying on closures, which have the same effect while being more idiomatic. For example:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 9. Automatic resource management in Java</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java">Path file = Paths.get(<span class="string"><span class="delimiter">&quot;</span><span class="content">/path/to/file</span><span class="delimiter">&quot;</span></span>);
 <span class="predefined-type">Charset</span> charset = <span class="predefined-type">Charset</span>.forName(<span class="string"><span class="delimiter">&quot;</span><span class="content">UTF-8</span><span class="delimiter">&quot;</span></span>);
@@ -971,6 +1083,7 @@ methods relying on closures, which have the same effect while being more idiomat
 <p>can be written like this:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 10. Using Groovy closures as an ARM alternative</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">new</span> <span class="predefined-type">File</span>(<span class="string"><span class="delimiter">'</span><span class="content">/path/to/file</span><span class="delimiter">'</span></span>).eachLine(<span class="string"><span class="delimiter">'</span><span class="content">UTF-8</span><span class="delimiter">'</span></span>) {
    println <span class="local-variable">it</span>
@@ -981,6 +1094,7 @@ methods relying on closures, which have the same effect while being more idiomat
 <p>or, if you want a version closer to Java:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 11. ARM in Groovy, alternative edition</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">new</span> <span class="predefined-type">File</span>(<span class="string"><span class="delimiter">'</span><span class="content">/path/to/file</span><span class="delimiter">'</span></span>).withReader(<span class="string"><span class="delimiter">'</span><span class="content">UTF-8</span><span class="delimiter">'</span></span>) { reader -&gt;
    reader.eachLine {
@@ -989,6 +1103,7 @@ methods relying on closures, which have the same effect while being more idiomat
 }</code></pre>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect5">
 <h6 id="_inner_classes">Inner classes</h6>
@@ -1009,6 +1124,7 @@ can become a problem, but on the other hand local variables don&#8217;t have to 
 <p>Here&#8217;s an example of static inner class:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 12. Static inner class in Groovy</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">class</span> <span class="class">A</span> {
     <span class="directive">static</span> <span class="type">class</span> <span class="class">B</span> {}
@@ -1020,7 +1136,6 @@ can become a problem, but on the other hand local variables don&#8217;t have to 
 <div class="paragraph">
 <p>The usage of static inner classes is the best supported one. If you absolutely need an inner class, you should make it a static one.</p>
 </div>
-<div style="page-break-after: always;"></div>
 <div class="ulist">
 <ul>
 <li>
@@ -1029,6 +1144,7 @@ can become a problem, but on the other hand local variables don&#8217;t have to 
 </ul>
 </div>
 <div class="listingblock">
+<div class="title">Listing 13. Anonymous inner class in Groovy</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">import</span> <span class="include">java.util.concurrent.CountDownLatch</span>
 <span class="keyword">import</span> <span class="include">java.util.concurrent.TimeUnit</span>
@@ -1045,6 +1161,7 @@ timer.schedule(<span class="keyword">new</span> <span class="predefined-type">Ti
 <span class="keyword">assert</span> called.await(<span class="integer">10</span>, <span class="predefined-type">TimeUnit</span>.SECONDS)</code></pre>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="ulist">
 <ul>
 <li>
@@ -1056,6 +1173,7 @@ timer.schedule(<span class="keyword">new</span> <span class="predefined-type">Ti
 <p>In Java you can do this:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 14. Non-static inner classes in Groovy</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">Y</span> {
     <span class="directive">public</span> <span class="type">class</span> <span class="class">X</span> {}
@@ -1072,6 +1190,7 @@ timer.schedule(<span class="keyword">new</span> <span class="predefined-type">Ti
 <p>Groovy doesn&#8217;t support the <code>y.new X()</code> syntax. Instead, you have to write <code>new X(y)</code>, like in the code below:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 15. Instantiating non-static inner classes in Groovy</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="directive">public</span> <span class="type">class</span> <span class="class">Y</span> {
     <span class="directive">public</span> <span class="type">class</span> <span class="class">X</span> {}
@@ -1098,6 +1217,7 @@ to prevent this problem.</p>
 <p>Java 8 supports lambdas and method references:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 16. Lambdas in Java</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="predefined-type">Runnable</span> run = () -&gt; <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Run</span><span class="delimiter">&quot;</span></span>);
 list.forEach(<span class="predefined-type">System</span>.out::println);</code></pre>
@@ -1108,6 +1228,7 @@ list.forEach(<span class="predefined-type">System</span>.out::println);</code></
 closures instead:</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 17. Closures in Groovy as an alternative to Java lambdas</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="predefined-type">Runnable</span> run = { println <span class="string"><span class="delimiter">'</span><span class="content">run</span><span class="delimiter">'</span></span> }
 list.each { println <span class="local-variable">it</span> } <span class="comment">// or list.each(this.&amp;println)</span></code></pre>
@@ -1132,22 +1253,25 @@ of Java APIs that accept an Object parameter and then check the actual type.</p>
 whether there is interpolation in the literal.</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 18. String definitions in Groovy</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">assert</span> <span class="string"><span class="delimiter">'</span><span class="content">c</span><span class="delimiter">'</span></span>.getClass()==<span class="predefined-type">String</span>
-<span class="keyword">assert</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">c</span><span class="delimiter">&quot;</span></span>.getClass()==<span class="predefined-type">String</span>
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">assert</span> <span class="string"><span class="delimiter">'</span><span class="content">c</span><span class="delimiter">'</span></span>.getClass() == <span class="predefined-type">String</span>
+<span class="keyword">assert</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">c</span><span class="delimiter">&quot;</span></span>.getClass() == <span class="predefined-type">String</span>
 <span class="keyword">assert</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">c</span><span class="inline"><span class="inline-delimiter">${</span><span class="integer">1</span><span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>.getClass() <span class="keyword">in</span> GString</code></pre>
 </div>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>Groovy will automatically cast a single-character <code>String</code> to char when assigning to a variable of type <code>char</code>. When
 calling methods with arguments of type char we need to either cast explicitly or make sure the value has been cast in
 advance.</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 19. Groovy String to char conversion</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">char</span> a=<span class="string"><span class="delimiter">'</span><span class="content">a</span><span class="delimiter">'</span></span>
-<span class="keyword">assert</span> <span class="predefined-type">Character</span>.digit(a, <span class="integer">16</span>)==<span class="integer">10</span> : <span class="string"><span class="delimiter">'</span><span class="content">But Groovy does boxing</span><span class="delimiter">'</span></span>
-<span class="keyword">assert</span> <span class="predefined-type">Character</span>.digit((<span class="type">char</span>) <span class="string"><span class="delimiter">'</span><span class="content">a</span><span class="delimiter">'</span></span>, <span class="integer">16</span>)==<span class="integer">10</span>
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">char</span> a = <span class="string"><span class="delimiter">'</span><span class="content">a</span><span class="delimiter">'</span></span>
+<span class="keyword">assert</span> <span class="predefined-type">Character</span>.digit(a, <span class="integer">16</span>) == <span class="integer">10</span> : <span class="string"><span class="delimiter">'</span><span class="content">But Groovy does boxing</span><span class="delimiter">'</span></span>
+<span class="keyword">assert</span> <span class="predefined-type">Character</span>.digit((<span class="type">char</span>) <span class="string"><span class="delimiter">'</span><span class="content">a</span><span class="delimiter">'</span></span>, <span class="integer">16</span>) == <span class="integer">10</span>
 
 <span class="keyword">try</span> {
   <span class="keyword">assert</span> <span class="predefined-type">Character</span>.digit(<span class="string"><span class="delimiter">'</span><span class="content">a</span><span class="delimiter">'</span></span>, <span class="integer">16</span>)==<span class="integer">10</span>
@@ -1156,17 +1280,17 @@ advance.</p>
 }</code></pre>
 </div>
 </div>
-<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>Groovy supports two styles of casting and in the case of casting to <code>char</code> there are subtle differences when casting a
 multi-char strings. The Groovy style cast is more lenient and will take the first character, while the C-style cast will
 fail with exception.</p>
 </div>
 <div class="listingblock">
+<div class="title">Listing 20. String casting in Groovy</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">// for single char strings, both are the same</span>
-<span class="keyword">assert</span> ((<span class="type">char</span>) <span class="string"><span class="delimiter">&quot;</span><span class="content">c</span><span class="delimiter">&quot;</span></span>).class==<span class="predefined-type">Character</span>
-<span class="keyword">assert</span> (<span class="string"><span class="delimiter">&quot;</span><span class="content">c</span><span class="delimiter">&quot;</span></span> <span class="keyword">as</span> <span class="type">char</span>).class==<span class="predefined-type">Character</span>
+<span class="keyword">assert</span> ((<span class="type">char</span>) <span class="string"><span class="delimiter">&quot;</span><span class="content">c</span><span class="delimiter">&quot;</span></span>).class == <span class="predefined-type">Character</span>
+<span class="keyword">assert</span> (<span class="string"><span class="delimiter">&quot;</span><span class="content">c</span><span class="delimiter">&quot;</span></span> <span class="keyword">as</span> <span class="type">char</span>).class == <span class="predefined-type">Character</span>
 
 <span class="comment">// for multi char strings they are not</span>
 <span class="keyword">try</span> {
@@ -1185,6 +1309,7 @@ fail with exception.</p>
 <p>In Java <code>==</code> means equality of primitive types or identity for objects. In Groovy <code>==</code> translates to <code>a.compareTo(b)==0</code>,
 if they are <code>Comparable</code>, and <code>a.equals(b)</code> otherwise. To check for identity, there is <code>is</code>. E.g. <code>a.is(b)</code>.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect5">
 <h6 id="_different_keywords">Different keywords</h6>
@@ -1201,55 +1326,124 @@ if they are <code>Comparable</code>, and <code>a.equals(b)</code> otherwise. To 
 </li>
 </ul>
 </div>
-<div style="page-break-after: always;"></div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_syntax">Syntax</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>Indentation is not mandatory</p>
-</li>
-<li>
-<p>Semicolons are not mandatory. They can be used for writing more than one statement in a line</p>
-</li>
-<li>
-<p>It uses a Java-like bracket syntax</p>
-</li>
-</ul>
+</div>
+<div class="sect3">
+<h4 id="_examples">2.1.2. Examples</h4>
+<div class="listingblock">
+<div class="title">Listing 21. Hello world in Groovy</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">println <span class="string"><span class="delimiter">&quot;</span><span class="content">hello world</span><span class="delimiter">&quot;</span></span> <span class="comment">// (1)</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>In <a href="#listing-hw">Listing 1. Hello world in Groovy</a> we can see how a <em>hello world</em> looks like in Groovy.</p>
+<p>(1) The simplest Groovy code is a script. As this is going to be compiled to Java anyways, the Groovy compiler takes
+care of all the noise required by Java: it generates a class with a <code>main</code> method calling your code.</p>
 </div>
-<div id="listing-hw" class="listingblock">
-<div class="title">Listing 1. Hello world in Groovy</div>
+<div style="page-break-after: always;"></div>
+<div class="listingblock">
+<div class="title">Listing 22. Basic syntax elements in Groovy</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">println <span class="string"><span class="delimiter">&quot;</span><span class="content">Hello world!</span><span class="delimiter">&quot;</span></span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">class</span> <span class="class">Team</span> { <span class="comment">// (1)</span>
+
+    <span class="predefined-type">String</span> name <span class="comment">// (1)</span>
+    <span class="predefined-type">BigDecimal</span> budget
+    <span class="predefined-type">List</span>&lt;Player&gt; squad = <span class="type">[]</span> <span class="comment">// (2)</span>
+
+}
+
+<span class="type">class</span> <span class="class">Player</span> { <span class="predefined-type">String</span> name, <span class="type">int</span> age }
+
+Team realMadrid = <span class="keyword">new</span> Team(<span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">Real Madrid CF</span><span class="delimiter">'</span></span>, <span class="key">players</span>:[<span class="keyword">new</span> Player(<span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">Cristiano Ronaldo</span><span class="delimiter">'</span></span>), ...]) (<span class="integer">3</span>)
+realMadrid.budget = <span class="integer">100</span>_000_000 <span class="comment">// (4)</span>
+
+<span class="keyword">def</span> youngPlayers = realMadrid.players.collect { <span class="local-variable">it</span>.age &lt; <span class="integer">20</span>} <span class="comment">// (5)</span></code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>(1) Groovy applies common sense default for visibilities: public for classes and methods and private for attributes</p>
 </div>
+<div class="paragraph">
+<p>(2) There is native grammar syntax for lists (<code>[a,b,c]</code>) and maps (<code>[a: b, c: d]</code>)</p>
+</div>
+<div class="paragraph">
+<p>(3) Groovy enhances constructors with named parameters</p>
+</div>
+<div class="paragraph">
+<p>(4) Getters and setters are auto-generated and hidden. Property-access assignments are calling implicit setters. It also
+    honours Java 7 Project Coin&#8217;s features such as numeral literal formatting</p>
+</div>
+<div class="paragraph">
+<p>(5) Groovy super-vitamines the JDK with many methods in the collections, file, etc API&#8217;s with the so called GDK.</p>
+</div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_grails_framework">2.2. Grails framework</h3>
-
+<div class="paragraph">
+<p>Java web development as it stands today is dramatically more complicated than it needs to be. Most modern web frameworks
+in the Java space are over complicated and don&#8217;t embrace the Don&#8217;t Repeat Yourself (DRY) principles.</p>
+</div>
+<div class="paragraph">
+<p>Dynamic frameworks like Rails, Django and TurboGears helped pave the way to a more modern way of thinking about web
+applications. Grails builds on these concepts and dramatically reduces the complexity of building web applications on the
+Java platform. What makes it different, however, is that it does so by building on already established Java technologies
+like Spring and Hibernate.</p>
+</div>
+<div class="paragraph">
+<p>Grails is a full stack framework and attempts to solve as many pieces of the web development puzzle through the core
+technology and its associated plugins. Included out the box are things like:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An easy to use Object Relational Mapping (ORM) layer built on Hibernate</p>
+</li>
+<li>
+<p>An expressive view technology called Groovy Server Pages (GSP)</p>
+</li>
+<li>
+<p>A controller layer built on Spring MVC</p>
+</li>
+<li>
+<p>An interactive command line environment and build system based on Gradle</p>
+</li>
+<li>
+<p>An embedded Tomcat container which is configured for on the fly reloading</p>
+</li>
+<li>
+<p>Dependency injection with the inbuilt Spring container</p>
+</li>
+<li>
+<p>Support for internationalization (i18n) built on Spring&#8217;s core MessageSource concept</p>
+</li>
+<li>
+<p>A transactional service layer built on Spring&#8217;s transaction abstraction</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All of these are made easy to use through the power of the Groovy language and the extensive use of Domain Specific Languages (DSLs)</p>
+</div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_oauth_2_0">2.3. OAuth 2.0</h3>
-
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_asciidoctor">2.4. Asciidoctor</h3>
-
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_similar_solution_1">2.5. Similar solution #1</h3>
-
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_similar_solution_2">2.6. Similar solution #2</h3>
-
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_comparision">2.7. Comparision</h3>
@@ -1262,19 +1456,19 @@ if they are <code>Comparable</code>, and <code>a.equals(b)</code> otherwise. To 
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_introduction_3">3.1. Introduction</h3>
-
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_analysis">3.2. Analysis</h3>
-
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_design">3.3. Design</h3>
-
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_development">3.4. Development</h3>
-
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_deployment">3.5. Deployment</h3>
@@ -1293,7 +1487,7 @@ if they are <code>Comparable</code>, and <code>a.equals(b)</code> otherwise. To 
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_planning">5.1. Planning</h3>
-
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_budget">5.2. Budget</h3>
@@ -1316,19 +1510,2735 @@ if they are <code>Comparable</code>, and <code>a.equals(b)</code> otherwise. To 
 </div>
 <div class="sect3">
 <h4 id="_personal">6.1.3. Personal</h4>
-
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_personal_improvements">6.2. Personal improvements</h3>
-
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_documentation">Appendix A: Documentation</h2>
+<h2 id="_official_documentation">Appendix A: Official Documentation</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_introduction_to_the_spring_security_rest_plugin">A.1. Introduction to the Spring Security REST plugin</h3>
+<div class="paragraph">
+<p>The Spring Security REST Grails plugin allows you to use Spring Security for a stateless, token-based, RESTful authentication.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This plugin depends on <a href="http://grails-plugins.github.io/grails-spring-security-core/guide/newInV2.html">Spring Security Core 2.x</a>.
+Make sure your application is compatible with that version first. There is a
+<a href="https://github.com/alvarosanchez/grails-spring-security-rest/issues/15">feature request</a>, that may be addressed in the
+future if there is enough community interest / love :)</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This plugin is only for Grails 2.x, and it requires at least Java 7.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The default behaviour of Spring Security is to store the authenticated principal in the HTTP session. However, in a
+RESTful scenario, we need to make sure our server is stateless.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>The typical flow could be the following:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="rest.png" alt="rest">
+</div>
+<div class="title">Figure 1. Sequence diagram overview of the plugin behavior</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The client application requests and endpoint that requires authentication, so the server responds with a 401 response.</p>
+</li>
+<li>
+<p>The client redirects the user to the login form.</p>
+</li>
+</ol>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>The user enter credentials, and the client sends a request to the authentication endpoint. The server validates credentials, and if valid, generates, stores and sends back a token to the client.</p>
+</li>
+<li>
+<p>The client then stores the token internally. It will be sent on every API method request.</p>
+</li>
+<li>
+<p>The client sends again a request to the protected resource, passing the token as an HTTP header.</p>
+</li>
+<li>
+<p>The server validates the token, and if valid, executes the actual operation requested.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>As per the <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">REST definition</a>, the client is transferring its
+state on every request so the server is truly stateless.</p>
+</div>
+<div class="paragraph">
+<p>This plugin helps you to wire your existing Spring Security authentication mechanism, provides you
+with ready-to-use token generation strategies and comes prepackaged with JWT, Memcached, GORM, Redis
+and Grails Cache support for token storage.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="sect3">
+<h4 id="_release_history">A.1.1. Release History</h4>
+<div class="paragraph">
+<p>You can view all releases at <a href="https://github.com/alvarosanchez/grails-spring-security-rest/releases" class="bare">https://github.com/alvarosanchez/grails-spring-security-rest/releases</a>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>19 August 2015</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.5.2</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>6 May 2015</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.5.1</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>6 May 2015</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.5.0</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>21 April 2015</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.5.0.RC4</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>13 April 2015</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.5.0.RC3</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>9 April 2015</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.5.0.RC2</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2 April 2015</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.5.0.RC1</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1 April 2015</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.5.0.M3</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>24 February 2015</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.5.0.M2</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3 February 2015</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.5.0.M1</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>28 January 2015</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.4.1</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>12 November 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.4.1.RC2</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="ulist">
+<ul>
+<li>
+<p>20 October 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.4.1.RC1</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>12 August 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.4.0</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>14 July 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.4.0.RC5</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>4 July 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.4.0.RC4</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>24 June 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.4.0.RC3</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>24 June 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.4.0.RC2</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>20 June 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.4.0.RC1</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>11 June 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.4.0.M3</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1 June 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.4.0.M2</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>29 May 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.4.0.M1</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>23 April 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.3.4</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>16 April 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.3.3</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3 April 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.3.2</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>18 March 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.3.1</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="ulist">
+<ul>
+<li>
+<p>4 March 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.3.0</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>17 February 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.2.5</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>10 February 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.2.4</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>4 February 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.2.3</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>31 January 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.2.2</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>15 January 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.2.0</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>14 January 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.1.0</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>13 January 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.0.1</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>12 January 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.0.0</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>10 January 2014</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1.0.0.RC2</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>31 December 2013</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Initial 1.0.0.RC1 release.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_s_new_in_1_5">A.2. What&#8217;s new in 1.5?</h3>
+<div class="sect3">
+<h4 id="_jwt_support">A.2.1. JWT support</h4>
+<div class="paragraph">
+<p>JWT is fully supported and is now the default token "storage" mechanism. If you still want to use your previous storage
+(such as Memcached or GORM), make sure you explicitly set to <code>true</code> one of the following properties:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. New configuration values in 1.5</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Config key</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.useMemcached</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.useGorm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.useGrailsCache</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>If switching over JWT, the logout behavior is not available anymore. Read the documentation on how to
+implement your own logout strategy if you want to.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_redis_support">A.2.2. Redis support</h4>
+<div class="paragraph">
+<p>Redis can now be used as token storage service. Thanks to <a href="https://github.com/peh">Philipp Eschenbach</a> for
+his initial contribution.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_new_package_base">A.2.3. New package base</h4>
+<div class="paragraph">
+<p>Packages <code>com.odobo.grails.plugin.springsecurity.rest.*</code> have been refactored to simply <code>grails.plugin.springsecurity.rest.*</code>.
+Make sure to double-check your imports when upgrading to 1.5.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_other_minor_changes">A.2.4. Other minor changes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The plugin now uses Grails 2.4.4, and the build and tests are executed with Java 8.</p>
+</li>
+<li>
+<p>Documentation for older versions is now published at <a href="http://alvarosanchez.github.io/grails-spring-security-rest" class="bare">http://alvarosanchez.github.io/grails-spring-security-rest</a></p>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_s_new_in_1_4">A.3. What&#8217;s new in 1.4?</h3>
+<div class="sect3">
+<h4 id="_full_compatibility_with_spring_security_core">A.3.1. Full compatibility with Spring Security core.</h4>
+<div class="paragraph">
+<p>Up to previous releases, this plugin was overriding "stateful" Spring Security core beans, to ensure a stateless behaviour.
+After some users reported issues integrating this plugin with existing installations, version 1.4 now follows a more
+friendly approach.</p>
+</div>
+<div class="paragraph">
+<p>A new chapter has been created explaining how to configure the filter chains appropriately.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_rfc_6750_bearer_token_support_by_default">A.3.2. RFC 6750 Bearer Token support by default</h4>
+<div class="paragraph">
+<p>Now, the token validation and rendering aligns with the <a href="http://tools.ietf.org/html/rfc6750">RFC 6750 Bearer Token</a> spec.
+If you want to keep the old behaviour, simply disable it by setting
+<code>grails.plugin.springsecurity.rest.token.validation.useBearerToken = false</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_credentials_are_extracted_from_json_by_default">A.3.3. Credentials are extracted from JSON by default</h4>
+<div class="paragraph">
+<p>It makes more sense in a REST application. The old behaviour can still be used by using the corresponding configuration
+property.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_anonymous_access_is_allowed">A.3.4. Anonymous access is allowed</h4>
+<div class="paragraph">
+<p>In case you want to enable anonymous access (read: not authenticated) to certain URL patterns, you can do so. Take a
+look at the [new chapter in the documentation|guide:tokenValidation].</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_other_minor_changes_2">A.3.5. Other minor changes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Upgraded dependencies:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>spring-security-core:2.0-RC3</code>.</p>
+</li>
+<li>
+<p><code>cors:1.1.6</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuration">A.4. Configuration</h3>
+<div class="paragraph">
+<p>Once the plugin is installed, you are ready to go. The default configuration is to use signed
+JWT&#8217;s for tokens. However, you can select any other token storage strategy:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Grails Cache.</p>
+</li>
+<li>
+<p>Memcached.</p>
+</li>
+<li>
+<p>GORM.</p>
+</li>
+<li>
+<p>Redis.</p>
+</li>
+<li>
+<p>Provide your own: implement
+<a href="http://alvarosanchez.github.io/grails-spring-security-rest/latest/docs/gapi/grails/plugin/springsecurity/rest/token/storage/TokenStorageService.html">TokenStorageService</a>
+and register it in <code>resources.groovy</code> as <code>tokenStorageService</code>.</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="_plugin_configuration">A.4.1. Plugin configuration</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This plugin depends on <a href="http://grails-plugins.github.io/grails-spring-security-core/docs/manual/guide/newInV2.html">Spring Security Core 2.x</a>.
+Make sure your application is compatible with that version first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This plugin is compatible by default with Spring Security core traditional, form-based authentication. The important thing
+to remember is: you have to separate the filter chains, so different filters are applied on each case.</p>
+</div>
+<div class="paragraph">
+<p>The stateless, token-based approach of this plugin is incompatible with the HTTP session-based approach of Spring Security,
+core, so the trick is to identify what URL patterns have to be stateless, and what others have to be stateful (if any).</p>
+</div>
+<div class="paragraph">
+<p>To configure the chains properly, you can use the <code>grails.plugin.springsecurity.filterChain.chainMap</code> property:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 23. <code>grails.plugin.springsecurity.filterChain.chainMap</code></div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">grails.plugin.springsecurity.filterChain.chainMap = [
+    <span class="string"><span class="delimiter">'</span><span class="content">/api/**</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">JOINED_FILTERS,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter</span><span class="delimiter">'</span></span>,  <span class="comment">// Stateless chain</span>
+    <span class="string"><span class="delimiter">'</span><span class="content">/**</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter</span><span class="delimiter">'</span></span>                                                                          <span class="comment">// Traditional chain</span>
+]</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>To understand this syntax, please read the
+<a href="http://grails-plugins.github.io/grails-spring-security-core/guide/filters.html">Spring Security Core documentation</a>.
+Long story short: <code>JOINED_FILTERS</code> refers to all the configured filters. The minus (<code>-</code>) notation means all the previous values
+but the neglected one.</p>
+</div>
+<div class="paragraph">
+<p>So the first chain applies all the filters except the stateful ones. The second one applies all the filters but the stateless ones.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Make sure that the stateless chain applies not only to your REST controllers, but also to the URL&#8217;s where this plugin
+filters are listening: by default, <code>/api/login</code> for authentication, <code>/api/logout</code> for
+logout and <code>/api/validate</code> for token validation.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The difference is that, in a traditional form-based authentication, Spring Security will respond with an HTTP 302 redirect
+to the login controller. That doesn&#8217;t work for an API, so in the stateless approach, an HTTP 401 response will be sent back.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_events">A.5. Events</h3>
+<div class="paragraph">
+<p>The Spring Security Rest plugin fires events exactly like Spring Security Core does.</p>
+</div>
+<div class="sect3">
+<h4 id="_event_notification">A.5.1. Event Notification</h4>
+<div class="paragraph">
+<p>You can set up event notifications in two ways. The sections that follow describe each approach in more detail.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Register an event listener, ignoring events that do not interest you. Spring allows only partial event subscription;
+you use generics to register the class of events that interest you, and you are notified of that class and all subclasses.</p>
+</li>
+<li>
+<p>Register one or more callback closures in <code>grails-app/conf/Config.groovy</code> that take advantage of the plugin&#8217;s
+<code>grails.plugin.springsecurity.rest.RestSecurityEventListener</code>. The listener does the filtering for you.</p>
+</li>
+</ol>
+</div>
+<div class="sect4">
+<h5 id="_authenticationeventpublisher">AuthenticationEventPublisher</h5>
+<div class="paragraph">
+<p>Spring Security REST publishes events using an
+<a href="http://docs.spring.io/spring-security/site/docs/3.2.x/apidocs/org/springframework/security/authentication/AuthenticationEventPublisher.html">AuthenticationEventPublisher</a>
+which in turn fire events using the
+<a href="http://docs.spring.io/spring/docs/3.1.x/javadoc-api/org/springframework/context/ApplicationEventPublisher.html">ApplicationEventPublisher</a>.
+By default no events are fired since the <code>AuthenticationEventPublisher</code> instance registered is a
+<code>grails.plugin.springsecurity.rest.authentication.NullRestAuthenticationEventPublisher</code>. But you can enable event
+publishing by setting <code>grails.plugin.springsecurity.useSecurityEventListener = true</code> in <code>grails-app/conf/Config.groovy</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can use the <code>useSecurityEventListener</code> setting to temporarily disable and enable the callbacks, or enable them
+per-environment.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="_token_creation">Token Creation</h5>
+<div class="paragraph">
+<p>Currently the Spring Security REST plugin supports a single event in addition to the default spring security events.
+The event is fired whenever a new token is created. See <code>grails.plugin.springsecurity.rest.RestTokenCreationEvent</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Every time a token is successfully submitted, an <code>AuthenticationSuccessEvent</code> will be fired.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_registering_an_event_listener">A.5.2. Registering an Event Listener</h4>
+<div class="paragraph">
+<p>Enable events with <code>grails.plugin.springsecurity.useSecurityEventListener = true</code> and create one or more Groovy or Java
+classes, for example:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 24. Custom event listener</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">package</span> com.foo.bar
 
+<span class="keyword">import</span> <span class="include">org.springframework.context.ApplicationListener</span>
+<span class="keyword">import</span> <span class="include">grails.plugin.springsecurity.rest.RestTokenCreationEvent</span>
+
+<span class="type">class</span> <span class="class">MySecurityEventListener</span>
+      <span class="directive">implements</span> ApplicationListener&lt;RestTokenCreationEvent&gt; {
+
+   <span class="type">void</span> onApplicationEvent(RestTokenCreationEvent event) {
+      <span class="comment">// The access token is a delegate of the event, so you have access to an instance of `grails.plugin.springsecurity.rest.token.AccessToken`</span>
+   }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Register the class in <code>grails-app/conf/spring/resources.groovy</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 25. Event listener registration</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">import</span> <span class="include">com.foo.bar.MySecurityEventListener</span>
+
+beans = {
+   mySecurityEventListener(MySecurityEventListener)
+}</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect3">
+<h4 id="_registering_callback_closures">A.5.3. Registering Callback Closures</h4>
+<div class="paragraph">
+<p>Alternatively, enable events with <code>grails.plugin.springsecurity.useSecurityEventListener = true</code> and register one or
+more callback closure(s) in <code>grails-app/conf/Config.groovy</code> and let <code>SecurityEventListener</code> do the filtering.</p>
+</div>
+<div class="paragraph">
+<p>Implement the event handlers that you need, for example:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 26. Callback closures</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">grails.plugin.springsecurity.useSecurityEventListener = <span class="predefined-constant">true</span>
+
+grails.plugin.springsecurity.onRestTokenCreationEvent = { e, appCtx -&gt;
+   <span class="comment">// handle RestTokenCreationEvent</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>None of these closures are required; if none are configured, nothing will be called. Just implement the event handlers
+that you need.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_authentication_endpoint">A.6. Authentication Endpoint</h3>
+<div class="paragraph">
+<p>The <a href="http://alvarosanchez.github.io/grails-spring-security-rest/latest/docs/gapi/grails/plugin/springsecurity/rest/RestAuthenticationFilter.html">authentication filter</a>
+uses the default <code>authenticationManager</code> bean, which in turn uses all the registered authentication
+providers. See the <a href="http://grails-plugins.github.io/grails-spring-security-core/guide/authenticationProviders.html">Spring Security Core guide</a>
+for more information about how to define your own providers. Note that you can easily plug any Spring Security sub-plugin
+(like the LDAP one) to use a different authentication strategy.</p>
+</div>
+<div class="paragraph">
+<p>If the authentication is successful, a token generator is used to generate a token, and a
+token storage implementation is used to store the token. Finally, the JSON response sent back to the
+client is rendered by a <code>restAuthenticationTokenJsonRenderer</code> bean. See the token rendering documentation for more details.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This authentication filter will only be applied to the above configured URL and can also be disabled, in case a different approach
+for token creation is followed. In the rest of the cases, the request will continue through the filter chain, reaching Spring Security
+Core filters. Bear in mind that, by default, Spring Security Core 2.x locks down all URL&#8217;s unless a explicit securiy rule has been
+specified for each of them.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="http://grails-plugins.github.io/grails-spring-security-core/guide/single.html#requestMappings">Spring Security Core documentation</a>
+for more information.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following are the <code>Config.groovy</code> properties available:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. Authentication configuration options</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Config key</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.login.active</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.login.endpointUrl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/api/login</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.login.failureStatusCode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>401</code></p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+<div class="sect3">
+<h4 id="_extracting_credentials_from_the_request">A.6.1. Extracting credentials from the request</h4>
+<div class="paragraph">
+<p>The plugin supports 2 ways of extracting the username and password: using request parameters, and using a JSON payload.
+To align with the RESTful principles, JSON payload is the default behaviour.</p>
+</div>
+<div class="sect4">
+<h5 id="_from_a_json_request">From a JSON request</h5>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 3. JSON credentials extraction configuration properties</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Config key</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.login.useJsonCredentials</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.login.usernamePropertyName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>username</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.login.passwordPropertyName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>password</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The default implementation expects a request like this:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 27. Example JSON authentication request</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">{
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">username</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">john.doe</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">password</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">dontTellAnybody</span><span class="delimiter">&quot;</span></span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you use <code>usernamePropertyName</code> and <code>passwordPropertyName</code> properties mentioned above, your JSON request can look like:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 28. Custom JSON authentication request</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">{
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">login</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">john.doe</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">pwd</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">dontTellAnybody</span><span class="delimiter">&quot;</span></span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With the following config:</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="listingblock">
+<div class="title">Listing 29. Custom JSON authentication configuration properties</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">grails.plugin.springsecurity.rest.login.usernamePropertyName = <span class="string"><span class="delimiter">'</span><span class="content">login</span><span class="delimiter">'</span></span>
+grails.plugin.springsecurity.rest.login.passwordPropertyName = <span class="string"><span class="delimiter">'</span><span class="content">pwd</span><span class="delimiter">'</span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If your JSON request format is different, you can plug your own implementation by defining a class which extends
+<code>http://alvarosanchez.github.io/grails-spring-security-rest/latest/docs/gapi/grails/plugin/springsecurity/rest/credentials/AbstractJsonPayloadCredentialsExtractor.html[AbstractJsonPayloadCredentialsExtractor]</code>.
+The default implementation looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 30. <code>DefaultJsonPayloadCredentialsExtractor</code></div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="annotation">@Slf4j</span>
+<span class="type">class</span> <span class="class">DefaultJsonPayloadCredentialsExtractor</span> <span class="directive">extends</span> AbstractJsonPayloadCredentialsExtractor {
+
+    <span class="predefined-type">String</span> usernamePropertyName
+    <span class="predefined-type">String</span> passwordPropertyName
+
+    UsernamePasswordAuthenticationToken extractCredentials(HttpServletRequest httpServletRequest) {
+        <span class="keyword">def</span> jsonBody = getJsonBody(httpServletRequest)
+
+        <span class="keyword">if</span> (jsonBody) {
+            <span class="predefined-type">String</span> username = jsonBody.<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>usernamePropertyName<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>
+            <span class="predefined-type">String</span> password = jsonBody.<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">${</span>passwordPropertyName<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>
+
+            log.debug <span class="string"><span class="delimiter">&quot;</span><span class="content">Extracted credentials from JSON payload. Username: </span><span class="inline"><span class="inline-delimiter">${</span>username<span class="inline-delimiter">}</span></span><span class="content">, password: </span><span class="inline"><span class="inline-delimiter">${</span>password?.size()?<span class="string"><span class="delimiter">'</span><span class="content">[PROTECTED]</span><span class="delimiter">'</span></span>:<span class="string"><span class="delimiter">'</span><span class="content">[MISSING]</span><span class="delimiter">'</span></span><span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>
+
+            <span class="keyword">new</span> UsernamePasswordAuthenticationToken(username, password)
+        } <span class="keyword">else</span> {
+            log.debug <span class="string"><span class="delimiter">&quot;</span><span class="content">No JSON body sent in the request</span><span class="delimiter">&quot;</span></span>
+            <span class="keyword">return</span> <span class="predefined-constant">null</span>
+        }
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once you are done, register it in <code>resources.groovy</code> with the name <code>credentialsExtractor</code>.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="_from_request_parameters">From request parameters</h5>
+<div class="paragraph">
+<p>Note that the name of the parameters can also be customised:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 4. Parameter extraction configuration options</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Config key</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.login.useRequestParamsCredentials</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.login.usernamePropertyName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>username</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.login.passwordPropertyName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>password</code></p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_logout">A.6.2. Logout</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Logout is not possible when using JWT tokens (the default strategy), as no state is kept in the server. If
+you still want to have logout, you can provide your own implementation by creating a subclass of
+<a href="http://alvarosanchez.github.io/grails-spring-security-rest/latest/docs/gapi/grails/plugin/springsecurity/rest/token/storage/jwt/JwtTokenStorageService.html">JwtTokenStorageService</a>
+and overriding the methods <code>storeToken</code> and <code>removeToken</code>.</p>
+</div>
+<div class="paragraph">
+<p>Then, register your implementation in <code>resources.groovy</code> as <code>tokenStorageService</code>.</p>
+</div>
+<div class="paragraph">
+<p>However, a more rational approach would be just to remove the token from the client (eg, browser&#8217;s local storage) and
+let the tokens expire (they will expire anyway, unlike with other storages like Memcached or Redis where they get refreshed
+on every access).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <a href="http://alvarosanchez.github.io/grails-spring-security-rest/latest/docs/gapi/grails/plugin/springsecurity/rest/RestLogoutFilter.html">logout filter</a>
+exposes an endpoint for deleting tokens. It will read the token from an HTTP header. If found, will delete it from the
+storage, sending a 200 response. Otherwise, it will send a 404 response.</p>
+</div>
+<div class="paragraph">
+<p>You can configure it in <code>Config.groovy</code> using this properties:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 5. Logout configuration options</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Config key</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.logout.endpointUrl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/api/logout</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.validation.headerName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>X-Auth-Token</code></p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_token_generation">A.7. Token Generation</h3>
+<div class="paragraph">
+<p>By default, the plugin generates JWT tokens. Note that when using JWT, you can&#8217;t plug any other token generator.</p>
+</div>
+<div class="paragraph">
+<p>If you are not using JWT, but any stateful strategy like Memcached or GORM, the following strategies are available:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://alvarosanchez.github.io/grails-spring-security-rest/latest/docs/gapi/grails/plugin/springsecurity/rest/token/generation/SecureRandomTokenGenerator.html">Using java.security.SecureRandom</a>.</p>
+</li>
+<li>
+<p><a href="http://alvarosanchez.github.io/grails-spring-security-rest/latest/docs/gapi/grails/plugin/springsecurity/rest/token/generation/UUIDTokenGenerator.html">Using java.util.UUID</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The strategy used is configurable in <code>Config.groovy</code>:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 6. Token generation configuration options</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Config key</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.generation.useSecureRandom</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.generation.useUUID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Both of them generate tokens of 32 alphanumeric characters.</p>
+</div>
+<div class="paragraph">
+<p>That should be enough for most of the human beings. But if you still want to provide your own implementation,
+simply write a class implementing
+<a href="http://alvarosanchez.github.io/grails-spring-security-rest/latest/docs/gapi/grails/plugin/springsecurity/rest/token/generation/TokenGenerator.html">TokenGenerator</a>
+and wire it up in <code>resources.groovy</code> as <code>tokenGenerator</code>.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="_token_storage">A.8. Token Storage</h3>
+<div class="paragraph">
+<p>The tokens are stored on the server using a <code>tokenStorageService</code> bean. The plugin comes with out-of-the-box support
+for JWT, Memcached, GORM and <a href="http://grails.org/plugin/cache">Grails Cache</a>, but you can use your own strategy implementing the
+<a href="http://alvarosanchez.github.io/grails-spring-security-rest/latest/docs/gapi/grails/plugin/springsecurity/rest/token/storage/TokenStorageService.html">TokenStorageService</a>
+interface.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The default implementation, JWT, is stateless. Nothing is really stored. However, the plugin still gives a
+chance to the other implementations to store the principal if they need to.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_json_web_token">A.8.1. JSON Web Token</h4>
+<div class="paragraph">
+<p>JSON Web Token (JWT) is an <a href="http://tools.ietf.org/html/draft-ietf-oauth-json-web-token">IETF standard</a> (in progress)
+which defines a secure way to encapsulate arbitrary data that can be sent over unsecure URL&#8217;s.</p>
+</div>
+<div class="paragraph">
+<p>Generally speaking, JWT&#8217;s can be useful in the following use cases:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When generating "one click" action emails, like "delete this comment" or "add this to favorites". Instead of giving
+the users URL&#8217;s like <code>/comment/delete/123</code>, you can give them something like <code>/comment/delete/&lt;JWT_TOKEN&gt;</code>, where the
+<code>JWT_TOKEN</code> contains encapsulated information about the user and the comment, in a safe way, so authentication is not required.</p>
+</li>
+<li>
+<p>To achieve single sign-on, by sharing a JWT across applications.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the context of authentication and authorization, JWT will help you implement a stateless implementation, as the
+principal information is stored directly in the JWT.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="sect4">
+<h5 id="_how_does_a_jwt_looks_like">How does a JWT looks like?</h5>
+<div class="imageblock">
+<div class="content">
+<img src="jwt.png" alt="jwt">
+</div>
+<div class="title">Figure 2. JWT example</div>
+</div>
+<div class="sect5">
+<h6 id="_header">Header</h6>
+<div class="paragraph">
+<p>A base64-encoded JSON like:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 31. JWT header</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">{
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">alg</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HS256</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">typ</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">JWT</span><span class="delimiter">&quot;</span></span>
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_claims">Claims</h6>
+<div class="paragraph">
+<p>A base64-encoded JSON like:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 32. JWT claims</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">{
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">exp</span><span class="delimiter">&quot;</span></span>: <span class="integer">1422990129</span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">sub</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">jimi</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">roles</span><span class="delimiter">&quot;</span></span>: [
+        <span class="string"><span class="delimiter">&quot;</span><span class="content">ROLE_ADMIN</span><span class="delimiter">&quot;</span></span>,
+        <span class="string"><span class="delimiter">&quot;</span><span class="content">ROLE_USER</span><span class="delimiter">&quot;</span></span>
+    ],
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">iat</span><span class="delimiter">&quot;</span></span>: <span class="integer">1422986529</span>
+}</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect5">
+<h6 id="_signature">Signature</h6>
+<div class="paragraph">
+<p>Depends on the algorithm specified on the header, it can be a digital signature of the base64-encoded header and claims,
+or an encryption of them using RSA.</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_signed_jwt_s">Signed JWT&#8217;s</h5>
+<div class="paragraph">
+<p>By default, this plugin uses signed JWT&#8217;s as specified by the
+<a href="https://tools.ietf.org/html/draft-ietf-jose-json-web-signature">JSON Web Signature</a> specification. More specifically,
+the algorithm used is HMAC SHA-256 with a specified shared secret. The relevant configuration properties are:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 7. JWT configuration options for signing</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Config key</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.useJwt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.jwt.useSignedJwt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.jwt.secret</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>'qrD6h8K6S9503Q06Y6Rfk21TErImPYqa'</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.jwt.expiration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3600</code></p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="_encrypted_jwt_s">Encrypted JWT&#8217;s</h5>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Grails&#8217;s <code>grails-docs</code> artifact includes a version of <code>com.lowagie:itext</code> which in turns bring old BouncyCastle&#8217;s libraries
+into the classpath. To avoid the problem, you have to override explicitly that dependency:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 33. Excluding BouncyCastle&#8217;s libraries</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">build(<span class="string"><span class="delimiter">&quot;</span><span class="content">com.lowagie:itext:2.0.8</span><span class="delimiter">&quot;</span></span>) { excludes <span class="string"><span class="delimiter">&quot;</span><span class="content">bouncycastle:bcprov-jdk14:138</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">org.bouncycastle:bcprov-jdk14:1.38</span><span class="delimiter">&quot;</span></span> }
+{code}</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In the previous strategy, the claims are just signed, so it prevents an attacker to tamper its contents to introduce
+malicious data or try a privilege escalation by adding more roles. However, the claims can be decoded just by using
+Base 64.</p>
+</div>
+<div class="paragraph">
+<p>If the claims contains sensitive information, you can use a
+<a href="https://tools.ietf.org/html/draft-ietf-jose-json-web-encryption">JSON Web Encryption</a> algorithm to prevent them to be decoded.
+Particularly, this plugin uses RSAES OAEP for key encryption and AES GCM (Galois/Counter Mode) algorithm with a 256 bit key
+for content encryption.</p>
+</div>
+<div class="paragraph">
+<p>By default, RSA public/private keys ar generated every time the application runs. This means that  generated tokens
+won&#8217;t be decrypted across executions of the application. So better create your own key pair using OpenSSL:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 34. Certificate generation for JWT</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">openssl genrsa -out private_key.pem 2048
+openssl pkcs8 -topk8 -inform PEM -outform DER -in private_key.pem -out private_key.der -nocrypt
+openssl rsa -in private_key.pem -pubout -outform DER -out public_key.der</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>Then, configure the keys properly, along with the rest of the configuration:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 8. JWT configuration options for signing</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Config key</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.useJwt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.jwt.useEncryptedJwt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.jwt.privateKeyPath</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>null</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.jwt.publicKeyPath</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>null</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Example configuration:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 35. JWT encryption example configuration</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">grails.plugin.springsecurity.rest.token.storage.jwt.useEncryptedJwt = <span class="predefined-constant">true</span>
+grails.plugin.springsecurity.rest.token.storage.jwt.privateKeyPath = <span class="string"><span class="delimiter">'</span><span class="content">/path/to/private_key.der</span><span class="delimiter">'</span></span>
+grails.plugin.springsecurity.rest.token.storage.jwt.publicKeyPath = <span class="string"><span class="delimiter">'</span><span class="content">/path/to/public_key.der</span><span class="delimiter">'</span></span></code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The performance of encryption algorithms is much slower compared with signing ones. If you are considering encrypting
+you JWT&#8217;s, think if you really need it.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="_token_expiration_and_refresh_tokens">Token expiration and refresh tokens</h5>
+<div class="paragraph">
+<p>When using JWT, issued access tokens expire after a period of time, and they are paired with refresh tokens, eg:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 36. Sample access token response, including refresh token</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">{
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">username</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">jimi</span><span class="delimiter">&quot;</span></span>,
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">roles</span><span class="delimiter">&quot;</span></span>: [
+      <span class="string"><span class="delimiter">&quot;</span><span class="content">ROLE_ADMIN</span><span class="delimiter">&quot;</span></span>,
+      <span class="string"><span class="delimiter">&quot;</span><span class="content">ROLE_USER</span><span class="delimiter">&quot;</span></span>
+   ],
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">expires_in</span><span class="delimiter">&quot;</span></span>: <span class="integer">3600</span>,
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">token_type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Bearer</span><span class="delimiter">&quot;</span></span>,
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">refresh_token</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ.fUaSWIdZakFX7CyimRIPhuw0sfevgmwL2xzm5H0TuaqwKx24EafCO0TruGKG-lN-wGCITssnF2LQTqRzQGp0PoLXHfUJ0kkz5rBl6LtnRu7cdD1ZUNYXLJtFjQ3IATzoo15tPafRPyStG1Qm7-1L0VxquhrLxkkpti0F1_VTytZAq8ltFrnxM4ahJUwS7eriivvdLqmHtnwuXw0kBXEseIyCkiyKklWDJAcD_P_gHoQJvSCoXedlr7Pp0n6LEUrRWJ2Hb-Zyt9dWqWDxm9nyDeEVtEZGcQtpgCGgbXxaUpULIy5nvrbRzXSNyT6iXhK1CLqiFVkfh-Y-DHXdB6Q4sg.uYdpxl835KnlkqC5.gBgSnPWZOo6FINovJNG7Xx2RuS09QJbU4-_J4EgZQkygt8xE-HfdYaOmtmJLjGJR1XKoaRsuX1gNjFoCZgqWAon6.Zsrk52dkjskSVQLXZBQooQ</span><span class="delimiter">&quot;</span></span>,
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">access_token</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ.n-gGe65x0SlSXS3fTG8ZLdXvv6b5_1pDvkcGyCjFy-vm1VhaBEQL5p3hc6iUcCAcuyrqzGk95lV9dHCv46cNfCiUFHWfbEcd4nqScIxBbc28xO9L1mNLnZ0G1rx1Mx1L0Y_ZPoSxDXpJaHCT28cdZffHLxx2B9ioIClgdlYBAJ5Oz8VT39-D0QSomS6QhFqmcpbDsXrsKxs545Pn-TIlu-fSQ4wpIvAxusOKB6CV2EYKqBplMBrh-3btE8WksVcX2N3LsrcMhrKxSKi93c06MZh6JzSLWe5bl9hvUvBdEuwDrk-fQgD3ZlmjjoevRWYhv_kslW1PlqUHYmKOQ7csUw.3mvvsFWikEjZzExA.YixjnnzzcPRy_uUpgPv5zqOfshv3pUwfrME0AijpsB7u9CmJe94g6f2y_3vqUps-5weKKGZyk3ZtnwEbPVAk9-HZt-Y27SbZl4JNCFEOLVsMsK8.h4j9BdFXuWKKez6xxRAwJA</span><span class="delimiter">&quot;</span></span>
+}</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>Refresh tokens never expire, and can be used to obtain a new access token by sending a POST request to the
+<code>/oauth/access_token</code> endpoint:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 37. Sample HTTP request to obtain an access token</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">POST /myApp/oauth/access_token HTTP/<span class="float">1.1</span>
+Host: server.example.com
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=refresh_token&amp;refresh_token=eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ....</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As you can see, is a form request with 2 parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>grant_type</code>: must be <code>refres_token</code> always.</p>
+</li>
+<li>
+<p><code>refresh_token</code>: the refresh token provided earlier.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>As refresh tokens never expire, they must be securely stored in your client application. See
+<a href="https://tools.ietf.org/html/rfc6749#section-10.4">section 10.4 of the OAuth 2.0 spec</a> for more information.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="_memcached">Memcached</h5>
+<div class="paragraph">
+<p>To use Memcached, simply define the following configuration properties to match your environments accordingly:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 9. Memcached configuration options</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Config key</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.useMemcached</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.memcached.hosts</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>localhost:11211</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.memcached.username</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>''</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.memcached.password</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>''</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.memcached.expiration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3600</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>For development, if you have Memcached installed locally with the default settings, just define
+<code>grails.plugin.springsecurity.rest.token.storage.useMemcached = true</code>. It should work.</p>
+</div>
+<div class="paragraph">
+<p>In Memcached tokens will expire automatically after the configured timeout (1h by default).
+They get refreshed on every access</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="_gorm">GORM</h5>
+<div class="paragraph">
+<p>To use GORM, these are the relevant configuration properties:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 10. GORM configuration options</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Config key</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Default value</strong>
+
+<code>grails.plugin.springsecurity.rest.token.storage.useGorm</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.gorm.tokenDomainClassName</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>null</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.gorm.tokenValuePropertyName</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tokenValue</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.gorm.usernamePropertyName</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The relevant domain class should look something like this:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 38. Authentication token domain class example</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">package</span> org.example.product
+
+<span class="type">class</span> <span class="class">AuthenticationToken</span> {
+
+    <span class="predefined-type">String</span> tokenValue
+    <span class="predefined-type">String</span> username
+
+    <span class="directive">static</span> mapping = {
+        version <span class="predefined-constant">false</span>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For the <code>tokenDomainClassName</code> configuration you must enter a fully qualified class name. In the case of the example above:
+<code>grails.plugin.springsecurity.rest.token.storage.gorm.tokenDomainClassName = 'org.example.product.AuthenticationToken'</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>A few things to take into consideration when using GORM for token storage:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Instead of storing the whole <code>UserDetails</code> object, probably only the username is needed. This is because applications
+using this strategy will probably have the standard User and Role domain classes. When the token is verified the username
+is passed to the default <code>userDetailsService</code> bean, which in the case of the default Spring Security Core GORM
+implementation will fetch the information from the mentioned domain classes.</p>
+</li>
+<li>
+<p>GORM&#8217;s optimistic locking feature is likely unnecessary and may cause performance issues.</p>
+</li>
+<li>
+<p>You&#8217;ll have to handle token expiration by yourself via Quartz jobs or a similar mechanism. There are various ways you might
+go about this.</p>
+</li>
+</ul>
+</div>
+<div class="sect5">
+<h6 id="_gorm_token_expiration_examples">GORM Token Expiration Examples</h6>
+<div class="paragraph">
+<p>Adding a GORM autoTimestamp property like <code>lastUpdated</code> or <code>dateCreated</code> and sorting out stale or old tokens with Quartz jobs
+are the most obvious routes. Each has its drawbacks though.</p>
+</div>
+<div class="paragraph">
+<p><code>dateCreated</code> is useful if you want tokens to expire a set time after they are issued. However, API users who didn&#8217;t pay
+attention to when their token was issued may find themselves needing a new token unexpectedly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="predefined-type">Date</span> dateCreated</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>lastUpdated</code> requires a change to the token domain instance in order to be triggered. Something as simple as an access
+counter may work as a strategy to keepTokens fresh, but doing a write to a disk based database on each token access may
+be something you would prefer to avoid for the sake of performance.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="predefined-type">Date</span> lastUpdated
+<span class="predefined-type">Integer</span> accessCount = <span class="integer">0</span>
+
+<span class="keyword">def</span> <span class="function">afterLoad</span>() {
+  accessCount++
+}</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>Simply using your own date or timestamp is also a valid option.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="predefined-type">Date</span> refreshed = <span class="keyword">new</span> <span class="predefined-type">Date</span>()
+
+<span class="keyword">def</span> <span class="function">afterLoad</span>() {
+    <span class="comment">// if being accessed and it is more than a day since last marked as refreshed</span>
+    <span class="comment">// and it hasn't been wiped out by Quartz job (it exists, duh)</span>
+    <span class="comment">// then refresh it</span>
+    <span class="keyword">if</span> (refreshed &lt; <span class="keyword">new</span> <span class="predefined-type">Date</span>() -<span class="integer">1</span>) {
+        refreshed = <span class="keyword">new</span> <span class="predefined-type">Date</span>()
+        <span class="local-variable">it</span>.save()
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is an example quartz job to go with the custom refresh timestamp above:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">class</span> <span class="class">RemoveStaleTokensJob</span> {
+    <span class="directive">static</span> triggers = {
+        cron <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">every4hours</span><span class="delimiter">'</span></span>, <span class="key">cronExpression</span>: <span class="string"><span class="delimiter">'</span><span class="content">0 0 */4 * * *</span><span class="delimiter">'</span></span>
+    }
+
+    <span class="type">void</span> execute() {
+        AuthenticationToken.executeUpdate(<span class="string"><span class="delimiter">'</span><span class="content">delete AuthenticationToken a where a.refreshed &lt; ?</span><span class="delimiter">'</span></span> [<span class="keyword">new</span> <span class="predefined-type">Date</span>()-<span class="integer">1</span>])
+    }
+}</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_redis">Redis</h5>
+<div class="paragraph">
+<p>To use Redis as a token store simply you just have to enable it in you configuration by setting <code>useRedis</code> to <code>true</code>
+(see table below).</p>
+</div>
+<div class="paragraph">
+<p>You have to have the <code>redis</code> plugin installed in order to be able to use Redis as your token store. Refer to the
+<a href="https://github.com/grails-plugins/grails-redis">Redis plugin documentation</a> for more details about how to configure it.</p>
+</div>
+<div class="paragraph">
+<p>Configuration options for Redis:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 11. Redis configuration options</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Config key</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.useRedis</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.redis.expiration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3600</code></p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_grails_cache">A.8.2. Grails Cache</h4>
+<div class="paragraph">
+<p>To use <a href="http://grails.org/plugin/cache">Grails Cache</a>, simply define a cache name:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 12. Redis configuration options</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Config key</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.useGrailsCache</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.grailsCacheName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>null</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The cache name should correspond to a name specified in the [cache DSL|http://grails-plugins.github.io/grails-cache/docs/manual/guide/usage.html#dsl].</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Token expiration / eviction / TTL</div>
+<div class="paragraph">
+<p>By default, Spring Cache abstraction
+<a href="http://docs.spring.io/spring/docs/3.2.x/spring-framework-reference/html/cache.html#cache-specific-config">does not support expiration</a>.
+It depends on the specific support of the actual providers. Grails has several plugins for this:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://grails-plugins.github.io/grails-cache/guide/usage.html#dsl">Core</a>: unsupported.</p>
+</li>
+<li>
+<p><a href="http://grails-plugins.github.io/grails-cache-ehcache/guide/usage.html#dsl">Ehcache</a>: supported.</p>
+</li>
+<li>
+<p><a href="http://grails-plugins.github.io/grails-cache-redis/guide/usage.html#dsl">Redis</a>: unsupported.</p>
+</li>
+<li>
+<p><a href="http://grails.org/plugin/cache-gemfire">Gemfire</a>: unsupported.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>There is a bug in <code>:cache-ehcache:1.0.0</code> plugin that will cause issues. It&#8217;s recommended that you use the latest version.
+See <a href="https://github.com/alvarosanchez/grails-spring-security-rest/issues/89">#89</a> for more information.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_token_rendering">A.9. Token Rendering</h3>
+<div class="paragraph">
+<p>By default, this plugin renders the token in <a href="http://tools.ietf.org/html/rfc6750">RFC 6750 Bearer Token</a> format:</p>
+</div>
+<div class="listingblock">
+<div class="title">Sample Access token response</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">HTTP/<span class="float">1.1</span> <span class="integer">200</span> OK
+Content-Type: application/json;charset=UTF-<span class="integer">8</span>
+Cache-Control: no-store
+Pragma: no-cache
+
+{
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">access_token</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MjI5OTU5MjIsInN1YiI6ImppbWkiLCJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sImlhdCI6MTQyMjk5MjMyMn0.rA7A2Gwt14LaYMpxNRtrCdO24RGrfHtZXY9fIjV8x8o</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">token_type</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Bearer</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">username</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">john.doe</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">roles</span><span class="delimiter">&quot;</span></span>: [
+        <span class="string"><span class="delimiter">&quot;</span><span class="content">ROLE_ADMIN</span><span class="delimiter">&quot;</span></span>,
+        <span class="string"><span class="delimiter">&quot;</span><span class="content">ROLE_USER</span><span class="delimiter">&quot;</span></span>
+    ]
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>As per the RFC, <code>access_token</code> and <code>token_type</code> property names cannot be customised.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The JSON structure can be customised with the following configuration keys:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 13. Token rendering configuration options</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Config key</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.rendering.usernamePropertyName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>username</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.rendering.authoritiesPropertyName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>roles</code></p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>E.g., with the following configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">grails.plugin.springsecurity.rest.token.rendering.usernamePropertyName = <span class="string"><span class="delimiter">'</span><span class="content">login</span><span class="delimiter">'</span></span>
+grails.plugin.springsecurity.rest.token.rendering.authoritiesPropertyName = <span class="string"><span class="delimiter">'</span><span class="content">permissions</span><span class="delimiter">'</span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The output will look like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">{
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">access_token</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MjI5OTU5MjIsInN1YiI6ImppbWkiLCJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sImlhdCI6MTQyMjk5MjMyMn0.rA7A2Gwt14LaYMpxNRtrCdO24RGrfHtZXY9fIjV8x8o</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">token_type</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Bearer</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">login</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">john.doe</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">permissions</span><span class="delimiter">&quot;</span></span>: [
+        <span class="string"><span class="delimiter">&quot;</span><span class="content">ROLE_ADMIN</span><span class="delimiter">&quot;</span></span>,
+        <span class="string"><span class="delimiter">&quot;</span><span class="content">ROLE_USER</span><span class="delimiter">&quot;</span></span>
+    ]
+}</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="sect3">
+<h4 id="_disabling_bearer_tokens_support_for_full_response_customisation">A.9.1. Disabling bearer tokens support for full response customisation</h4>
+<div class="paragraph">
+<p>In order to fully customise the response, you need first to disable bearer tokens support by setting
+<code>grails.plugin.springsecurity.rest.token.validation.useBearerToken = false</code>. That will enable you to use this additional
+property:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 14. Token rendering configuration options</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Config key</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.rendering.tokenPropertyName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>access_token</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Disabling bearer token support impacts the way tokens are extracted from the HTTP request. Please, read carefully
+the chapter about token validation first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you want your own implementation, simply create a class implementing
+<a href="http://alvarosanchez.github.io/grails-spring-security-rest/docs/gapi/grails/plugin/springsecurity/rest/token/rendering/AccessTokenJsonRenderer.html">AccessTokenJsonRenderer</a>
+and wire it up in <code>resources.groovy</code> with name <code>accessTokenJsonRenderer</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The principal object stored in the security context, and passed to the JSON renderer, is coming from the configured
+authentication providers. In most cases, this will be a <code>UserDetails</code> object retrieved using the <code>userDetailsService</code> bean.</p>
+</div>
+<div class="paragraph">
+<p>If you want to render additional information in your JSON response, you have to:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configure an alternative <code>userDetailsService</code> bean that retrieves the additional information you want, and put it in a principal object.</p>
+</li>
+<li>
+<p>Configure an alternative <code>accessTokenJsonRenderer</code> that reads that information from the <code>restAuthenticationToken.principal</code> object.</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_token_validation_filter">A.10. Token Validation Filter</h3>
+<div class="paragraph">
+<p>The token validation filter looks for the token in the request and then tries to validate it using the configured
+token storage implementation.</p>
+</div>
+<div class="paragraph">
+<p>If the validation is successful, the principal object is stored in the security context. This allows you to use in
+your application <code>@Secured</code>, <code>springSecurityService.principal</code> and so on.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>springSecurityService.currentUser</code> expects a <code>grails.plugin.springsecurity.userdetails.GrailsUser</code> to perform a DB query.
+However, this plugins stores in the security context just a principal <code>Object</code>, because it does not assume you are using
+domain classes to store the users. Use <code>springSecurityService.principal</code> instead.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This plugin supports <a href="http://tools.ietf.org/html/rfc6750">RFC 6750 Bearer Token</a> specification out-of-the-box.</p>
+</div>
+<div class="sect3">
+<h4 id="_sending_tokens_in_the_request">A.10.1. Sending tokens in the request</h4>
+<div class="paragraph">
+<p>The token can be sent in the <code>Authorization</code> request header:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 39. Accessing a protected resource using <code>Authorization</code> request header</div>
+<div class="content">
+<pre class="CodeRay highlight"><code>GET /protectedResource HTTP/1.1
+Host: server.example.com
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MjI5OTU5MjIsInN1YiI6ImppbWkiLCJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sImlhdCI6MTQyMjk5MjMyMn0.rA7A2Gwt14LaYMpxNRtrCdO24RGrfHtZXY9fIjV8x8o</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or using form-encoded body parameters:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 40. Accessing a protected resource using body parameters</div>
+<div class="content">
+<pre class="CodeRay highlight"><code>POST /protectedResource HTTP/1.1
+Host: server.example.com
+Content-Type: application/x-www-form-urlencoded
+
+access_token=eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MjI5OTU5MjIsInN1YiI6ImppbWkiLCJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sImlhdCI6MTQyMjk5MjMyMn0.rA7A2Gwt14LaYMpxNRtrCdO24RGrfHtZXY9fIjV8x8o</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>If you need to use the <code>GET</code> HTTP method (to render images in an <code>img</code> tag, for example), you can also send the access token
+in a query string parameter named <code>access_token</code>:</p>
+</div>
+<div class="paragraph">
+<p>If you disable the bearer token support, you can customise it further:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">grails.plugin.springsecurity.rest.token.validation.useBearerToken = <span class="predefined-constant">false</span>
+grails.plugin.springsecurity.rest.token.validation.headerName = <span class="string"><span class="delimiter">'</span><span class="content">X-Auth-Token</span><span class="delimiter">'</span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you still want to have full access and read the token from a different part of the request, you can implement a
+<a href="http://alvarosanchez.github.io/grails-spring-security-rest/latest/docs/gapi/grails/plugin/springsecurity/rest/token/reader/TokenReader.html">TokenReader</a>
+and register it in your <code>resources.groovy</code>  as <code>tokenReader</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You must disable bearer token support to register your own <code>tokenReader</code> implementation.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect3">
+<h4 id="_anonymous_access">A.10.2. Anonymous access</h4>
+<div class="paragraph">
+<p>If you want to enable anonymous access to URL&#8217;s where this plugin&#8217;s filters are applied, you need to:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configure <code>enableAnonymousAccess = true</code> (see table below).</p>
+</li>
+<li>
+<p>Make sure that the <code>anonymousAuthenticationFilter</code> is applied before <code>restTokenValidationFilter</code>. See how to configure filters for more details.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For example, with this configuration:</p>
+</div>
+<div class="listingblock">
+<div class="title">Sample configuration to allow anonymous access</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">grails {
+    plugin {
+        springsecurity {
+            filterChain {
+                chainMap = [
+                    <span class="string"><span class="delimiter">'</span><span class="content">/api/guest/**</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">anonymousAuthenticationFilter,restTokenValidationFilter,restExceptionTranslationFilter,filterInvocationInterceptor</span><span class="delimiter">'</span></span>,
+                    <span class="string"><span class="delimiter">'</span><span class="content">/api/**</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter</span><span class="delimiter">'</span></span>,
+                    <span class="string"><span class="delimiter">'</span><span class="content">/**</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter</span><span class="delimiter">'</span></span>
+                ]
+            }
+
+            <span class="comment">//Other Spring Security settings</span>
+            <span class="comment">//...</span>
+
+            rest {
+                token {
+                    validation {
+                        enableAnonymousAccess = <span class="predefined-constant">true</span>
+                    }
+                }
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>The following chains are configured:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>/api/guest/**</code> is a stateless chain that allows anonymous access when no token is sent. If however a token is on the request, it will be validated.</p>
+</li>
+<li>
+<p><code>/api/**</code> is a stateless chain that doesn&#8217;t allow anonymous access. Thus, the token will always be required, and if missing, a Bad Request reponse will be sent back to the client.</p>
+</li>
+<li>
+<p><code>/**</code> (read: everything else) is a traditional stateful chain.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_validation_endpoint">A.10.3. Validation Endpoint</h4>
+<div class="paragraph">
+<p>There is also an endpoint available that you can call in case you want to know if a given token is valid. It looks for
+the token in a HTTP header as well, and if the token is still valid, it renders guide:authentication[its JSON representation].
+If the token does not exist, it will render a <code>grails.plugin.springsecurity.rest.login.failureStatusCode</code> response
+(<code>401</code> by default).</p>
+</div>
+<div class="paragraph">
+<p>The relevant configuration properties for the validation endpoint are:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 15. Validation endpoint configuration options</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Config key</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Default value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.validation.active</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.validation.headerName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>X-Auth-Token</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.validation.endpointUrl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/api/validate</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Note that <code>headerName</code> is only considered if <code>grails.plugin.springsecurity.rest.token.validation.useBearerToken</code> is set
+to <code>false</code>. Otherwise (the default approach), as per RFC 6750, the header name will be <code>Authorization</code> and the value
+will be <code>Bearer TOKEN_VALUE</code>.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cors_support">A.11. CORS support</h3>
+<div class="paragraph">
+<p>This plugin comes pre-installed with the <a href="http://grails.org/plugin/cors">CORS plugin</a>, which enables
+<a href="http://www.w3.org/TR/cors/">Cross-Origin Resource Sharing</a>. Refer to the
+<a href="https://github.com/davidtinker/grails-cors/blob/master/README.md">plugin documentation</a> to learn how to configure it.</p>
+</div>
+<div class="paragraph">
+<p>The CORS plugin activates itself by default. If you don&#8217;t want it for some environments, you can use
+<code>cors.enabled = false</code> within the appropriate environment block in your <code>Config.groovy</code>.</p>
+</div>
+<div class="paragraph">
+<p>If you don&#8217;t want CORS support at all, you can skip the plugin by excluding it
+when defining this plugin in your <code>BuildConfig.groovy</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 41. Excluding the CORS plugin</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">compile <span class="string"><span class="delimiter">'</span><span class="content">:spring-security-rest:{{VERSION}}</span><span class="delimiter">'</span></span>, {
+    exclude <span class="string"><span class="delimiter">'</span><span class="content">cors</span></span><span class="error">
+</span>}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that you have to explicitly expose the headers you are using for token validation. Otherwise, the frontend application
+won&#8217;t be allowed to read them:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">cors.headers = [<span class="string"><span class="delimiter">'</span><span class="content">Access-Control-Allow-Headers</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">Content-Type, Authorization</span><span class="delimiter">'</span></span>]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Be also aware of the default behaviour of the CORS plugin for <code>Access-Control-Allow-Origin</code> is to just echo the <code>Origin</code>
+header sent by the browser. Make sure that in your production environment you properly configure the header.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="_delegating_authentication_to_oauth_providers">A.12. Delegating authentication to OAuth providers</h3>
+<div class="paragraph">
+<p>This plugin is meant to be used in applications serving a REST API&#8217;s to pure Javascript clients. The main authentication
+flow of this plugin is to allow you to authenticate your users against any Spring Security-compatible user directory
+(like a DB or an LDAP server).</p>
+</div>
+<div class="paragraph">
+<p>However, there might be situations where you want to delegate the authentication against a third-party provider, like
+Google or Facebook. Unfortunately, your pure Javascript front-end application cannot request the providers directly using
+OAuth, because then the access keys will be made public.</p>
+</div>
+<div class="paragraph">
+<p>So is this plugin&#8217;s responsibility to provide endpoints so your Grails backend acts as a proxy for your front-end client.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>The flow is something like the following:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="oauth.png" alt="oauth">
+</div>
+<div class="title">Figure 3. OAuth delegation protocol</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The client application requests and endpoint that requires authentication, so the server responds with a 401 response (*).</p>
+</li>
+<li>
+<p>The client redirects the user to the login form (*).</p>
+</li>
+<li>
+<p>This time, instead of using username and password, the user clicks on "Login with Google" button.</p>
+</li>
+<li>
+<p>Browser navigates to a Grails URL. Grails will generate a Google Login URL, giving Google a Grails callback URL.</p>
+</li>
+<li>
+<p>Browser navigates to Google Login. User logs in, and Google redirects the browser to the Grails callback URL.</p>
+</li>
+</ol>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="olist arabic">
+<ol class="arabic" start="6">
+<li>
+<p>Browser navigates to that Grails callback URL. Then, Grails will use OAuth to fetch user information (like email) from
+Google. Based on that, will generate a REST API token and fetch and store principal information. The response from
+Grails will be a front-end URL where the token is a parameter.</p>
+</li>
+<li>
+<p>The browser will navigate to that URL, and the Javascript logic will read the token from the URL and store it locally.</p>
+</li>
+<li>
+<p>The client sends again a request to the protected resource, passing the token as an HTTP header (*).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The steps flagged with (*) remain unchanged from the normal flow.</p>
+</div>
+<div class="paragraph">
+<p>The Grails callback URL mentioned above has this general format: <code>${grails.serverURL}/oauth/callback/${providerName}</code>.
+You will need to configure such URL in your OAuth 2.0 provider.</p>
+</div>
+<div class="paragraph">
+<p>To support OAuth, this plugin uses <a href="https://github.com/leleuj/pac4j">Profile &amp; Authentication Client for Java</a>. So you
+can use any OAuth 2.0 provider they support. This includes at the time of writing:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dropbox.</p>
+</li>
+<li>
+<p>Facebook.</p>
+</li>
+<li>
+<p>GitHub.</p>
+</li>
+<li>
+<p>Google.</p>
+</li>
+<li>
+<p>LinkedIn.</p>
+</li>
+<li>
+<p>Windows Live.</p>
+</li>
+<li>
+<p>Wordpress.</p>
+</li>
+<li>
+<p>Yahoo.</p>
+</li>
+<li>
+<p>Paypal.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note that OAuth 1.0a providers also work, like Twitter.</p>
+</div>
+<div class="paragraph">
+<p>The plugin also supports <a href="https://www.apereo.org/projects/cas">CAS (Central Authentication Service)</a> using the OAuth
+authentication flow. See CAS Authentication for details.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>To start the OAuth authentication flow, from your frontend application, generate a link to
+<code>&lt;YOUR_GRAILS_APP&gt;/oauth/authenticate/&lt;provider&gt;</code>. The user clicking on that link represents step 4 in the previous
+diagram.</p>
+</div>
+<div class="paragraph">
+<p>Note that you can define the frontend callback URL in <code>Config.groovy</code> under
+<code>grails.plugin.springsecurity.rest.oauth.frontendCallbackUrl</code>. You need to define a closure that will be called with
+the token value as parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">grails.plugin.springsecurity.rest.oauth.frontendCallbackUrl = { <span class="predefined-type">String</span> tokenValue -&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">http://my.frontend-app.com/welcome.token=</span><span class="inline"><span class="inline-delimiter">${</span>tokenValue<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span> }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also define the URL as a <code>callback</code> parameter in the original link, eg:</p>
+</div>
+<div class="paragraph">
+<p><code>http://your-grails-api.com/oauth/authenticate/google?callback=http://your-frontend-app.com/auth-success.html?token=</code></p>
+</div>
+<div class="paragraph">
+<p>In this case, the token will be <strong>concatenated</strong> to the end of the URL.</p>
+</div>
+<div class="paragraph">
+<p>Upon successful OAuth authorisation (after step 6.1 in the above diagram), an
+<a href="http://alvarosanchez.github.io/grails-spring-security-rest/latest/docs/gapi/grails/plugin/springsecurity/rest/oauth/OauthUser.html">OauthUser</a>
+will be stored in the security context. This is done by a bean named <code>oauthUserDetailsService</code>. The
+<a href="http://alvarosanchez.github.io/grails-spring-security-rest/latest/docs/gapi/grails/plugin/springsecurity/rest/oauth/DefaultOauthUserDetailsService.html">default implementation</a>
+delegates to the configured <code>userDetailsService</code> bean, passing the profile ID as the username:</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="listingblock">
+<div class="title">Listing 42. DefaultOauthUserDetailsService</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">/**
+ * Builds an {`link OauthUser}. Delegates to the default {`link UserDetailsService.loadUserByUsername(java.lang.String)}
+ * where the username passed is {`link UserProfile.getId()}. If the user is not found, it will create a new one with
+ * the the default roles.
+ */</span>
+<span class="error">`</span>Slf4j
+<span class="type">class</span> <span class="class">DefaultOauthUserDetailsService</span> <span class="directive">implements</span> OauthUserDetailsService {
+
+    <span class="error">`</span>Delegate
+    UserDetailsService userDetailsService
+
+    UserDetailsChecker preAuthenticationChecks
+
+    OauthUser loadUserByUserProfile(CommonProfile userProfile, <span class="predefined-type">Collection</span>&lt;GrantedAuthority&gt; defaultRoles)
+            <span class="directive">throws</span> UsernameNotFoundException {
+        UserDetails userDetails
+        OauthUser oauthUser
+
+        <span class="keyword">try</span> {
+            log.debug <span class="string"><span class="delimiter">&quot;</span><span class="content">Trying to fetch user details for user profile: </span><span class="inline"><span class="inline-delimiter">${</span>userProfile<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>
+            userDetails = userDetailsService.loadUserByUsername userProfile.id
+
+            log.debug <span class="string"><span class="delimiter">&quot;</span><span class="content">Checking user details with </span><span class="inline"><span class="inline-delimiter">${</span>preAuthenticationChecks.class.name<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>
+            preAuthenticationChecks?.check(userDetails)
+
+            <span class="predefined-type">Collection</span>&lt;GrantedAuthority&gt; allRoles = userDetails.authorities + defaultRoles
+            oauthUser = <span class="keyword">new</span> OauthUser(userDetails.username, userDetails.password, allRoles, userProfile)
+        } <span class="keyword">catch</span> (UsernameNotFoundException unfe) {
+            log.debug <span class="string"><span class="delimiter">&quot;</span><span class="content">User not found. Creating a new one with default roles: </span><span class="inline"><span class="inline-delimiter">${</span>defaultRoles<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>
+            oauthUser = <span class="keyword">new</span> OauthUser(userProfile.id, <span class="string"><span class="delimiter">'</span><span class="content">N/A</span><span class="delimiter">'</span></span>, defaultRoles, userProfile)
+        }
+
+        <span class="keyword">return</span> oauthUser
+    }
+
+}</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>If you want to provide your own implementation, define it in <code>resources.groovy</code> with bean name <code>oauthUserDetailsService</code>.
+Make sure you implements the interface <code>OauthUserDetailsService</code></p>
+</div>
+<div class="paragraph">
+<p>If you want to do any additional post-OAuth authorisation check, you should do it on your <code>loadUserByUserProfile</code>
+implementation. This is useful if you want to allow your corporate users to log into your application using their Gmail
+account. In this case, you should decide based on OAuth20Profile.getEmail(), for instance:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 43. Custom loadUserByUserProfile implementation</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">OauthUser loadUserByUserProfile(OAuth20Profile userProfile, <span class="predefined-type">Collection</span>&lt;GrantedAuthority&gt; defaultRoles) <span class="directive">throws</span> UsernameNotFoundException {
+    <span class="keyword">if</span> (userProfile.email.endsWith(<span class="string"><span class="delimiter">'</span><span class="content">example.org</span><span class="delimiter">'</span></span>)) {
+        <span class="keyword">return</span> <span class="keyword">new</span> OauthUser(userProfile.id, <span class="string"><span class="delimiter">'</span><span class="content">N/A</span><span class="delimiter">'</span></span>, defaultRoles, userProfile)
+    } <span class="keyword">else</span> {
+        <span class="keyword">throw</span> <span class="keyword">new</span> UsernameNotFoundException(<span class="string"><span class="delimiter">&quot;</span><span class="content">User with email </span><span class="inline"><span class="inline-delimiter">${</span>userProfile.email<span class="inline-delimiter">}</span></span><span class="content"> now allowed. Only `example.org accounts are allowed.</span><span class="delimiter">&quot;</span></span>)
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In case of any OAuth authentication failure, the plugin will redirect back to the frontend application anyway, so it
+has a chance to render a proper error message and/or offer the user the option to try again. In that case, the token
+parameter will be empty, and both <code>error</code> and <code>message</code> params will be appended:</p>
+</div>
+<div class="paragraph">
+<p><code>http://your-frontend-app.com/auth-success.html?token=&amp;error=403&amp;message=User+with+email+jimmy%40gmail.com+now+allowed.+Only+%40example.com+accounts+are+allowed</code></p>
+</div>
+<div class="paragraph">
+<p>Below are some examples on how to configure it for Google, Facebook and Twitter.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="sect4">
+<h5 id="_google">Google</h5>
+<div class="paragraph">
+<p>Define the following block in your <code>Config.groovy</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 44. Google OAuth sample configuration</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">grails {
+    plugin {
+        springsecurity {
+
+            rest {
+
+                oauth {
+
+                    frontendCallbackUrl = { <span class="predefined-type">String</span> tokenValue -&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">http://my.frontend-app.com/welcome#token=</span><span class="inline"><span class="inline-delimiter">${</span>tokenValue<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span> }
+
+                    google {
+
+                        client = org.pac4j.oauth.client.Google2Client
+                        key = <span class="string"><span class="delimiter">'</span><span class="content">xxxx.apps.googleusercontent.com</span><span class="delimiter">'</span></span>
+                        secret = <span class="string"><span class="delimiter">'</span><span class="content">xxx</span><span class="delimiter">'</span></span>
+                        scope = org.pac4j.oauth.client.Google2Client.Google2Scope.EMAIL_AND_PROFILE
+                        defaultRoles = [<span class="string"><span class="delimiter">'</span><span class="content">ROLE_USER</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">ROLE_GOOGLE</span><span class="delimiter">'</span></span>]
+
+                    }
+                }
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>scope</code> can be from any value of the enum <code>org.pac4j.oauth.client.Google2Client.Google2Scope</code>. But if you use the
+default <code>OauthUserDetailsService</code>, you need to use <code>EMAIL_AND_PROFILE</code>. That is because the default implementation
+uses the profile ID as the username, and that is only returned by Google if <code>EMAIL_AND_PROFILE</code> scope is used.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="_facebook">Facebook</h5>
+<div class="paragraph">
+<p>Define the following block in your <code>Config.groovy</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 45. Facebook OAuth sample configuration</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">grails {
+    plugin {
+        springsecurity {
+
+            rest {
+
+                oauth {
+
+                    frontendCallbackUrl = { <span class="predefined-type">String</span> tokenValue -&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">http://my.frontend-app.com/welcome#token=</span><span class="inline"><span class="inline-delimiter">${</span>tokenValue<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span> }
+
+                    facebook {
+
+                        client = org.pac4j.oauth.client.FacebookClient
+                        key = <span class="string"><span class="delimiter">'</span><span class="content">xxx</span><span class="delimiter">'</span></span>
+                        secret = <span class="string"><span class="delimiter">'</span><span class="content">yyy</span><span class="delimiter">'</span></span>
+                        scope = <span class="string"><span class="delimiter">'</span><span class="content">email,user_location</span><span class="delimiter">'</span></span>
+                        fields = <span class="string"><span class="delimiter">'</span><span class="content">id,name,first_name,middle_name,last_name,username</span><span class="delimiter">'</span></span>
+                        defaultRoles = [<span class="string"><span class="delimiter">'</span><span class="content">ROLE_USER</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">ROLE_FACEBOOK</span><span class="delimiter">'</span></span>]
+                    }
+                }
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>scope</code> is a comma-separated list, <strong>without blanks</strong>, of Facebook permissions. See the
+<a href="https://developers.facebook.com/docs/reference/login/">Facebook documentation</a> for more details.</p>
+</div>
+<div class="paragraph">
+<p><code>fields</code> may contain a comma-separated list, <strong>without blanks</strong>, of
+<a href="https://developers.facebook.com/docs/graph-api/reference/user/">user fields</a>.</p>
+</div>
+<div class="paragraph">
+<p>Both <code>scope</code> and <code>fields</code> are optional, but it&#8217;s highly recommendable to fine tune those lists so you don&#8217;t ask for
+information you don&#8217;t need.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="_twitter">Twitter</h5>
+<div class="paragraph">
+<p>Define the following block in your <code>Config.groovy</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 46. Twitter OAuth sample configuration</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">grails {
+    plugin {
+        springsecurity {
+
+            rest {
+
+                oauth {
+
+                    frontendCallbackUrl = { <span class="predefined-type">String</span> tokenValue -&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">http://my.frontend-app.com/welcome#token=</span><span class="inline"><span class="inline-delimiter">${</span>tokenValue<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span> }
+
+                    twitter {
+
+                        client = org.pac4j.oauth.client.TwitterClient
+                        key = <span class="string"><span class="delimiter">'</span><span class="content">xxx</span><span class="delimiter">'</span></span>
+                        secret = <span class="string"><span class="delimiter">'</span><span class="content">yyy</span><span class="delimiter">'</span></span>
+                        defaultRoles = [<span class="string"><span class="delimiter">'</span><span class="content">ROLE_USER</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">ROLE_TWITTER</span><span class="delimiter">'</span></span>]
+                    }
+                }
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There is no additional configuration for Twitter.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="_cas_central_authentication_service">CAS (Central Authentication Service)</h5>
+<div class="paragraph">
+<p>Define the following block in your <code>Config.groovy</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 47. CAS sample configuration</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">grails {
+    plugin {
+        springsecurity {
+
+            rest {
+
+                oauth {
+
+                    frontendCallbackUrl = { <span class="predefined-type">String</span> tokenValue -&gt; <span class="string"><span class="delimiter">&quot;</span><span class="content">http://my.frontend-app.com/welcome#token=</span><span class="inline"><span class="inline-delimiter">${</span>tokenValue<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span> }
+
+                    cas {
+
+                        client = org.pac4j.cas.client.CasClient
+                        casLoginUrl = <span class="string"><span class="delimiter">&quot;</span><span class="content">https://my.cas-server.com/cas/login</span><span class="delimiter">&quot;</span></span>
+                    }
+                }
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Set <code>casLoginUrl</code> to the login URL of your CAS server.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_debugging">A.13. Debugging</h3>
+<div class="paragraph">
+<p>If you need debug information, you can specify the following entries in <code>Config.groovy</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 48. Logging setup</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">log4j = {
+    ...
+
+    debug  <span class="string"><span class="delimiter">'</span><span class="content">grails.plugin.springsecurity</span><span class="delimiter">'</span></span>,
+           <span class="string"><span class="delimiter">'</span><span class="content">grails.app.controllers.grails.plugin.springsecurity</span><span class="delimiter">'</span></span>,
+           <span class="string"><span class="delimiter">'</span><span class="content">grails.app.services.grails.plugin.springsecurity</span><span class="delimiter">'</span></span>,
+           <span class="string"><span class="delimiter">'</span><span class="content">org.pac4j</span><span class="delimiter">'</span></span>,
+           <span class="string"><span class="delimiter">'</span><span class="content">org.springframework.security</span><span class="delimiter">'</span></span>
+
+    ...
+}</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="_frequently_asked_questions">A.14. Frequently Asked Questions</h3>
+<div class="sect5">
+<h6 id="_why_this_token_based_implementation_can_t_i_use_http_basic_authentication">Why this token-based implementation? Can&#8217;t I use HTTP basic authentication?</h6>
+<div class="paragraph">
+<p>In theory you can. The only restriction to be truly stateless is to not use HTTP sessions at all. So if you go with
+basic authentication, you need to transfer the credentials back and forth every time.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s think about that. Keep in mind that your frontend is a pure HTML/Javascript application, consuming a REST API
+from the Grails side. So the first time, the Javascript application will make an API query and will receive a 401 response
+indicating that authentication is required. Then you present the user a form to enter credentials, you grab them, <strong>encode</strong>
+them with Base64 and in the next request, you send an HTTP header like <code>Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==</code>.</p>
+</div>
+<div class="paragraph">
+<p>Now remember you are doing RESTful application, so the session state is maintained in the client. That means that you
+would need to store that Base64 encoded string somewhere: cookies? HTML5 local storage? In any case, they are accessible
+using browser tools. And that&#8217;s the point: there is a huge security risk because Base64 it&#8217;s not encryption, just encoding.
+And it can be easily decoded.</p>
+</div>
+<div class="paragraph">
+<p>You could argue that someone can access the token in the browser. Yes, but having the token will not allow him to obtain
+user&#8217;s credentials. The tokens are just not decodable. And they can be revoked if necessary.</p>
+</div>
+<div class="paragraph">
+<p>Fortunately for you, a token-based solution is not a magic idea that I only got; it&#8217;s actually a specification:
+<a href="http://tools.ietf.org/html/rfc6750">RFC 6750 - The OAuth 2.0 Authorization Framework: Bearer Token Usage</a>.</p>
+</div>
+<div class="paragraph">
+<p>Moreover, if you use tokens, you have the chance to implement expiration policies.</p>
+</div>
+<div class="paragraph">
+<p>A couple of link with further explanations on the token-based flow:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://www.jamesward.com/2013/05/13/securing-single-page-apps-and-rest-services" class="bare">http://www.jamesward.com/2013/05/13/securing-single-page-apps-and-rest-services</a></p>
+</li>
+<li>
+<p><a href="http://blog.brunoscopelliti.com/authentication-to-a-restful-web-service-in-an-angularjs-web-app" class="bare">http://blog.brunoscopelliti.com/authentication-to-a-restful-web-service-in-an-angularjs-web-app</a></p>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect5">
+<h6 id="_why_can_t_the_api_be_secured_with_oauth">Why can&#8217;t the API be secured with OAuth?</h6>
+<div class="paragraph">
+<p><a href="http://tools.ietf.org/html/rfc6749">RFC 6749 - OAuth 2.0</a> specification does cover this scenario in what they call
+"public clients":</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Clients incapable of maintaining the confidentiality of their credentials (e.g., clients executing on the device used by the
+resource owner, such as an installed native application or a web browser-based application), and incapable of secure client
+authentication via any other means.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>The OAuth 2.0 specification supports public clients with the implicit grant. This plugin supports that by default when
+you delegate the authentication to another OAuth provider. If it&#8217;s you who are authenticating the users
+(via DB, LDAP, etc), the token-based flow of this plugin is <em>OAuth-ish</em>.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_why_you_didn_t_use_any_of_the_existing_oauth_plugins_why_pac4j">Why you didn&#8217;t use any of the existing OAuth plugins? Why pac4j?</h6>
+<div class="paragraph">
+<p>I&#8217;m aware of plugins like <a href="http://grails.org/plugin/oauth">OAuth</a> and
+<a href="http://grails.org/plugin/spring-security-oauth">Spring Security OAuth</a>, but all of them rely on Spring Security Core&#8217;s
+way of using HTTP sessions. So not acceptable.</p>
+</div>
+<div class="paragraph">
+<p>I chose pac4j because:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>They support major OAuth 2.0 providers out-of-the-box, whereas Scribe does not.</p>
+</li>
+<li>
+<p>It&#8217;s deadly simple and works just fine.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>I&#8217;m also aware of a pac4j-spring-security module. See my previous response on HTTP sessions.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_dude_this_is_awesome_how_can_i_compensate_you">Dude, this is awesome. How can I compensate you?</h6>
+<div class="paragraph">
+<p>I doubt you can :). You may try giving me free beers the next time you see me in a conference. Or you can just express
+your gratitude via <a href="https://twitter.com/alvaro_sanchez">Twitter</a>.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1353,7 +4263,7 @@ if they are <code>Comparable</code>, and <code>a.equals(b)</code> otherwise. To 
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2015-09-21 22:18:19 UTC
+Last updated 2015-09-23 00:27:28 UTC
 </div>
 </div>
 </body>
