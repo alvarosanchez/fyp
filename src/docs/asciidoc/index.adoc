@@ -50,9 +50,15 @@ include::5-planning-and-budget.adoc[]
 
 include::6-conclusions.adoc[]
 
+<<<
+
 [appendix]
 
-== Documentation
+== Official Documentation
+
+include::pluginDocs/index.adoc[]
+
+<<<
 
 [bibliography]
 

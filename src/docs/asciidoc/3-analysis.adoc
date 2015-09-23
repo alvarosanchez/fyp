@@ -1,9 +1,17 @@
 === Introduction
 
+<<<
+
 === Analysis
+
+<<<
 
 === Design
 
+<<<
+
 === Development
+
+<<<
 
 === Deployment

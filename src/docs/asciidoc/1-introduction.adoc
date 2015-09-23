@@ -25,13 +25,13 @@ Those problems were not significant to the development industry because the majo
 themselves *full-stack developers*: proficient in doing backend and front-end. However, a technology was created and it
 changed the game rules: *Node JS*.
 
+<<<
+
 Node JS not only enabled developers for the first time to use the same language for front-end and backend (Javascript),
 but also set the foundation for a large number of tools, such as Grunt or Gulp as bulding tools, Bower as dependency
 manager and Yeoman as project creation and scaffolding tool. Those projects attracted a large number of developers that
 were highly skilled in HTML5, CSS3 and Javascript, and for the first time in forever had a specific toolset where no
 backend was involved.
-
-<<<
 
 On the other hand, backend development was experiencing the rise of the new buzzword of the moment: *microservices*.
 After several years since REST architecture was first introduced, and more and more teams trying to adopt such
@@ -55,6 +55,8 @@ this idea to separate front-ends and backends (<<spi-ggx>>), and eventually one 
 [quote, @javazquez, 12th December 2013]
 How do you handle authentication/authorization with this setup?.
 
+<<<
+
 More or less, developers managed to create stateless business logic, using the front-end frameworks to keep client state
 and ensuring that such state was sent to the server on each and every round-trip. However, authentication and
 authorisation was different. *Security* in a web application has traditionally been a stateful service: it heavily relies
@@ -65,8 +67,6 @@ Therefore, to not only answer that attendee but also provide a potential solutio
 that ended up in the development of *Spring Security REST*: a plugin for Grails framework, on top of Spring Security,
 that offered developers a way to implement authentication and authorization in a stateless way, as well as it made the
 necessary transformations over core Spring Security to make it more REST-friendly.
-
-<<<
 
 === Goals
 
@@ -79,6 +79,8 @@ The goals of this project are closely related to the motivations described above
 . Contributing back to the community by creating an open-source solution.
 
 This document describes in detail all the stages of the process followed to achieve the mentioned goals.
+
+<<<
 
 === Rest of the document
 
