@@ -96,10 +96,10 @@ delegates to the configured `userDetailsService` bean, passing the profile ID as
  * where the username passed is {`link UserProfile.getId()}. If the user is not found, it will create a new one with
  * the the default roles.
  */
-`Slf4j
+@Slf4j
 class DefaultOauthUserDetailsService implements OauthUserDetailsService {
 
-    `Delegate
+    @Delegate
     UserDetailsService userDetailsService
 
     UserDetailsChecker preAuthenticationChecks

@@ -598,23 +598,109 @@ may issue access tokens accepted by multiple resource servers.
 ifdef::generate-diagrams[]
 [plantuml, oauth-flow, png]
 ....
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+Client -> ResourceOwner: (1) Authorization Request
+ResourceOwner --> Client: (2) Authorization Grant
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+Client -> AuthorizationServer: (3) Authorization Grant
+AuthorizationServer --> Client: (4) Access Token
+
+Client -> ResourceServer: (5) Access Token
+ResourceServer --> Client: (6) Protected Resource
 ....
 endif::[]
 
+.OAuth 2.0 flow
 image::oauth-flow.png[]
+
+. The client requests authorization from the resource owner. The authorization request can be made directly to the
+  resource owner (as shown), or preferably indirectly via the authorization server as an intermediary.
+
+. The client receives an authorization grant, which is a credential representing the resource owner's authorization,
+  expressed using one of four grant types defined in this specification or using an extension grant type. The
+  authorization grant type depends on the method used by the client to request authorization and the types supported by
+  the authorization server.
+
+. The client requests an access token by authenticating with the authorization server and presenting the
+  authorization grant.
+
+. The authorization server authenticates the client and validates the authorization grant, and if valid, issues an
+  access token.
+
+. The client requests the protected resource from the resource server and authenticates by presenting the access token.
+
+. The resource server validates the access token, and if valid, serves the request.
 
 <<<
 
 === Asciidoctor
 
+This document has been produced using Asciidoctor.
+
+Asciidoctor is a fast text processor and publishing toolchain for converting AsciiDoc content to HTML5, DocBook 5
+(or 4.5) and other formats. Asciidoctor is written in Ruby, packaged as a RubyGem and published to RubyGems.org.
+
+AsciiDoc belongs to the family of lightweight markup languages, the most renowned of which is Markdown. AsciiDoc stands
+out from this group because it supports all the structural elements necessary for drafting articles, technical manuals,
+books, presentations and prose. In fact, it’s capable of meeting even the most advanced publishing requirements and
+technical semantics.
+
+Here’s a basic example of an AsciiDoc document:
+
+[source,asciidoc]
+.Listing {counter:listing}. Sample AsciiDoc document
+----
+= Introduction to AsciiDoc
+Doc Writer <doc@example.com>
+
+A preface about http://asciidoc.org[AsciiDoc].
+
+== First Section
+
+* item 1
+* item 2
+
+[source,ruby]
+puts "Hello, World!"
+----
+
 <<<
 
 === Gradle
+
+Gradle is the build system used to produce this document in different formats, such as PDF and HTML.
+
+Gradle provides:
+
+* A very flexible general purpose build tool like Ant.
+* Switchable, build-by-convention frameworks a la Maven. But we never lock you in!
+* Very powerful support for multi-project builds.
+* Very powerful dependency management (based on Apache Ivy).
+* Full support for your existing Maven or Ivy repository infrastructure.
+* Support for transitive dependency management without the need for remote repositories or pom.xml and ivy.xml files.
+* Ant tasks and builds as first class citizens.
+* Groovy build scripts.
+* A rich domain model for describing your build.
+
+You run a Gradle build using the `gradle` command. The `gradle` command looks for a file called `build.gradle` in the
+current directory. This `build.gradle` file is called a build script, although strictly speaking it is a build
+configuration script. The build script defines a project and its tasks.
+
+[source,groovy]
+.Listing {counter:listing}. Gradle build script example
+----
+task hello {
+    doLast {
+        println 'Hello world!'
+    }
+}
+----
+
+[source,bash]
+.Listing {counter:listing}. Output of the previous build script
+----
+$ gradle -q hello
+Hello world!
+----
 
 <<<
 
