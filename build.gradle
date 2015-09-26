@@ -41,7 +41,19 @@ asciidoctor {
     backends    'html5','pdf'
 }
 
-task listOfFiguresAndTables(type: GenerateListsTask, dependsOn: 'asciidoctor') {
+task generateDiagrams(type: Exec, dependsOn: 'asciidoctor') {
+  commandLine "asciidoctor", "-a", "generate-diagrams", "-r", "asciidoctor-diagram", "${asciidoctor.sourceDir}/index.adoc",
+              "-D", "${asciidoctor.outputDir.path}/diagrams"
+  doLast {
+    copy {
+      from "${asciidoctor.outputDir.path}/diagrams"
+      into "${buildDir}/asciidoc/src"
+    }
+
+  }
+}
+
+task listOfFiguresAndTables(type: GenerateListsTask, dependsOn: 'generateDiagrams') {
   doFirst {
     copy {
       from asciidoctor.sourceDir

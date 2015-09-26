@@ -1,4 +1,9 @@
 languague: groovy
+before_install:
+  - gem install asciidoctor
+  - gem install asciidoctor-diagram
+  - gem install --pre asciidoctor-pdf
+  - gem install rouge
 script: "./gradlew publishGhPages"
 cache:
   directories:

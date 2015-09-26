@@ -441,11 +441,180 @@ All of these are made easy to use through the power of the Groovy language and t
 
 <<<
 
+==== Domains
+
+Grails has an abstract domain layer called GORM: Grails Object Relational Mapping. Despite of it's name, it has support
+for multiple data storage systems, bot SQL and No-SQL, such as Hibernate (for relational databases), MongoDB, CouchDB,
+Neo4j and Redis.
+
+This is an example of how Grails domains work:
+
+[source,groovy]
+.Listing {counter:listing}. Grails GORM examples
+----
+class Person {
+    String name
+    Integer age
+    Date lastVisit
+
+    static hasMany = [pets: Pet]
+}
+
+class Pet {
+    String name
+
+    static belongsTo = [owner: Person]
+}
+
+//Create
+def p = new Person(name: "Fred", age: 40, lastVisit: new Date())
+p.save()
+
+//Read
+def fred = Person.get(1)
+assert 'Fred' == fred.name
+
+//Update
+def bob = Person.findByName("Fred")
+bob.name = "Bob"
+bob.save(flush: true)
+assert 'Bob' == Person.get(1).name
+
+//Delete
+bob.delete()
+
+//Relationships
+def john == new Person(name: "John", age: 40, lastVisit: new Date()).addToPets(name: "floppy").save()
+assert Pet.get(1).name == "floppy"
+----
+
+<<<
+
+==== The web layer
+
+===== Controllers
+
+A controller handles requests and creates or prepares the response. A controller can generate the response directly or
+delegate to a view.
+
+[source,groovy]
+.Listing {counter:listing}. Grails Controller examples
+----
+import grails.converters.JSON
+
+class PersonController {
+
+    /** Accessible through /person */
+    def index() {
+        List<Person> people = Person.list()
+
+        //Generates a JSON response directly
+        render people as JSON
+    }
+
+    /** Accessible through /person/show/123 */
+    def show(Long id) {
+        Person person = Person.get(id)
+        if (person) {
+            //Delegates to /grails-app/views/person/show.gsp, where the model is the map [person: person]
+            return [person: person]
+        } else {
+            response.sendError(404)
+        }
+    }
+}
+----
+
+<<<
+
+===== Views
+
+Groovy Servers Pages (or GSP for short) is Grails' view technology. It is designed to be familiar for users of
+technologies such as ASP and JSP, but to be far more flexible and intuitive.
+
+GSP's live in the `grails-app/views` directory and are typically rendered automatically (by convention) or with the
+render method such as:
+
+[source,groovy]
+----
+render(view: "index")
+----
+
+A GSP is typically a mix of mark-up and GSP tags which aid in view rendering.
+
+Although it is possible to have Groovy logic embedded in your GSP, the practice is strongly discouraged. Mixing mark-up
+and code is a bad thing and most GSP pages contain no code and needn't do so.
+
+A GSP typically has a "model" which is a set of variables that are used for view rendering. The model is passed to the
+GSP view from a controller. Given the `show` action from the controllers example, a GSP could look like this:
+
+[source,html]
+.Listing {counter:listing}. Grails GSP example
+----
+<html>
+  <body>
+    <h1>${person.name}</h1>
+    <p>Pets:</p>
+    <ul>
+      <g:each in="${person.pets}" var="pet">
+        <li>${pet.name}</li>
+      </g:each>
+    </ul>
+  </body>
+</html>
+----
+
+<<<
+
 === OAuth 2.0
+
+The OAuth 2.0 authorization framework enables a third-party application to obtain limited access to an HTTP service,
+either on behalf of a resource owner by orchestrating an approval interaction between the resource owner and the HTTP
+service, or by allowing the third-party application to obtain access on its own behalf.  This specification replaces and
+obsoletes the OAuth 1.0 protocol described in RFC 5849.
+
+==== Roles
+
+OAuth defines four roles:
+
+. *Resource owner*: an entity capable of granting access to a protected resource. When the resource owner is a person, it
+  is referred to as an end-user.
+
+. *Resource server*:  the server hosting the protected resources, capable of accepting and responding to protected resource
+  requests using access tokens.
+
+. *Client*: an application making protected resource requests on behalf of the resource owner and with its authorization.
+  The term "client" does not imply any particular implementation characteristics (e.g., whether the application executes
+  on a server, a desktop, or other devices).
+
+. *Authorization server*: the server issuing access tokens to the client after successfully authenticating the resource
+  owner and obtaining authorization.
+
+
+The interaction between the authorization server and resource server is beyond the scope of the specification.  The
+authorization server may be the same server as the resource server or a separate entity. A single authorization server
+may issue access tokens accepted by multiple resource servers.
+
+ifdef::generate-diagrams[]
+[plantuml, oauth-flow, png]
+....
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+....
+endif::[]
+
+image::oauth-flow.png[]
 
 <<<
 
 === Asciidoctor
+
+<<<
+
+=== Gradle
 
 <<<
 
