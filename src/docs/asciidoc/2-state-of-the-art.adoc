@@ -9,7 +9,7 @@ Before going deeper into it, let's describe first the foundations of the project
 
 ==== The Groovy programming language
 
-Groovy is developed to be a feature rich Java friendly programming language. The idea is to bring features we can find
+Groovy <<groovy>> is developed to be a feature rich Java friendly programming language. The idea is to bring features we can find
 in dynamic programming languages like Python, Ruby to the Java platform. The Java platform is widely supported and a lot
 of developers know Java.
 
@@ -425,7 +425,7 @@ applications. Grails builds on these concepts and dramatically reduces the compl
 Java platform. What makes it different, however, is that it does so by building on already established Java technologies
 like Spring and Hibernate.
 
-Grails is a full stack framework and attempts to solve as many pieces of the web development puzzle through the core
+Grails <<grails>> is a full stack framework and attempts to solve as many pieces of the web development puzzle through the core
 technology and its associated plugins. Included out the box are things like:
 
 * An easy to use Object Relational Mapping (ORM) layer built on Hibernate
@@ -568,7 +568,7 @@ GSP view from a controller. Given the `show` action from the controllers example
 
 === OAuth 2.0
 
-The OAuth 2.0 authorization framework enables a third-party application to obtain limited access to an HTTP service,
+The OAuth 2.0 authorization framework <<oauth2>> enables a third-party application to obtain limited access to an HTTP service,
 either on behalf of a resource owner by orchestrating an approval interaction between the resource owner and the HTTP
 service, or by allowing the third-party application to obtain access on its own behalf.  This specification replaces and
 obsoletes the OAuth 1.0 protocol described in RFC 5849.
@@ -636,7 +636,7 @@ image::oauth-flow.png[]
 
 This document has been produced using Asciidoctor.
 
-Asciidoctor is a fast text processor and publishing toolchain for converting AsciiDoc content to HTML5, DocBook 5
+Asciidoctor<<asciidoctor>> is a fast text processor and publishing toolchain for converting AsciiDoc content to HTML5, DocBook 5
 (or 4.5) and other formats. Asciidoctor is written in Ruby, packaged as a RubyGem and published to RubyGems.org.
 
 AsciiDoc belongs to the family of lightweight markup languages, the most renowned of which is Markdown. AsciiDoc stands
@@ -646,7 +646,7 @@ technical semantics.
 
 Here’s a basic example of an AsciiDoc document:
 
-[source,asciidoc]
+[source,asciidoctor]
 .Listing {counter:listing}. Sample AsciiDoc document
 ----
 = Introduction to AsciiDoc
@@ -667,7 +667,7 @@ puts "Hello, World!"
 
 === Gradle
 
-Gradle is the build system used to produce this document in different formats, such as PDF and HTML.
+Gradle <<gradle>> is the build system used to produce this document in different formats, such as PDF and HTML.
 
 Gradle provides:
 
@@ -704,12 +704,129 @@ Hello world!
 
 <<<
 
-=== Similar solution #1
+=== Similar solution: Spring Security
+
+Spring Security is an authentication and access-control framework. It is the de-facto standard for securing Spring-based
+applications. It has the following features:
+
+* Comprehensive and extensible support for both Authentication and Authorization.
+* Protection against attacks like session fixation, clickjacking, cross site request forgery, etc.
+* Servlet API integration.
+* Optional integration with Spring Web MVC.
+
+At an authentication level, Spring Security supports a wide range of authentication models. Most of these authentication
+models are either provided by third parties, or are developed by relevant standards bodies such as the Internet
+Engineering Task Force. In addition, Spring Security provides its own set of authentication features. Specifically,
+Spring Security currently supports authentication integration with all of these technologies:
+
+* HTTP BASIC authentication headers (an IETF RFC-based standard).
+* HTTP Digest authentication headers (an IETF RFC-based standard).
+* HTTP X.509 client certificate exchange (an IETF RFC-based standard).
+* LDAP (a very common approach to cross-platform authentication needs, especially in large environments).
+* Form-based authentication (for simple user interface needs).
+* OpenID authentication.
+* Authentication based on pre-established request headers (such as Computer Associates Siteminder).
+* JA-SIG Central Authentication Service (otherwise known as CAS, which is a popular open source single sign-on system).
+* Transparent authentication context propagation for Remote Method Invocation (RMI) and HttpInvoker (a Spring remoting
+  protocol).
+* Automatic "remember-me" authentication (so you can tick a box to avoid re-authentication for a predetermined
+  period of time).
+* Anonymous authentication (allowing every unauthenticated call to automatically assume a particular security identity).
+* Run-as authentication (which is useful if one call should proceed with a different security identity).
+* Java Authentication and Authorization Service (JAAS)
+* JEE container autentication (so you can still use Container Managed Authentication if desired).
+* Kerberos.
+
+It also integrates with a variety of technologies via third party implementations, such as Grails.
+
+==== The Spring Security Core Grails plugin
+
+For the Grails framework, there is an official plugin for authentication and authorisation: the Spring Security Core
+Grails plugin <<ss-core>>. It basically simplifies the usage of Spring Security in a Grails application.
+
+Although there are alternative plugins for security services, we can consider Spring Security Core the de-facto option
+as it is the official and supported plugin.
 
 <<<
 
-=== Similar solution #2
+=== Conclusion
+
+Spring Security is not a viable solution due to 2 problems: the HTTP session usage and the lack of REST support.
+
+==== HTTP Session
+
+Spring Security is heavily based on the HTTP session. No matter what authentication mechanism the developer has configured,
+the core authentication component, the `SecurityContext` will end up being backed by the HTTP session.
+
+An HTTP session is a sequence of network request-response transactions. An HTTP client initiates a request by
+establishing a TCP connection to a particular port on a server, An HTTP server listening on that port waits for a client's
+request message. Upon receiving the request, the server sends back a status line, such as "HTTP/1.1 200 OK", and a
+message of its own. The body of this message is typically the requested resource, although an error message or other
+information may also be returned.
+
+A session token is a unique identifier that is generated and sent from a server to a client to identify the current
+interaction session. The client usually stores and sends the token as an HTTP cookie and/or sends it as a parameter in
+GET or POST queries. The reason to use session tokens is that the client only has to handle the identifier—all session
+data is stored on the server (usually in a database, to which the client does not have direct access) linked to that
+identifier.
+
+Particularly in Java-based web applications, HTTP sessions are in-memory data structures. There are alternative
+implementations where the HTTP Session is stored in databases or distributed caches. However, they require additional
+configuration; there are also some caveats when using them, so in-memory storage is the option for most of the users.
 
 <<<
 
-=== Comparision
+This state on the server side has the following problems:
+
+. Makes the solution stateful, thus violating a basic principle of a RESTful architecture: services must be stateless,
+  where is the client transferring its state to the server on every roundtrip.
+
+. It doesn't play well with microservices as it makes the solution much more difficult to scale, as the HTTP session is
+  physically stored in the application server instance that first served that particular user. For this to work, the
+  web/proxy servers or load balancers in front of the application server must use sticky sessions.
+
+A sticky session is bound (_sticky_) to a particular application server instance, so that all the requests from that user
+will be routed directly to such instance. In order to do so, proxies/balancers store a cookie when the first request is
+sent to an instance. In following requests, the balancer will be able to route them to this particular instance by
+reading the cookie.
+
+In a microservice architecture, it should be possible to spin up multiple instances of a microservice to cope with
+load increments. And any instance should be able to respond to any request. With sticky HTTP sessions, this is not
+possible.
+
+<<<
+
+==== Lack of REST support
+
+In REST, data is normally sent and received in JSON format. For an authentication request, this is how we would like it
+to work:
+
+[source,javascript]
+.Listing {counter:listing}. Ideal authentication request in a RESTful architecture
+----
+POST /login HTTP/1.1
+Host: api.example.com
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "secret"
+}
+----
+
+However, this is how it works in Spring Security:
+
+[source,javascript]
+.Listing {counter:listing}. Actual authentication request in Spring Security
+----
+POST /j_spring_security_check HTTP/1.1
+Host: api.example.com
+Content-Type: application/x-www-form-urlencoded
+
+j_username=admin&j_password=secret
+----
+
+As you can see, it's far from RESTful.
+
+For all the reasons explained above, Spring Security is not a viable solution, therefore creating Spring Security REST
+is an actual need for the development community.

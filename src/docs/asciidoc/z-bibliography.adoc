@@ -1,3 +1,27 @@
-- [[[spi-greach]]] Álvaro Sánchez-Mariscal. http://www.slideshare.net/alvarosanchezmariscal/singlepage-applications-and-grails[Single-page applications and Grails]. Greach Madrid. January 2013.
-- [[[revolution]]] Álvaro Sánchez-Mariscal. http://www.slideshare.net/alvarosanchezmariscal/embrace-the-frontend-revolution[Embrace the front-end revolution]. Codemotion Rome. March 2014.
-- [[[spi-ggx]]] Álvaro Sánchez-Mariscal. http://www.slideshare.net/alvarosanchezmariscal/developing-spi-applications-using-grails-and-angularjs[Developing SPI applications using Grails and AngularJS]. Groovy & Grails eXchange London. Decembre 2013.
+- [[[spi-greach]]] Álvaro Sánchez-Mariscal.
+  http://www.slideshare.net/alvarosanchezmariscal/singlepage-applications-and-grails[Single-page applications and Grails].
+  Greach Madrid. January 2013.
+
+- [[[revolution]]] Álvaro Sánchez-Mariscal.
+  http://www.slideshare.net/alvarosanchezmariscal/embrace-the-frontend-revolution[Embrace the front-end revolution].
+  Codemotion Rome. March 2014.
+
+- [[[spi-ggx]]] Álvaro Sánchez-Mariscal.
+  http://www.slideshare.net/alvarosanchezmariscal/developing-spi-applications-using-grails-and-angularjs[Developing SPI applications using Grails and AngularJS].
+  Groovy & Grails eXchange London. Decembre 2013.
+
+- [[[groovy]]] http://www.groovy-lang.org[Groovy programming language].
+
+- [[[grails]]] http://www.grails.org[Grails framework].
+
+- [[[oauth2]]] Internet Engineering Task Force (IETF) Request for Comments 6749.
+  https://tools.ietf.org/html/rfc6749[The OAuth 2.0 Authorization Framework].
+  October 2012.
+
+- [[[asciidoctor]]] http://asciidoctor.org/[Asciidoctor project].
+
+- [[[gradle]]] http://gradle.org/[Gradle project].
+
+- [[[spring-security]]] http://projects.spring.io/spring-security/[Spring Security].
+
+- [[[ss-core]]] http://grails.org/plugin/spring-security-core[Spring Security Core Grails plugin].
