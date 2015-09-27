@@ -2329,8 +2329,8 @@ and Grails Cache support for token storage.</p>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 1. New configuration values in 1.5</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -2707,8 +2707,8 @@ for more information.</p>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 2. Authentication configuration options</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -2743,8 +2743,8 @@ To align with the RESTful principles, JSON payload is the default behaviour.</p>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 3. JSON credentials extraction configuration properties</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -2848,8 +2848,8 @@ The default implementation looks like this:</p>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 4. Parameter extraction configuration options</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -2913,8 +2913,8 @@ storage, sending a 200 response. Otherwise, it will send a 404 response.</p>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 5. Logout configuration options</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -2960,8 +2960,8 @@ storage, sending a 200 response. Otherwise, it will send a 404 response.</p>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 6. Token generation configuration options</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -3102,8 +3102,8 @@ the algorithm used is HMAC SHA-256 with a specified shared secret. The relevant 
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 7. JWT configuration options for signing</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -3186,8 +3186,8 @@ openssl rsa -in private_key.pem -pubout -outform DER -out public_key.der</code><
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 8. JWT configuration options for signing</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -3316,8 +3316,8 @@ grant_type=refresh_token&amp;refresh_token=eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyN
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 9. Memcached configuration options</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -3366,29 +3366,31 @@ They get refreshed on every access</p>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 10. GORM configuration options</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top"><strong>Config key</strong></th>
-<th class="tableblock halign-left valign-top"><strong>Default value</strong>
-
-<code>grails.plugin.springsecurity.rest.token.storage.useGorm</code></th>
+<th class="tableblock halign-left valign-top"><strong>Default value</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.useGorm</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.gorm.tokenDomainClassName</code></p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>null</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.gorm.tokenValuePropertyName</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.gorm.tokenValuePropertyName</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>tokenValue</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.gorm.usernamePropertyName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>username</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -3531,8 +3533,8 @@ be something you would prefer to avoid for the sake of performance.</p>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 11. Redis configuration options</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -3562,8 +3564,8 @@ be something you would prefer to avoid for the sake of performance.</p>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 12. Redis configuration options</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -3680,8 +3682,8 @@ Pragma: no-cache
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 13. Token rendering configuration options</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -3737,8 +3739,8 @@ property:</p>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 14. Token rendering configuration options</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -3973,8 +3975,8 @@ If the token does not exist, it will render a <code>grails.plugin.springsecurity
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 15. Validation endpoint configuration options</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -4580,7 +4582,7 @@ your gratitude via <a href="https://twitter.com/alvaro_sanchez">Twitter</a>.</p>
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2015-09-27 08:09:45 UTC
+Last updated 2015-09-27 09:16:38 UTC
 </div>
 </div>
 </body>

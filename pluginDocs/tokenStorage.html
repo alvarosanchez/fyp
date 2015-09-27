@@ -534,8 +534,8 @@ the algorithm used is HMAC SHA-256 with a specified shared secret. The relevant 
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 1. JWT configuration options for signing</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -618,8 +618,8 @@ openssl rsa -in private_key.pem -pubout -outform DER -out public_key.der</code><
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 2. JWT configuration options for signing</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -748,8 +748,8 @@ grant_type=refresh_token&amp;refresh_token=eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyN
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 3. Memcached configuration options</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -798,29 +798,31 @@ They get refreshed on every access</p>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 4. GORM configuration options</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top"><strong>Config key</strong></th>
-<th class="tableblock halign-left valign-top"><strong>Default value</strong>
-
-<code>grails.plugin.springsecurity.rest.token.storage.useGorm</code></th>
+<th class="tableblock halign-left valign-top"><strong>Default value</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.useGorm</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.gorm.tokenDomainClassName</code></p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>null</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.gorm.tokenValuePropertyName</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.gorm.tokenValuePropertyName</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>tokenValue</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>grails.plugin.springsecurity.rest.token.storage.gorm.usernamePropertyName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>username</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -963,8 +965,8 @@ def afterLoad() {
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 5. Redis configuration options</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -994,8 +996,8 @@ def afterLoad() {
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 6. Redis configuration options</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 80%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -1069,7 +1071,7 @@ See <a href="https://github.com/alvarosanchez/grails-spring-security-rest/issues
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-09-27 08:09:45 UTC
+Last updated 2015-09-27 09:16:38 UTC
 </div>
 </div>
 </body>
