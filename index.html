@@ -570,7 +570,21 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_analysis_design_development_and_deployment">3. Analysis, design, development and deployment</a>
 <ul class="sectlevel2">
 <li><a href="#_introduction_3">3.1. Introduction</a></li>
-<li><a href="#_analysis">3.2. Analysis</a></li>
+<li><a href="#_analysis">3.2. Analysis</a>
+<ul class="sectlevel3">
+<li><a href="#_user_stories">3.2.1. User stories</a>
+<ul class="sectlevel4">
+<li><a href="#__1_as_a_user_i_want_to_authenticate_so_that_i_can_access_protected_resources">#1. As a user, I want to authenticate, so that I can access protected resources</a></li>
+<li><a href="#__2_as_a_user_i_want_to_logout_so_that_my_token_is_no_longer_valid">#2. As a user, I want to logout, so that my token is no longer valid</a></li>
+<li><a href="#__3_as_a_developer_i_want_to_configure_how_access_tokens_are_generated">#3. As a developer, I want to configure how access tokens are generated</a></li>
+<li><a href="#__4_as_a_developer_i_want_to_store_tokens_on_multiple_storages_including_the_client_itself">#4. As a developer, I want to store tokens on multiple storages, including the client itself</a></li>
+<li><a href="#__5_as_a_user_i_want_to_validate_whether_my_access_token_is_still_valid_or_not">#5. As a user, I want to validate whether my access token is still valid or not</a></li>
+<li><a href="#__6_as_a_developer_i_want_to_expose_cors_headers_in_the_responses_so_that_the_system_can_be_used_from_separated_front_end_applications">#6. As a developer, I want to expose CORS headers in the responses, so that the system can be used from separated front-end applications</a></li>
+<li><a href="#__7_as_a_user_i_want_to_authenticate_using_external_oauth_providers_such_as_google_or_facebook">#7. As a user, I want to authenticate using external OAuth providers such as Google or Facebook</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#_design">3.3. Design</a></li>
 <li><a href="#_development">3.4. Development</a></li>
 <li><a href="#_deployment">3.5. Deployment</a></li>
@@ -1871,7 +1885,7 @@ the core authentication component, the <code>SecurityContext</code> will end up 
 <div class="paragraph">
 <p>An HTTP session is a sequence of network request-response transactions. An HTTP client initiates a request by
 establishing a TCP connection to a particular port on a server, An HTTP server listening on that port waits for a client&#8217;s
-request message. Upon receiving the request, the server sends back a status line, such as "HTTP/1.1 200 OK", and a
+request message. Upon receiving the request, the server sends back a status line, such as <code>HTTP/1.1 200 OK</code>, and a
 message of its own. The body of this message is typically the requested resource, although an error message or other
 information may also be returned.</p>
 </div>
@@ -1965,11 +1979,166 @@ is an actual need for the development community.</p>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_introduction_3">3.1. Introduction</h3>
+<div class="paragraph">
+<p>The methodology used to develop this project is <strong>Scrum</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="scrum.png" alt="scrum">
+</div>
+<div class="title">Figure 2. Scrum overview by <a href="https://www.mountaingoatsoftware.com/agile/scrum/images">Mountain Goat Software</a></div>
+</div>
+<div class="paragraph">
+<p>Scrum is an agile process most commonly used for product development, especially software development. Scrum is a
+project management framework that is applicable to any project with aggressive deadlines, complex requirements and a
+degree of uniqueness. In Scrum, projects move forward via a series of iterations called sprints. Each sprint is typically
+two to four weeks long.</p>
+</div>
+<div class="paragraph">
+<p>Scrum defines the following concepts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Scrum team</strong>: A typical scrum team has between five and nine people, but Scrum projects can easily scale into the
+hundreds. However, Scrum can easily be used by one-person teams and often is. This team does not include any of the
+traditional software engineering roles such as programmer, designer, tester or architect. Everyone on the project
+works together to complete the set of work they have collectively committed to complete within a sprint. Scrum teams
+develop a deep form of camaraderie and a feeling that “we’re all in this together.”</p>
+</li>
+<li>
+<p><strong>Product owner</strong>: The product owner is the project’s key stakeholder and represents users, customers and others in the
+process. The product owner is often someone from product management or marketing, a key stakeholder or a key user.</p>
+</li>
+<li>
+<p><strong>Scrum Master</strong>: The Scrum Master is responsible for making sure the team is as productive as possible. The Scrum Master
+does this by helping the team use the Scrum process, by removing impediments to progress, by protecting the team from
+outside, and so on.</p>
+</li>
+<li>
+<p><strong>Product backlog</strong>: The product backlog is a prioritized features list containing every desired feature or change to the
+product. Note: The term “backlog” can get confusing because it’s used for two different things. To clarify, the product
+backlog is a list of desired features for the product. The sprint backlog is a list of tasks to be completed in a sprint.</p>
+</li>
+<li>
+<p><strong>Sprint planning meeting</strong>: At the start of each sprint, a sprint planning meeting is held, during which the product
+owner presents the top items on the product backlog to the team. The Scrum team selects the work they can complete
+during the coming sprint. That work is then moved from the product backlog to a sprint backlog, which is the list of
+tasks needed to complete the product backlog items the team has committed to complete in the sprint.</p>
+</li>
+<li>
+<p><strong>Daily Scrum</strong>: Each day during the sprint, a brief meeting called the daily scrum is conducted. This meeting helps set
+the context for each day’s work and helps the team stay on track. All team members are required to attend the daily scrum.</p>
+</li>
+<li>
+<p><strong>Sprint review meeting</strong>: At the end of each sprint, the team demonstrates the completed functionality at a sprint
+review meeting, during which, the team shows what they accomplished during the sprint. Typically, this takes the form
+of a demonstration of the new features, but in an informal way; for example, PowerPoint slides are not allowed. The
+meeting must not become a task in itself nor a distraction from the process.</p>
+</li>
+<li>
+<p><strong>Sprint retrospective</strong>: Also at the end of each sprint, the team conducts a sprint retrospective, which is a meeting
+during which the team (including its ScrumMaster and product owner) reflect on how well Scrum is working for them and
+what changes they may wish to make for it to work even better.</p>
+</li>
+</ul>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_analysis">3.2. Analysis</h3>
+<div class="paragraph">
+<p>The software requirements are defined through Scrum&#8217;s <strong>user stories</strong>.</p>
+</div>
+<div class="paragraph">
+<p>User stories are short, simple descriptions of a feature told from the perspective of the person who desires the new
+capability, usually a user or customer of the system. They typically follow a simple template:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+As a &lt;type of user&gt;, I want &lt;some goal&gt; so that &lt;some reason&gt;.
+</blockquote>
+</div>
+<div class="paragraph">
+<p>User stories are often written on index cards or sticky notes, stored in a shoe box, and arranged on walls or tables to
+facilitate planning and discussion. As such, they strongly shift the focus from writing about features to discussing them.
+In fact, these discussions are more important than whatever text is written.</p>
+</div>
+<div class="sect3">
+<h4 id="_user_stories">3.2.1. User stories</h4>
+<div class="sect4">
+<h5 id="__1_as_a_user_i_want_to_authenticate_so_that_i_can_access_protected_resources">#1. As a user, I want to authenticate, so that I can access protected resources</h5>
+<div class="paragraph">
+<p>The authentication endpoint must enable a client application to login using credentials such as username and password.
+It should be RESTful, i.e.: it should consume and produce JSON over HTTP. An example request is like:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 31. User Story {us}: authentication endpoint.</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">POST /login HTTP/<span class="float">1.1</span>
+Host: api.example.com
+Content-Type: application/json
+{
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">username</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">admin</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">password</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">secret</span><span class="delimiter">&quot;</span></span>
+}</code></pre>
+</div>
+</div>
 <div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>If the authentication is successful, the response should be like:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 32. User Story {us}: successful authentication response.</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="integer">200</span> OK HTTP/<span class="float">1.1</span>
+Content-Type: application/json
+{
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">username</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">admin</span><span class="delimiter">&quot;</span></span>,
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">roles</span><span class="delimiter">&quot;</span></span>: [
+      <span class="string"><span class="delimiter">&quot;</span><span class="content">ROLE_ADMIN</span><span class="delimiter">&quot;</span></span>,
+      <span class="string"><span class="delimiter">&quot;</span><span class="content">ROLE_USER</span><span class="delimiter">&quot;</span></span>
+   ],
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">expires_in</span><span class="delimiter">&quot;</span></span>: <span class="integer">3600</span>,
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">token_type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Bearer</span><span class="delimiter">&quot;</span></span>,
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">refresh_token</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ.fUaSWIdZakFX7CyimRIPhuw0sfevgmwL2xzm5H0TuaqwKx24EafCO0TruGKG-lN-wGCITssnF2LQTqRzQGp0PoLXHfUJ0kkz5rBl6LtnRu7cdD1ZUNYXLJtFjQ3IATzoo15tPafRPyStG1Qm7-1L0VxquhrLxkkpti0F1_VTytZAq8ltFrnxM4ahJUwS7eriivvdLqmHtnwuXw0kBXEseIyCkiyKklWDJAcD_P_gHoQJvSCoXedlr7Pp0n6LEUrRWJ2Hb-Zyt9dWqWDxm9nyDeEVtEZGcQtpgCGgbXxaUpULIy5nvrbRzXSNyT6iXhK1CLqiFVkfh-Y-DHXdB6Q4sg.uYdpxl835KnlkqC5.gBgSnPWZOo6FINovJNG7Xx2RuS09QJbU4-_J4EgZQkygt8xE-HfdYaOmtmJLjGJR1XKoaRsuX1gNjFoCZgqWAon6.Zsrk52dkjskSVQLXZBQooQ</span><span class="delimiter">&quot;</span></span>,
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">access_token</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ.n-gGe65x0SlSXS3fTG8ZLdXvv6b5_1pDvkcGyCjFy-vm1VhaBEQL5p3hc6iUcCAcuyrqzGk95lV9dHCv46cNfCiUFHWfbEcd4nqScIxBbc28xO9L1mNLnZ0G1rx1Mx1L0Y_ZPoSxDXpJaHCT28cdZffHLxx2B9ioIClgdlYBAJ5Oz8VT39-D0QSomS6QhFqmcpbDsXrsKxs545Pn-TIlu-fSQ4wpIvAxusOKB6CV2EYKqBplMBrh-3btE8WksVcX2N3LsrcMhrKxSKi93c06MZh6JzSLWe5bl9hvUvBdEuwDrk-fQgD3ZlmjjoevRWYhv_kslW1PlqUHYmKOQ7csUw.3mvvsFWikEjZzExA.YixjnnzzcPRy_uUpgPv5zqOfshv3pUwfrME0AijpsB7u9CmJe94g6f2y_3vqUps-5weKKGZyk3ZtnwEbPVAk9-HZt-Y27SbZl4JNCFEOLVsMsK8.h4j9BdFXuWKKez6xxRAwJA</span><span class="delimiter">&quot;</span></span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the authentication fails, the response should be a <code>401</code> HTTP status code.</p>
+</div>
+<div class="paragraph">
+<p>If the request is invalid, the response shall be a <code>400</code> HTTP status code.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="__2_as_a_user_i_want_to_logout_so_that_my_token_is_no_longer_valid">#2. As a user, I want to logout, so that my token is no longer valid</h5>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="__3_as_a_developer_i_want_to_configure_how_access_tokens_are_generated">#3. As a developer, I want to configure how access tokens are generated</h5>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="__4_as_a_developer_i_want_to_store_tokens_on_multiple_storages_including_the_client_itself">#4. As a developer, I want to store tokens on multiple storages, including the client itself</h5>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="__5_as_a_user_i_want_to_validate_whether_my_access_token_is_still_valid_or_not">#5. As a user, I want to validate whether my access token is still valid or not</h5>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="__6_as_a_developer_i_want_to_expose_cors_headers_in_the_responses_so_that_the_system_can_be_used_from_separated_front_end_applications">#6. As a developer, I want to expose CORS headers in the responses, so that the system can be used from separated front-end applications</h5>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="__7_as_a_user_i_want_to_authenticate_using_external_oauth_providers_such_as_google_or_facebook">#7. As a user, I want to authenticate using external OAuth providers such as Google or Facebook</h5>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_design">3.3. Design</h3>
@@ -2079,7 +2248,7 @@ RESTful scenario, we need to make sure our server is stateless.</p>
 <div class="content">
 <img src="rest.png" alt="rest">
 </div>
-<div class="title">Figure 2. Sequence diagram overview of the plugin behavior</div>
+<div class="title">Figure 3. Sequence diagram overview of the plugin behavior</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -2692,7 +2861,7 @@ core, so the trick is to identify what URL patterns have to be stateless, and wh
 <p>To configure the chains properly, you can use the <code>grails.plugin.springsecurity.filterChain.chainMap</code> property:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 31. <code>grails.plugin.springsecurity.filterChain.chainMap</code></div>
+<div class="title">Listing 33. <code>grails.plugin.springsecurity.filterChain.chainMap</code></div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">grails.plugin.springsecurity.filterChain.chainMap = [
     <span class="string"><span class="delimiter">'</span><span class="content">/api/**</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">JOINED_FILTERS,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter</span><span class="delimiter">'</span></span>,  <span class="comment">// Stateless chain</span>
@@ -2801,7 +2970,7 @@ The event is fired whenever a new token is created. See <code>grails.plugin.spri
 classes, for example:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 32. Custom event listener</div>
+<div class="title">Listing 34. Custom event listener</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">package</span> com.foo.bar
 
@@ -2821,7 +2990,7 @@ classes, for example:</p>
 <p>Register the class in <code>grails-app/conf/spring/resources.groovy</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 33. Event listener registration</div>
+<div class="title">Listing 35. Event listener registration</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">import</span> <span class="include">com.foo.bar.MySecurityEventListener</span>
 
@@ -2842,7 +3011,7 @@ more callback closure(s) in <code>grails-app/conf/Config.groovy</code> and let <
 <p>Implement the event handlers that you need, for example:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 34. Callback closures</div>
+<div class="title">Listing 36. Callback closures</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">grails.plugin.springsecurity.useSecurityEventListener = <span class="predefined-constant">true</span>
 
@@ -2963,7 +3132,7 @@ To align with the RESTful principles, JSON payload is the default behaviour.</p>
 <p>The default implementation expects a request like this:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 35. Example JSON authentication request</div>
+<div class="title">Listing 37. Example JSON authentication request</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="javascript">{
     <span class="key"><span class="delimiter">&quot;</span><span class="content">username</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">john.doe</span><span class="delimiter">&quot;</span></span>,
@@ -2975,7 +3144,7 @@ To align with the RESTful principles, JSON payload is the default behaviour.</p>
 <p>If you use <code>usernamePropertyName</code> and <code>passwordPropertyName</code> properties mentioned above, your JSON request can look like:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 36. Custom JSON authentication request</div>
+<div class="title">Listing 38. Custom JSON authentication request</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="javascript">{
     <span class="key"><span class="delimiter">&quot;</span><span class="content">login</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">john.doe</span><span class="delimiter">&quot;</span></span>,
@@ -2988,7 +3157,7 @@ To align with the RESTful principles, JSON payload is the default behaviour.</p>
 </div>
 <div style="page-break-after: always;"></div>
 <div class="listingblock">
-<div class="title">Listing 37. Custom JSON authentication configuration properties</div>
+<div class="title">Listing 39. Custom JSON authentication configuration properties</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">grails.plugin.springsecurity.rest.login.usernamePropertyName = <span class="string"><span class="delimiter">'</span><span class="content">login</span><span class="delimiter">'</span></span>
 grails.plugin.springsecurity.rest.login.passwordPropertyName = <span class="string"><span class="delimiter">'</span><span class="content">pwd</span><span class="delimiter">'</span></span></code></pre>
@@ -3000,7 +3169,7 @@ grails.plugin.springsecurity.rest.login.passwordPropertyName = <span class="stri
 The default implementation looks like this:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 38. <code>DefaultJsonPayloadCredentialsExtractor</code></div>
+<div class="title">Listing 40. <code>DefaultJsonPayloadCredentialsExtractor</code></div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="annotation">@Slf4j</span>
 <span class="type">class</span> <span class="class">DefaultJsonPayloadCredentialsExtractor</span> <span class="directive">extends</span> AbstractJsonPayloadCredentialsExtractor {
@@ -3238,7 +3407,7 @@ principal information is stored directly in the JWT.</p>
 <div class="content">
 <img src="jwt.png" alt="jwt">
 </div>
-<div class="title">Figure 3. JWT example</div>
+<div class="title">Figure 4. JWT example</div>
 </div>
 <div class="sect5">
 <h6 id="_header">Header</h6>
@@ -3246,7 +3415,7 @@ principal information is stored directly in the JWT.</p>
 <p>A base64-encoded JSON like:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 39. JWT header</div>
+<div class="title">Listing 41. JWT header</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="javascript">{
     <span class="key"><span class="delimiter">&quot;</span><span class="content">alg</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HS256</span><span class="delimiter">&quot;</span></span>,
@@ -3261,7 +3430,7 @@ principal information is stored directly in the JWT.</p>
 <p>A base64-encoded JSON like:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 40. JWT claims</div>
+<div class="title">Listing 42. JWT claims</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="javascript">{
     <span class="key"><span class="delimiter">&quot;</span><span class="content">exp</span><span class="delimiter">&quot;</span></span>: <span class="integer">1422990129</span>,
@@ -3338,7 +3507,7 @@ the algorithm used is HMAC SHA-256 with a specified shared secret. The relevant 
 into the classpath. To avoid the problem, you have to override explicitly that dependency:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 41. Excluding BouncyCastle&#8217;s libraries</div>
+<div class="title">Listing 43. Excluding BouncyCastle&#8217;s libraries</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">build(<span class="string"><span class="delimiter">&quot;</span><span class="content">com.lowagie:itext:2.0.8</span><span class="delimiter">&quot;</span></span>) { excludes <span class="string"><span class="delimiter">&quot;</span><span class="content">bouncycastle:bcprov-jdk14:138</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">org.bouncycastle:bcprov-jdk14:1.38</span><span class="delimiter">&quot;</span></span> }
 {code}</code></pre>
@@ -3364,7 +3533,7 @@ for content encryption.</p>
 won&#8217;t be decrypted across executions of the application. So better create your own key pair using OpenSSL:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 42. Certificate generation for JWT</div>
+<div class="title">Listing 44. Certificate generation for JWT</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">openssl genrsa -out private_key.pem 2048
 openssl pkcs8 -topk8 -inform PEM -outform DER -in private_key.pem -out private_key.der -nocrypt
@@ -3410,7 +3579,7 @@ openssl rsa -in private_key.pem -pubout -outform DER -out public_key.der</code><
 <p>Example configuration:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 43. JWT encryption example configuration</div>
+<div class="title">Listing 45. JWT encryption example configuration</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">grails.plugin.springsecurity.rest.token.storage.jwt.useEncryptedJwt = <span class="predefined-constant">true</span>
 grails.plugin.springsecurity.rest.token.storage.jwt.privateKeyPath = <span class="string"><span class="delimiter">'</span><span class="content">/path/to/private_key.der</span><span class="delimiter">'</span></span>
@@ -3440,7 +3609,7 @@ you JWT&#8217;s, think if you really need it.</p>
 <p>When using JWT, issued access tokens expire after a period of time, and they are paired with refresh tokens, eg:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 44. Sample access token response, including refresh token</div>
+<div class="title">Listing 46. Sample access token response, including refresh token</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="javascript">{
    <span class="key"><span class="delimiter">&quot;</span><span class="content">username</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">jimi</span><span class="delimiter">&quot;</span></span>,
@@ -3461,7 +3630,7 @@ you JWT&#8217;s, think if you really need it.</p>
 <code>/oauth/access_token</code> endpoint:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 45. Sample HTTP request to obtain an access token</div>
+<div class="title">Listing 47. Sample HTTP request to obtain an access token</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="javascript">POST /myApp/oauth/access_token HTTP/<span class="float">1.1</span>
 Host: server.example.com
@@ -3590,7 +3759,7 @@ They get refreshed on every access</p>
 <p>The relevant domain class should look something like this:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 46. Authentication token domain class example</div>
+<div class="title">Listing 48. Authentication token domain class example</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">package</span> org.example.product
 
@@ -4033,7 +4202,7 @@ domain classes to store the users. Use <code>springSecurityService.principal</co
 <p>The token can be sent in the <code>Authorization</code> request header:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 47. Accessing a protected resource using <code>Authorization</code> request header</div>
+<div class="title">Listing 49. Accessing a protected resource using <code>Authorization</code> request header</div>
 <div class="content">
 <pre class="CodeRay highlight"><code>GET /protectedResource HTTP/1.1
 Host: server.example.com
@@ -4044,7 +4213,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MjI5OTU5MjIsInN1YiI6Imppb
 <p>Or using form-encoded body parameters:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 48. Accessing a protected resource using body parameters</div>
+<div class="title">Listing 50. Accessing a protected resource using body parameters</div>
 <div class="content">
 <pre class="CodeRay highlight"><code>POST /protectedResource HTTP/1.1
 Host: server.example.com
@@ -4215,7 +4384,7 @@ will be <code>Bearer TOKEN_VALUE</code>.</p>
 when defining this plugin in your <code>BuildConfig.groovy</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 49. Excluding the CORS plugin</div>
+<div class="title">Listing 51. Excluding the CORS plugin</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">compile <span class="string"><span class="delimiter">'</span><span class="content">:spring-security-rest:{{VERSION}}</span><span class="delimiter">'</span></span>, {
     exclude <span class="string"><span class="delimiter">'</span><span class="content">cors</span></span><span class="error">
@@ -4260,7 +4429,7 @@ OAuth, because then the access keys will be made public.</p>
 <div class="content">
 <img src="oauth.png" alt="oauth">
 </div>
-<div class="title">Figure 4. OAuth delegation protocol</div>
+<div class="title">Figure 5. OAuth delegation protocol</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -4380,7 +4549,7 @@ delegates to the configured <code>userDetailsService</code> bean, passing the pr
 </div>
 <div style="page-break-after: always;"></div>
 <div class="listingblock">
-<div class="title">Listing 50. DefaultOauthUserDetailsService</div>
+<div class="title">Listing 52. DefaultOauthUserDetailsService</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">/**
  * Builds an {`link OauthUser}. Delegates to the default {`link UserDetailsService.loadUserByUsername(java.lang.String)}
@@ -4431,7 +4600,7 @@ implementation. This is useful if you want to allow your corporate users to log 
 account. In this case, you should decide based on OAuth20Profile.getEmail(), for instance:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 51. Custom loadUserByUserProfile implementation</div>
+<div class="title">Listing 53. Custom loadUserByUserProfile implementation</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">OauthUser loadUserByUserProfile(OAuth20Profile userProfile, <span class="predefined-type">Collection</span>&lt;GrantedAuthority&gt; defaultRoles) <span class="directive">throws</span> UsernameNotFoundException {
     <span class="keyword">if</span> (userProfile.email.endsWith(<span class="string"><span class="delimiter">'</span><span class="content">example.org</span><span class="delimiter">'</span></span>)) {
@@ -4460,7 +4629,7 @@ parameter will be empty, and both <code>error</code> and <code>message</code> pa
 <p>Define the following block in your <code>Config.groovy</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 52. Google OAuth sample configuration</div>
+<div class="title">Listing 54. Google OAuth sample configuration</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">grails {
     plugin {
@@ -4512,7 +4681,7 @@ uses the profile ID as the username, and that is only returned by Google if <cod
 <p>Define the following block in your <code>Config.groovy</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 53. Facebook OAuth sample configuration</div>
+<div class="title">Listing 55. Facebook OAuth sample configuration</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">grails {
     plugin {
@@ -4560,7 +4729,7 @@ information you don&#8217;t need.</p>
 <p>Define the following block in your <code>Config.groovy</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 54. Twitter OAuth sample configuration</div>
+<div class="title">Listing 56. Twitter OAuth sample configuration</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">grails {
     plugin {
@@ -4597,7 +4766,7 @@ information you don&#8217;t need.</p>
 <p>Define the following block in your <code>Config.groovy</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 55. CAS sample configuration</div>
+<div class="title">Listing 57. CAS sample configuration</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">grails {
     plugin {
@@ -4633,7 +4802,7 @@ information you don&#8217;t need.</p>
 <p>If you need debug information, you can specify the following entries in <code>Config.groovy</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 56. Logging setup</div>
+<div class="title">Listing 58. Logging setup</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">log4j = {
     ...
@@ -4803,7 +4972,7 @@ October 2012.</p>
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2015-09-27 12:09:24 UTC
+Last updated 2015-09-27 19:35:29 UTC
 </div>
 </div>
 </body>

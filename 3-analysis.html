@@ -426,11 +426,166 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="content">
 <div class="sect2">
 <h3 id="_introduction">Introduction</h3>
+<div class="paragraph">
+<p>The methodology used to develop this project is <strong>Scrum</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="scrum.png" alt="scrum">
+</div>
+<div class="title">Figure 1. Scrum overview by <a href="https://www.mountaingoatsoftware.com/agile/scrum/images">Mountain Goat Software</a></div>
+</div>
+<div class="paragraph">
+<p>Scrum is an agile process most commonly used for product development, especially software development. Scrum is a
+project management framework that is applicable to any project with aggressive deadlines, complex requirements and a
+degree of uniqueness. In Scrum, projects move forward via a series of iterations called sprints. Each sprint is typically
+two to four weeks long.</p>
+</div>
+<div class="paragraph">
+<p>Scrum defines the following concepts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Scrum team</strong>: A typical scrum team has between five and nine people, but Scrum projects can easily scale into the
+hundreds. However, Scrum can easily be used by one-person teams and often is. This team does not include any of the
+traditional software engineering roles such as programmer, designer, tester or architect. Everyone on the project
+works together to complete the set of work they have collectively committed to complete within a sprint. Scrum teams
+develop a deep form of camaraderie and a feeling that “we’re all in this together.”</p>
+</li>
+<li>
+<p><strong>Product owner</strong>: The product owner is the project’s key stakeholder and represents users, customers and others in the
+process. The product owner is often someone from product management or marketing, a key stakeholder or a key user.</p>
+</li>
+<li>
+<p><strong>Scrum Master</strong>: The Scrum Master is responsible for making sure the team is as productive as possible. The Scrum Master
+does this by helping the team use the Scrum process, by removing impediments to progress, by protecting the team from
+outside, and so on.</p>
+</li>
+<li>
+<p><strong>Product backlog</strong>: The product backlog is a prioritized features list containing every desired feature or change to the
+product. Note: The term “backlog” can get confusing because it’s used for two different things. To clarify, the product
+backlog is a list of desired features for the product. The sprint backlog is a list of tasks to be completed in a sprint.</p>
+</li>
+<li>
+<p><strong>Sprint planning meeting</strong>: At the start of each sprint, a sprint planning meeting is held, during which the product
+owner presents the top items on the product backlog to the team. The Scrum team selects the work they can complete
+during the coming sprint. That work is then moved from the product backlog to a sprint backlog, which is the list of
+tasks needed to complete the product backlog items the team has committed to complete in the sprint.</p>
+</li>
+<li>
+<p><strong>Daily Scrum</strong>: Each day during the sprint, a brief meeting called the daily scrum is conducted. This meeting helps set
+the context for each day’s work and helps the team stay on track. All team members are required to attend the daily scrum.</p>
+</li>
+<li>
+<p><strong>Sprint review meeting</strong>: At the end of each sprint, the team demonstrates the completed functionality at a sprint
+review meeting, during which, the team shows what they accomplished during the sprint. Typically, this takes the form
+of a demonstration of the new features, but in an informal way; for example, PowerPoint slides are not allowed. The
+meeting must not become a task in itself nor a distraction from the process.</p>
+</li>
+<li>
+<p><strong>Sprint retrospective</strong>: Also at the end of each sprint, the team conducts a sprint retrospective, which is a meeting
+during which the team (including its ScrumMaster and product owner) reflect on how well Scrum is working for them and
+what changes they may wish to make for it to work even better.</p>
+</li>
+</ul>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_analysis">Analysis</h3>
+<div class="paragraph">
+<p>The software requirements are defined through Scrum&#8217;s <strong>user stories</strong>.</p>
+</div>
+<div class="paragraph">
+<p>User stories are short, simple descriptions of a feature told from the perspective of the person who desires the new
+capability, usually a user or customer of the system. They typically follow a simple template:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+As a &lt;type of user&gt;, I want &lt;some goal&gt; so that &lt;some reason&gt;.
+</blockquote>
+</div>
+<div class="paragraph">
+<p>User stories are often written on index cards or sticky notes, stored in a shoe box, and arranged on walls or tables to
+facilitate planning and discussion. As such, they strongly shift the focus from writing about features to discussing them.
+In fact, these discussions are more important than whatever text is written.</p>
+</div>
+<div class="sect3">
+<h4 id="_user_stories">User stories</h4>
+<div class="sect4">
+<h5 id="__1_as_a_user_i_want_to_authenticate_so_that_i_can_access_protected_resources">#1. As a user, I want to authenticate, so that I can access protected resources</h5>
+<div class="paragraph">
+<p>The authentication endpoint must enable a client application to login using credentials such as username and password.
+It should be RESTful, i.e.: it should consume and produce JSON over HTTP. An example request is like:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 1. User Story {us}: authentication endpoint.</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">POST /login HTTP/1.1
+Host: api.example.com
+Content-Type: application/json
+{
+    "username": "admin",
+    "password": "secret"
+}</code></pre>
+</div>
+</div>
 <div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>If the authentication is successful, the response should be like:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 2. User Story {us}: successful authentication response.</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">200 OK HTTP/1.1
+Content-Type: application/json
+{
+   "username": "admin",
+   "roles": [
+      "ROLE_ADMIN",
+      "ROLE_USER"
+   ],
+   "expires_in": 3600,
+   "token_type": "Bearer",
+   "refresh_token": "eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ.fUaSWIdZakFX7CyimRIPhuw0sfevgmwL2xzm5H0TuaqwKx24EafCO0TruGKG-lN-wGCITssnF2LQTqRzQGp0PoLXHfUJ0kkz5rBl6LtnRu7cdD1ZUNYXLJtFjQ3IATzoo15tPafRPyStG1Qm7-1L0VxquhrLxkkpti0F1_VTytZAq8ltFrnxM4ahJUwS7eriivvdLqmHtnwuXw0kBXEseIyCkiyKklWDJAcD_P_gHoQJvSCoXedlr7Pp0n6LEUrRWJ2Hb-Zyt9dWqWDxm9nyDeEVtEZGcQtpgCGgbXxaUpULIy5nvrbRzXSNyT6iXhK1CLqiFVkfh-Y-DHXdB6Q4sg.uYdpxl835KnlkqC5.gBgSnPWZOo6FINovJNG7Xx2RuS09QJbU4-_J4EgZQkygt8xE-HfdYaOmtmJLjGJR1XKoaRsuX1gNjFoCZgqWAon6.Zsrk52dkjskSVQLXZBQooQ",
+   "access_token": "eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ.n-gGe65x0SlSXS3fTG8ZLdXvv6b5_1pDvkcGyCjFy-vm1VhaBEQL5p3hc6iUcCAcuyrqzGk95lV9dHCv46cNfCiUFHWfbEcd4nqScIxBbc28xO9L1mNLnZ0G1rx1Mx1L0Y_ZPoSxDXpJaHCT28cdZffHLxx2B9ioIClgdlYBAJ5Oz8VT39-D0QSomS6QhFqmcpbDsXrsKxs545Pn-TIlu-fSQ4wpIvAxusOKB6CV2EYKqBplMBrh-3btE8WksVcX2N3LsrcMhrKxSKi93c06MZh6JzSLWe5bl9hvUvBdEuwDrk-fQgD3ZlmjjoevRWYhv_kslW1PlqUHYmKOQ7csUw.3mvvsFWikEjZzExA.YixjnnzzcPRy_uUpgPv5zqOfshv3pUwfrME0AijpsB7u9CmJe94g6f2y_3vqUps-5weKKGZyk3ZtnwEbPVAk9-HZt-Y27SbZl4JNCFEOLVsMsK8.h4j9BdFXuWKKez6xxRAwJA"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the authentication fails, the response should be a <code>401</code> HTTP status code.</p>
+</div>
+<div class="paragraph">
+<p>If the request is invalid, the response shall be a <code>400</code> HTTP status code.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="__2_as_a_user_i_want_to_logout_so_that_my_token_is_no_longer_valid">#2. As a user, I want to logout, so that my token is no longer valid</h5>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="__3_as_a_developer_i_want_to_configure_how_access_tokens_are_generated">#3. As a developer, I want to configure how access tokens are generated</h5>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="__4_as_a_developer_i_want_to_store_tokens_on_multiple_storages_including_the_client_itself">#4. As a developer, I want to store tokens on multiple storages, including the client itself</h5>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="__5_as_a_user_i_want_to_validate_whether_my_access_token_is_still_valid_or_not">#5. As a user, I want to validate whether my access token is still valid or not</h5>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="__6_as_a_developer_i_want_to_expose_cors_headers_in_the_responses_so_that_the_system_can_be_used_from_separated_front_end_applications">#6. As a developer, I want to expose CORS headers in the responses, so that the system can be used from separated front-end applications</h5>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="__7_as_a_user_i_want_to_authenticate_using_external_oauth_providers_such_as_google_or_facebook">#7. As a user, I want to authenticate using external OAuth providers such as Google or Facebook</h5>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_design">Design</h3>
@@ -447,7 +602,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-09-27 12:09:24 UTC
+Last updated 2015-09-27 19:35:29 UTC
 </div>
 </div>
 </body>
