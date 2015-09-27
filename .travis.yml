@@ -2,6 +2,7 @@ languague: groovy
 before_install:
   - gem install asciidoctor
   - gem install asciidoctor-diagram
+  - gem install prawn --version 1.3.0
   - gem install --pre asciidoctor-pdf
   - gem install rouge
 script: "./gradlew publishGhPages"
