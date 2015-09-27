@@ -49,7 +49,14 @@ task generateDiagrams(type: Exec, dependsOn: 'asciidoctor') {
       from "${asciidoctor.outputDir.path}/diagrams"
       into "${buildDir}/asciidoc/src"
     }
+    copy {
+      from "${asciidoctor.outputDir.path}/diagrams"
+      from asciidoctor.sourceDir
+      into asciidoctor.outputDir.path + '/html5'
 
+      include '*.png'
+      include '*.jpg'
+    }
   }
 }
 

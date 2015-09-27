@@ -31,7 +31,7 @@ class GenerateListsTask extends DefaultTask {
         Map<String, Integer> listings = [:]
 
         (1..document.numberOfPages + 1).each { int absolutePage ->
-            int actualPage = absolutePage - 3
+            int actualPage = absolutePage - 4
             stripper.setStartPage(absolutePage)
             stripper.setEndPage(absolutePage)
 
