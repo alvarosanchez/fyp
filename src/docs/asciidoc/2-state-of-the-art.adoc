@@ -760,7 +760,7 @@ the core authentication component, the `SecurityContext` will end up being backe
 
 An HTTP session is a sequence of network request-response transactions. An HTTP client initiates a request by
 establishing a TCP connection to a particular port on a server, An HTTP server listening on that port waits for a client's
-request message. Upon receiving the request, the server sends back a status line, such as "HTTP/1.1 200 OK", and a
+request message. Upon receiving the request, the server sends back a status line, such as `HTTP/1.1 200 OK`, and a
 message of its own. The body of this message is typically the requested resource, although an error message or other
 information may also be returned.
 
