@@ -1,4 +1,10 @@
 languague: groovy
+
+addons:
+  apt:
+    packages:
+    - graphviz
+
 before_install:
   - gem install asciidoctor
   - gem install asciidoctor-diagram
@@ -6,8 +12,6 @@ before_install:
   - gem install --pre asciidoctor-pdf
   - gem install rouge
   - gem install coderay
-  - sudo apt-get update -qq
-  - sudo apt-get install -y graphviz
 script: "./gradlew publishGhPages"
 cache:
   directories:
