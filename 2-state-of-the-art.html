@@ -420,9 +420,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_oauth_2_0">OAuth 2.0</a></li>
 <li><a href="#_asciidoctor">Asciidoctor</a></li>
 <li><a href="#_gradle">Gradle</a></li>
-<li><a href="#_similar_solution_1">Similar solution #1</a></li>
-<li><a href="#_similar_solution_2">Similar solution #2</a></li>
-<li><a href="#_comparision">Comparision</a></li>
+<li><a href="#_similar_solution_spring_security">Similar solution: Spring Security</a></li>
+<li><a href="#_conclusion">Conclusion</a></li>
 </ul>
 </div>
 </div>
@@ -444,7 +443,7 @@ Before going deeper into it, let&#8217;s describe first the foundations of the p
 <div class="sect3">
 <h4 id="_the_groovy_programming_language">The Groovy programming language</h4>
 <div class="paragraph">
-<p>Groovy is developed to be a feature rich Java friendly programming language. The idea is to bring features we can find
+<p>Groovy <a href="#groovy">[groovy]</a> is developed to be a feature rich Java friendly programming language. The idea is to bring features we can find
 in dynamic programming languages like Python, Ruby to the Java platform. The Java platform is widely supported and a lot
 of developers know Java.</p>
 </div>
@@ -940,7 +939,7 @@ Java platform. What makes it different, however, is that it does so by building 
 like Spring and Hibernate.</p>
 </div>
 <div class="paragraph">
-<p>Grails is a full stack framework and attempts to solve as many pieces of the web development puzzle through the core
+<p>Grails <a href="#grails">[grails]</a> is a full stack framework and attempts to solve as many pieces of the web development puzzle through the core
 technology and its associated plugins. Included out the box are things like:</p>
 </div>
 <div class="ulist">
@@ -1113,7 +1112,7 @@ GSP view from a controller. Given the <code>show</code> action from the controll
 <div class="sect2">
 <h3 id="_oauth_2_0">OAuth 2.0</h3>
 <div class="paragraph">
-<p>The OAuth 2.0 authorization framework enables a third-party application to obtain limited access to an HTTP service,
+<p>The OAuth 2.0 authorization framework <a href="#oauth2">[oauth2]</a> enables a third-party application to obtain limited access to an HTTP service,
 either on behalf of a resource owner by orchestrating an approval interaction between the resource owner and the HTTP
 service, or by allowing the third-party application to obtain access on its own behalf.  This specification replaces and
 obsoletes the OAuth 1.0 protocol described in RFC 5849.</p>
@@ -1192,7 +1191,7 @@ access token.</p>
 <p>This document has been produced using Asciidoctor.</p>
 </div>
 <div class="paragraph">
-<p>Asciidoctor is a fast text processor and publishing toolchain for converting AsciiDoc content to HTML5, DocBook 5
+<p>Asciidoctor<a href="#asciidoctor">[asciidoctor]</a> is a fast text processor and publishing toolchain for converting AsciiDoc content to HTML5, DocBook 5
 (or 4.5) and other formats. Asciidoctor is written in Ruby, packaged as a RubyGem and published to RubyGems.org.</p>
 </div>
 <div class="paragraph">
@@ -1207,7 +1206,7 @@ technical semantics.</p>
 <div class="listingblock">
 <div class="title">Listing 26. Sample AsciiDoc document</div>
 <div class="content">
-<pre class="highlight"><code class="language-asciidoc" data-lang="asciidoc">= Introduction to AsciiDoc
+<pre class="highlight"><code class="language-asciidoctor" data-lang="asciidoctor">= Introduction to AsciiDoc
 Doc Writer &lt;doc@example.com&gt;
 
 A preface about http://asciidoc.org[AsciiDoc].
@@ -1226,7 +1225,7 @@ puts "Hello, World!"</code></pre>
 <div class="sect2">
 <h3 id="_gradle">Gradle</h3>
 <div class="paragraph">
-<p>Gradle is the build system used to produce this document in different formats, such as PDF and HTML.</p>
+<p>Gradle <a href="#gradle">[gradle]</a> is the build system used to produce this document in different formats, such as PDF and HTML.</p>
 </div>
 <div class="paragraph">
 <p>Gradle provides:</p>
@@ -1287,21 +1286,205 @@ Hello world!</code></pre>
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
-<h3 id="_similar_solution_1">Similar solution #1</h3>
+<h3 id="_similar_solution_spring_security">Similar solution: Spring Security</h3>
+<div class="paragraph">
+<p>Spring Security is an authentication and access-control framework. It is the de-facto standard for securing Spring-based
+applications. It has the following features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Comprehensive and extensible support for both Authentication and Authorization.</p>
+</li>
+<li>
+<p>Protection against attacks like session fixation, clickjacking, cross site request forgery, etc.</p>
+</li>
+<li>
+<p>Servlet API integration.</p>
+</li>
+<li>
+<p>Optional integration with Spring Web MVC.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>At an authentication level, Spring Security supports a wide range of authentication models. Most of these authentication
+models are either provided by third parties, or are developed by relevant standards bodies such as the Internet
+Engineering Task Force. In addition, Spring Security provides its own set of authentication features. Specifically,
+Spring Security currently supports authentication integration with all of these technologies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>HTTP BASIC authentication headers (an IETF RFC-based standard).</p>
+</li>
+<li>
+<p>HTTP Digest authentication headers (an IETF RFC-based standard).</p>
+</li>
+<li>
+<p>HTTP X.509 client certificate exchange (an IETF RFC-based standard).</p>
+</li>
+<li>
+<p>LDAP (a very common approach to cross-platform authentication needs, especially in large environments).</p>
+</li>
+<li>
+<p>Form-based authentication (for simple user interface needs).</p>
+</li>
+<li>
+<p>OpenID authentication.</p>
+</li>
+<li>
+<p>Authentication based on pre-established request headers (such as Computer Associates Siteminder).</p>
+</li>
+<li>
+<p>JA-SIG Central Authentication Service (otherwise known as CAS, which is a popular open source single sign-on system).</p>
+</li>
+<li>
+<p>Transparent authentication context propagation for Remote Method Invocation (RMI) and HttpInvoker (a Spring remoting
+protocol).</p>
+</li>
+<li>
+<p>Automatic "remember-me" authentication (so you can tick a box to avoid re-authentication for a predetermined
+period of time).</p>
+</li>
+<li>
+<p>Anonymous authentication (allowing every unauthenticated call to automatically assume a particular security identity).</p>
+</li>
+<li>
+<p>Run-as authentication (which is useful if one call should proceed with a different security identity).</p>
+</li>
+<li>
+<p>Java Authentication and Authorization Service (JAAS)</p>
+</li>
+<li>
+<p>JEE container autentication (so you can still use Container Managed Authentication if desired).</p>
+</li>
+<li>
+<p>Kerberos.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It also integrates with a variety of technologies via third party implementations, such as Grails.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_spring_security_core_grails_plugin">The Spring Security Core Grails plugin</h4>
+<div class="paragraph">
+<p>For the Grails framework, there is an official plugin for authentication and authorisation: the Spring Security Core
+Grails plugin <a href="#ss-core">[ss-core]</a>. It basically simplifies the usage of Spring Security in a Grails application.</p>
+</div>
+<div class="paragraph">
+<p>Although there are alternative plugins for security services, we can consider Spring Security Core the de-facto option
+as it is the official and supported plugin.</p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
-<div class="sect2">
-<h3 id="_similar_solution_2">Similar solution #2</h3>
-<div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
-<h3 id="_comparision">Comparision</h3>
+<h3 id="_conclusion">Conclusion</h3>
+<div class="paragraph">
+<p>Spring Security is not a viable solution due to 2 problems: the HTTP session usage and the lack of REST support.</p>
+</div>
+<div class="sect3">
+<h4 id="_http_session">HTTP Session</h4>
+<div class="paragraph">
+<p>Spring Security is heavily based on the HTTP session. No matter what authentication mechanism the developer has configured,
+the core authentication component, the <code>SecurityContext</code> will end up being backed by the HTTP session.</p>
+</div>
+<div class="paragraph">
+<p>An HTTP session is a sequence of network request-response transactions. An HTTP client initiates a request by
+establishing a TCP connection to a particular port on a server, An HTTP server listening on that port waits for a client&#8217;s
+request message. Upon receiving the request, the server sends back a status line, such as "HTTP/1.1 200 OK", and a
+message of its own. The body of this message is typically the requested resource, although an error message or other
+information may also be returned.</p>
+</div>
+<div class="paragraph">
+<p>A session token is a unique identifier that is generated and sent from a server to a client to identify the current
+interaction session. The client usually stores and sends the token as an HTTP cookie and/or sends it as a parameter in
+GET or POST queries. The reason to use session tokens is that the client only has to handle the identifier—all session
+data is stored on the server (usually in a database, to which the client does not have direct access) linked to that
+identifier.</p>
+</div>
+<div class="paragraph">
+<p>Particularly in Java-based web applications, HTTP sessions are in-memory data structures. There are alternative
+implementations where the HTTP Session is stored in databases or distributed caches. However, they require additional
+configuration; there are also some caveats when using them, so in-memory storage is the option for most of the users.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>This state on the server side has the following problems:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Makes the solution stateful, thus violating a basic principle of a RESTful architecture: services must be stateless,
+where is the client transferring its state to the server on every roundtrip.</p>
+</li>
+<li>
+<p>It doesn&#8217;t play well with microservices as it makes the solution much more difficult to scale, as the HTTP session is
+physically stored in the application server instance that first served that particular user. For this to work, the
+web/proxy servers or load balancers in front of the application server must use sticky sessions.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>A sticky session is bound (<em>sticky</em>) to a particular application server instance, so that all the requests from that user
+will be routed directly to such instance. In order to do so, proxies/balancers store a cookie when the first request is
+sent to an instance. In following requests, the balancer will be able to route them to this particular instance by
+reading the cookie.</p>
+</div>
+<div class="paragraph">
+<p>In a microservice architecture, it should be possible to spin up multiple instances of a microservice to cope with
+load increments. And any instance should be able to respond to any request. With sticky HTTP sessions, this is not
+possible.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect3">
+<h4 id="_lack_of_rest_support">Lack of REST support</h4>
+<div class="paragraph">
+<p>In REST, data is normally sent and received in JSON format. For an authentication request, this is how we would like it
+to work:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 29. Ideal authentication request in a RESTful architecture</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">POST /login HTTP/1.1
+Host: api.example.com
+Content-Type: application/json
 
+{
+    "username": "admin",
+    "password": "secret"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>However, this is how it works in Spring Security:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 30. Actual authentication request in Spring Security</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">POST /j_spring_security_check HTTP/1.1
+Host: api.example.com
+Content-Type: application/x-www-form-urlencoded
+
+j_username=admin&amp;j_password=secret</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As you can see, it&#8217;s far from RESTful.</p>
+</div>
+<div class="paragraph">
+<p>For all the reasons explained above, Spring Security is not a viable solution, therefore creating Spring Security REST
+is an actual need for the development community.</p>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-09-27 09:16:38 UTC
+Last updated 2015-09-27 12:09:24 UTC
 </div>
 </div>
 </body>
