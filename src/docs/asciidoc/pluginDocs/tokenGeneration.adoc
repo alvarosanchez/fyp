@@ -8,6 +8,7 @@ If you are not using JWT, but any stateful strategy like Memcached or GORM, the 
 The strategy used is configurable in `Config.groovy`:
 
 .Token generation configuration options
+[cols="80,20"]
 |===
 | *Config key*  | *Default value*
 

@@ -4,6 +4,7 @@ JWT is fully supported and is now the default token "storage" mechanism. If you 
 (such as Memcached or GORM), make sure you explicitly set to `true` one of the following properties:
 
 .New configuration values in 1.5
+[cols="80,20"]
 |===
 |Config key |Default value
 

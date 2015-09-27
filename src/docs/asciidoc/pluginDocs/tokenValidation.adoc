@@ -117,6 +117,7 @@ If the token does not exist, it will render a `grails.plugin.springsecurity.rest
 The relevant configuration properties for the validation endpoint are:
 
 .Validation endpoint configuration options
+[cols="80,20"]
 |===
 |*Config key*   |*Default value*
 

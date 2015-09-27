@@ -23,6 +23,7 @@ The following are the `Config.groovy` properties available:
 
 
 .Authentication configuration options
+[cols="80,20"]
 |===
 |*Config key* |*Default value*
 
@@ -46,6 +47,7 @@ To align with the RESTful principles, JSON payload is the default behaviour.
 ===== From a JSON request
 
 .JSON credentials extraction configuration properties
+[cols="80,20"]
 |===
 |*Config key* |*Default value*
 
@@ -133,6 +135,7 @@ Once you are done, register it in `resources.groovy` with the name `credentialsE
 Note that the name of the parameters can also be customised:
 
 .Parameter extraction configuration options
+[cols="80,20"]
 |===
 | *Config key* | *Default value*
 
@@ -171,6 +174,7 @@ storage, sending a 200 response. Otherwise, it will send a 404 response.
 You can configure it in `Config.groovy` using this properties:
 
 .Logout configuration options
+[cols="80,20"]
 |===
 | *Config key* | *Default value*
 

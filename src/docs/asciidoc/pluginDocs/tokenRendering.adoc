@@ -27,6 +27,7 @@ As per the RFC, `access_token` and `token_type` property names cannot be customi
 The JSON structure can be customised with the following configuration keys:
 
 .Token rendering configuration options
+[cols="80,20"]
 |===
 |*Config key*   |*Default value*
 
@@ -71,6 +72,7 @@ In order to fully customise the response, you need first to disable bearer token
 property:
 
 .Token rendering configuration options
+[cols="80,20"]
 |===
 |*Config key*   |*Default value*
 

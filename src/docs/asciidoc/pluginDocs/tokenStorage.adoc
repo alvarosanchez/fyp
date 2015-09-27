@@ -77,6 +77,7 @@ https://tools.ietf.org/html/draft-ietf-jose-json-web-signature[JSON Web Signatur
 the algorithm used is HMAC SHA-256 with a specified shared secret. The relevant configuration properties are:
 
 .JWT configuration options for signing
+[cols="80,20"]
 |===
 |*Config key*   |*Default value*
 
@@ -135,6 +136,7 @@ openssl rsa -in private_key.pem -pubout -outform DER -out public_key.der
 Then, configure the keys properly, along with the rest of the configuration:
 
 .JWT configuration options for signing
+[cols="80,20"]
 |===
 |*Config key*   |*Default value*
 
@@ -225,6 +227,7 @@ https://tools.ietf.org/html/rfc6749#section-10.4[section 10.4 of the OAuth 2.0 s
 To use Memcached, simply define the following configuration properties to match your environments accordingly:
 
 .Memcached configuration options
+[cols="80,20"]
 |===
 |*Config key*   |*Default value*
 
@@ -257,10 +260,11 @@ They get refreshed on every access
 To use GORM, these are the relevant configuration properties:
 
 .GORM configuration options
+[cols="80,20"]
 |===
 |*Config key*   |*Default value*
 
-`grails.plugin.springsecurity.rest.token.storage.useGorm`
+|`grails.plugin.springsecurity.rest.token.storage.useGorm`
 |`false`
 
 |`grails.plugin.springsecurity.rest.token.storage.gorm.tokenDomainClassName`
@@ -386,6 +390,7 @@ https://github.com/grails-plugins/grails-redis[Redis plugin documentation] for m
 Configuration options for Redis:
 
 .Redis configuration options
+[cols="80,20"]
 |===
 |*Config key*   |*Default value*
 
@@ -403,6 +408,7 @@ Configuration options for Redis:
 To use http://grails.org/plugin/cache[Grails Cache], simply define a cache name:
 
 .Redis configuration options
+[cols="80,20"]
 |===
 |*Config key*   |*Default value*
 

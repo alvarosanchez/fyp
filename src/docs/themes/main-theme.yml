@@ -49,3 +49,9 @@ footer:
 
 toc:
   dot_leader_content: ' '
+
+literal:
+  font_family: M+ 1mn
+
+code:
+  font_family: M+ 1mn
