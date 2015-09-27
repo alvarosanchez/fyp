@@ -419,6 +419,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_grails_framework">Grails framework</a></li>
 <li><a href="#_oauth_2_0">OAuth 2.0</a></li>
 <li><a href="#_asciidoctor">Asciidoctor</a></li>
+<li><a href="#_gradle">Gradle</a></li>
 <li><a href="#_similar_solution_1">Similar solution #1</a></li>
 <li><a href="#_similar_solution_2">Similar solution #2</a></li>
 <li><a href="#_comparision">Comparision</a></li>
@@ -974,13 +975,315 @@ technology and its associated plugins. Included out the box are things like:</p>
 <p>All of these are made easy to use through the power of the Groovy language and the extensive use of Domain Specific Languages (DSLs)</p>
 </div>
 <div style="page-break-after: always;"></div>
+<div class="sect3">
+<h4 id="_domains">Domains</h4>
+<div class="paragraph">
+<p>Grails has an abstract domain layer called GORM: Grails Object Relational Mapping. Despite of it&#8217;s name, it has support
+for multiple data storage systems, bot SQL and No-SQL, such as Hibernate (for relational databases), MongoDB, CouchDB,
+Neo4j and Redis.</p>
+</div>
+<div class="paragraph">
+<p>This is an example of how Grails domains work:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 23. Grails GORM examples</div>
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">class Person {
+    String name
+    Integer age
+    Date lastVisit
+
+    static hasMany = [pets: Pet]
+}
+
+class Pet {
+    String name
+
+    static belongsTo = [owner: Person]
+}
+
+//Create
+def p = new Person(name: "Fred", age: 40, lastVisit: new Date())
+p.save()
+
+//Read
+def fred = Person.get(1)
+assert 'Fred' == fred.name
+
+//Update
+def bob = Person.findByName("Fred")
+bob.name = "Bob"
+bob.save(flush: true)
+assert 'Bob' == Person.get(1).name
+
+//Delete
+bob.delete()
+
+//Relationships
+def john == new Person(name: "John", age: 40, lastVisit: new Date()).addToPets(name: "floppy").save()
+assert Pet.get(1).name == "floppy"</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect3">
+<h4 id="_the_web_layer">The web layer</h4>
+<div class="sect4">
+<h5 id="_controllers">Controllers</h5>
+<div class="paragraph">
+<p>A controller handles requests and creates or prepares the response. A controller can generate the response directly or
+delegate to a view.</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 24. Grails Controller examples</div>
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">import grails.converters.JSON
+
+class PersonController {
+
+    /** Accessible through /person */
+    def index() {
+        List&lt;Person&gt; people = Person.list()
+
+        //Generates a JSON response directly
+        render people as JSON
+    }
+
+    /** Accessible through /person/show/123 */
+    def show(Long id) {
+        Person person = Person.get(id)
+        if (person) {
+            //Delegates to /grails-app/views/person/show.gsp, where the model is the map [person: person]
+            return [person: person]
+        } else {
+            response.sendError(404)
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="_views">Views</h5>
+<div class="paragraph">
+<p>Groovy Servers Pages (or GSP for short) is Grails' view technology. It is designed to be familiar for users of
+technologies such as ASP and JSP, but to be far more flexible and intuitive.</p>
+</div>
+<div class="paragraph">
+<p>GSP&#8217;s live in the <code>grails-app/views</code> directory and are typically rendered automatically (by convention) or with the
+render method such as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">render(view: "index")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A GSP is typically a mix of mark-up and GSP tags which aid in view rendering.</p>
+</div>
+<div class="paragraph">
+<p>Although it is possible to have Groovy logic embedded in your GSP, the practice is strongly discouraged. Mixing mark-up
+and code is a bad thing and most GSP pages contain no code and needn&#8217;t do so.</p>
+</div>
+<div class="paragraph">
+<p>A GSP typically has a "model" which is a set of variables that are used for view rendering. The model is passed to the
+GSP view from a controller. Given the <code>show</code> action from the controllers example, a GSP could look like this:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 25. Grails GSP example</div>
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;html&gt;
+  &lt;body&gt;
+    &lt;h1&gt;${person.name}&lt;/h1&gt;
+    &lt;p&gt;Pets:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;g:each in="${person.pets}" var="pet"&gt;
+        &lt;li&gt;${pet.name}&lt;/li&gt;
+      &lt;/g:each&gt;
+    &lt;/ul&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_oauth_2_0">OAuth 2.0</h3>
+<div class="paragraph">
+<p>The OAuth 2.0 authorization framework enables a third-party application to obtain limited access to an HTTP service,
+either on behalf of a resource owner by orchestrating an approval interaction between the resource owner and the HTTP
+service, or by allowing the third-party application to obtain access on its own behalf.  This specification replaces and
+obsoletes the OAuth 1.0 protocol described in RFC 5849.</p>
+</div>
+<div class="sect3">
+<h4 id="_roles">Roles</h4>
+<div class="paragraph">
+<p>OAuth defines four roles:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Resource owner</strong>: an entity capable of granting access to a protected resource. When the resource owner is a person, it
+is referred to as an end-user.</p>
+</li>
+<li>
+<p><strong>Resource server</strong>:  the server hosting the protected resources, capable of accepting and responding to protected resource
+requests using access tokens.</p>
+</li>
+<li>
+<p><strong>Client</strong>: an application making protected resource requests on behalf of the resource owner and with its authorization.
+The term "client" does not imply any particular implementation characteristics (e.g., whether the application executes
+on a server, a desktop, or other devices).</p>
+</li>
+<li>
+<p><strong>Authorization server</strong>: the server issuing access tokens to the client after successfully authenticating the resource
+owner and obtaining authorization.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The interaction between the authorization server and resource server is beyond the scope of the specification.  The
+authorization server may be the same server as the resource server or a separate entity. A single authorization server
+may issue access tokens accepted by multiple resource servers.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="oauth-flow.png" alt="oauth flow">
+</div>
+<div class="title">Figure 1. OAuth 2.0 flow</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The client requests authorization from the resource owner. The authorization request can be made directly to the
+resource owner (as shown), or preferably indirectly via the authorization server as an intermediary.</p>
+</li>
+<li>
+<p>The client receives an authorization grant, which is a credential representing the resource owner&#8217;s authorization,
+expressed using one of four grant types defined in this specification or using an extension grant type. The
+authorization grant type depends on the method used by the client to request authorization and the types supported by
+the authorization server.</p>
+</li>
+<li>
+<p>The client requests an access token by authenticating with the authorization server and presenting the
+authorization grant.</p>
+</li>
+<li>
+<p>The authorization server authenticates the client and validates the authorization grant, and if valid, issues an
+access token.</p>
+</li>
+<li>
+<p>The client requests the protected resource from the resource server and authenticates by presenting the access token.</p>
+</li>
+<li>
+<p>The resource server validates the access token, and if valid, serves the request.</p>
+</li>
+</ol>
+</div>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_asciidoctor">Asciidoctor</h3>
+<div class="paragraph">
+<p>This document has been produced using Asciidoctor.</p>
+</div>
+<div class="paragraph">
+<p>Asciidoctor is a fast text processor and publishing toolchain for converting AsciiDoc content to HTML5, DocBook 5
+(or 4.5) and other formats. Asciidoctor is written in Ruby, packaged as a RubyGem and published to RubyGems.org.</p>
+</div>
+<div class="paragraph">
+<p>AsciiDoc belongs to the family of lightweight markup languages, the most renowned of which is Markdown. AsciiDoc stands
+out from this group because it supports all the structural elements necessary for drafting articles, technical manuals,
+books, presentations and prose. In fact, it’s capable of meeting even the most advanced publishing requirements and
+technical semantics.</p>
+</div>
+<div class="paragraph">
+<p>Here’s a basic example of an AsciiDoc document:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 26. Sample AsciiDoc document</div>
+<div class="content">
+<pre class="highlight"><code class="language-asciidoc" data-lang="asciidoc">= Introduction to AsciiDoc
+Doc Writer &lt;doc@example.com&gt;
+
+A preface about http://asciidoc.org[AsciiDoc].
+
+== First Section
+
+* item 1
+* item 2
+
+[source,ruby]
+puts "Hello, World!"</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="_gradle">Gradle</h3>
+<div class="paragraph">
+<p>Gradle is the build system used to produce this document in different formats, such as PDF and HTML.</p>
+</div>
+<div class="paragraph">
+<p>Gradle provides:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A very flexible general purpose build tool like Ant.</p>
+</li>
+<li>
+<p>Switchable, build-by-convention frameworks a la Maven. But we never lock you in!</p>
+</li>
+<li>
+<p>Very powerful support for multi-project builds.</p>
+</li>
+<li>
+<p>Very powerful dependency management (based on Apache Ivy).</p>
+</li>
+<li>
+<p>Full support for your existing Maven or Ivy repository infrastructure.</p>
+</li>
+<li>
+<p>Support for transitive dependency management without the need for remote repositories or pom.xml and ivy.xml files.</p>
+</li>
+<li>
+<p>Ant tasks and builds as first class citizens.</p>
+</li>
+<li>
+<p>Groovy build scripts.</p>
+</li>
+<li>
+<p>A rich domain model for describing your build.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You run a Gradle build using the <code>gradle</code> command. The <code>gradle</code> command looks for a file called <code>build.gradle</code> in the
+current directory. This <code>build.gradle</code> file is called a build script, although strictly speaking it is a build
+configuration script. The build script defines a project and its tasks.</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 27. Gradle build script example</div>
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">task hello {
+    doLast {
+        println 'Hello world!'
+    }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Listing 28. Output of the previous build script</div>
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ gradle -q hello
+Hello world!</code></pre>
+</div>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
@@ -998,7 +1301,7 @@ technology and its associated plugins. Included out the box are things like:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-09-23 00:27:28 UTC
+Last updated 2015-09-27 08:09:45 UTC
 </div>
 </div>
 </body>

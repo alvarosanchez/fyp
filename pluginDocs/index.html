@@ -2787,10 +2787,10 @@ delegates to the configured <code>userDetailsService</code> bean, passing the pr
  * where the username passed is {`link UserProfile.getId()}. If the user is not found, it will create a new one with
  * the the default roles.
  */
-`Slf4j
+@Slf4j
 class DefaultOauthUserDetailsService implements OauthUserDetailsService {
 
-    `Delegate
+    @Delegate
     UserDetailsService userDetailsService
 
     UserDetailsChecker preAuthenticationChecks
@@ -3152,7 +3152,7 @@ your gratitude via <a href="https://twitter.com/alvaro_sanchez">Twitter</a>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-09-23 00:27:28 UTC
+Last updated 2015-09-27 08:09:45 UTC
 </div>
 </div>
 </body>
