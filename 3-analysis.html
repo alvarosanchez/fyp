@@ -416,7 +416,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel2">
 <li><a href="#_introduction">Introduction</a></li>
-<li><a href="#_analysis">Analysis</a></li>
+<li><a href="#_product_backlog">Product Backlog</a></li>
 <li><a href="#_design">Design</a></li>
 <li><a href="#_development">Development</a></li>
 <li><a href="#_deployment">Deployment</a></li>
@@ -493,7 +493,7 @@ what changes they may wish to make for it to work even better.</p>
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
-<h3 id="_analysis">Analysis</h3>
+<h3 id="_product_backlog">Product Backlog</h3>
 <div class="paragraph">
 <p>The software requirements are defined through Scrum&#8217;s <strong>user stories</strong>.</p>
 </div>
@@ -520,7 +520,7 @@ In fact, these discussions are more important than whatever text is written.</p>
 It should be RESTful, i.e.: it should consume and produce JSON over HTTP. An example request is like:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 1. User Story {us}: authentication endpoint.</div>
+<div class="title">Listing 1. User Story 1: authentication endpoint.</div>
 <div class="content">
 <pre class="highlight"><code class="language-javascript" data-lang="javascript">POST /login HTTP/1.1
 Host: api.example.com
@@ -536,7 +536,7 @@ Content-Type: application/json
 <p>If the authentication is successful, the response should be like:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 2. User Story {us}: successful authentication response.</div>
+<div class="title">Listing 2. User Story 1: successful authentication response</div>
 <div class="content">
 <pre class="highlight"><code class="language-javascript" data-lang="javascript">200 OK HTTP/1.1
 Content-Type: application/json
@@ -554,42 +554,355 @@ Content-Type: application/json
 </div>
 </div>
 <div class="paragraph">
-<p>If the authentication fails, the response should be a <code>401</code> HTTP status code.</p>
+<p>If the authentication fails, the response should be a <code>401 Unauthorized</code> HTTP status code.</p>
 </div>
 <div class="paragraph">
-<p>If the request is invalid, the response shall be a <code>400</code> HTTP status code.</p>
+<p>If the HTTP method in the request is not <code>POST</code>, the response must be a <code>405 Method Not Allowed</code> HTTP status code.</p>
+</div>
+<div class="paragraph">
+<p>If the request is invalid, the response shall be a <code>400 Bad Request</code> HTTP status code.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect4">
 <h5 id="__2_as_a_user_i_want_to_logout_so_that_my_token_is_no_longer_valid">#2. As a user, I want to logout, so that my token is no longer valid</h5>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Logout is only possible with stateful token storages.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>There must be a logout endpoint to allow users remove their token from the token storage. An example request would be
+like this:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 3. User Story 2: logout endpoint</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">POST /logout HTTP/1.1
+Host: api.example.com
+Authorization: Bearer eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that the token is passed in the <code>Authorization</code> HTTP Header, as specified in the RFC 6750 <a href="#rfc6750">[rfc6750]</a>.</p>
+</div>
+<div class="paragraph">
+<p>If the token is found and removed, the response should be a <code>200 OK</code> HTTP status code. Otherwise, it will be a
+<code>404 Not Found</code>.</p>
+</div>
+<div class="paragraph">
+<p>If the HTTP method in the request is not <code>POST</code>, the response must be a <code>405 Method Not Allowed</code> HTTP status code.</p>
+</div>
+<div class="paragraph">
+<p>If the request is invalid, the response shall be a <code>400 Bad Request</code> HTTP status code.</p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect4">
 <h5 id="__3_as_a_developer_i_want_to_configure_how_access_tokens_are_generated">#3. As a developer, I want to configure how access tokens are generated</h5>
-<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>Token generation should be configurable by users. There are 2 scenarios:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If using JWT, generated tokens will conform to the RFC 6750 <a href="#rfc6750">[rfc6750]</a> specification, and therefore it won&#8217;t be
+possible to override it. In this case, token will have a fixed expiration time, that must be also configurable. The
+tokens will expire after the indicated period, regardless of having being accessed or not.</p>
+</li>
+<li>
+<p>Otherwise, tokens will be a set of random alphanumeric characters of 32 char length, stored in any token storage
+(see next user story). In this case, tokens will have a configurable expiration time, that might be refreshed on
+every access, depending on the underlying storage support for such action.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The plugin must provide at least one implementation for each scenario.</p>
+</div>
 </div>
 <div class="sect4">
 <h5 id="__4_as_a_developer_i_want_to_store_tokens_on_multiple_storages_including_the_client_itself">#4. As a developer, I want to store tokens on multiple storages, including the client itself</h5>
+<div class="paragraph">
+<p>If using JWT, tokens will be stored on the client. Assuming the client is a front-end application using a Javascript MVC
+framework like Angular JS <a href="#angular-js">[angular-js]</a>, the place to store such token would be HTML 5&#8217;s <code>localStorage</code>.</p>
+</div>
+<div class="paragraph">
+<p>Otherwise, the plugin must enable the developer to configure a stateful storage to store the tokens into. The plugin
+must provide at least one implementation for storing tokens in a relational database, and in an in-memory storage
+solution.</p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect4">
 <h5 id="__5_as_a_user_i_want_to_validate_whether_my_access_token_is_still_valid_or_not">#5. As a user, I want to validate whether my access token is still valid or not</h5>
+<div class="sect5">
+<h6 id="_token_validation_filter">Token validation filter</h6>
+<div class="paragraph">
+<p>The plugin must provide a Spring Security Filter (based on Java EE Servlet filters) that will validate the token
+received on every request. If the validation is successful, the plugin will restore the user principal into the
+Spring Security&#8217;s <code>SecurityContext</code>.</p>
+</div>
+<div class="paragraph">
+<p>This will enable developers to transparently secure their endpoints using Spring Security utils like the
+<code>@Secured</code> annotation or the <code>SpringSecurityService</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 4. User Story 5: securing a controller action</div>
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">import grails.converters.JSON
+
+class UserController {
+    SpringSecurityService springSecurityService
+
+    @Secured
+    def me() {
+        render [username: springSecurityService.principal.username] as JSON
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above action might be accessed like this:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 5. User Story 5: accessing a protected endpoint</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">GET /user/me HTTP/1.1
+Host: api.example.com
+Authorization: Bearer eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Assuming the token is valid, the response might be like this:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 6. User Story 5: successful protected endpoint response</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">200 OK HTTP/1.1
+Content-Type: application/json
+{ "username": "raul.gonzalez" }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the token is invalid, the response should be a <code>401 Unauthorized</code> HTTP status code, indicating that the request is
+not sufficiently authenticated.</p>
+</div>
 <div style="page-break-after: always;"></div>
+</div>
+<div class="sect5">
+<h6 id="_token_validation_endpoint">Token validation endpoint</h6>
+<div class="paragraph">
+<p>There must be a token validation endpoint available for users to check whether a token is still valid or not.</p>
+</div>
+<div class="paragraph">
+<p>Example usage:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 7. User Story 5: token validation endpoint request</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">POST /validate HTTP/1.1
+Host: api.example.com
+Authorization: Bearer eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the token is valid, the response should be like:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 8. User Story 5: token validation endpoint response</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">200 OK HTTP/1.1
+Content-Type: application/json
+{
+   "username": "admin",
+   "roles": [
+      "ROLE_ADMIN",
+      "ROLE_USER"
+   ],
+   "expires_in": 3600,
+   "token_type": "Bearer",
+   "refresh_token": "eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ...",
+   "access_token": "eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ..."
+}</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
 </div>
 <div class="sect4">
 <h5 id="__6_as_a_developer_i_want_to_expose_cors_headers_in_the_responses_so_that_the_system_can_be_used_from_separated_front_end_applications">#6. As a developer, I want to expose CORS headers in the responses, so that the system can be used from separated front-end applications</h5>
+<div class="paragraph">
+<p>Cross-Origin Resource Sharing <a href="#cors">[cors]</a> is a mechanism that allows restricted resources on a web page to be requested
+from another domain outside the domain from which the resource originated.</p>
+</div>
+<div class="paragraph">
+<p>In the context of separated front-ends and backends, it might be possible that the front-end is running on a different
+domain (<code>www.example.com</code>) than the backend (<code>api.example.com</code>).</p>
+</div>
+<div class="paragraph">
+<p>When CORS request is needed, the browser will issue first a so-called pre-flight request, asking the server for its
+CORS capabilities:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 9. User Story 6: pre-flight request in CORS.</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">OPTIONS /user/me HTTP/1.1
+Origin: http://www.example.com
+Access-Control-Request-Method: GET
+Host: api.example.com
+Accept-Language: en-GB
+Connection: keep-alive
+User-Agent: Mozilla/5.0...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the server has CORS enabled, it will indicated allowed origins and HTTP methods in the response:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 10. User Story 6: pre-flight response in CORS.</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">Access-Control-Allow-Origin: http://www.example.com
+Access-Control-Allow-Methods: GET, POST, PUT</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The browser will then check if the origin domain and the HTTP is allowed, and will make the actual request. If the
+server disallows any of them, the browser will halt the request, throwing an error in the console.</p>
+</div>
+<div class="paragraph">
+<p>The plugin must offer support for enabling CORS.</p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect4">
 <h5 id="__7_as_a_user_i_want_to_authenticate_using_external_oauth_providers_such_as_google_or_facebook">#7. As a user, I want to authenticate using external OAuth providers such as Google or Facebook</h5>
+<div class="paragraph">
+<p>This plugin is meant to be used in applications serving a REST API&#8217;s to pure Javascript clients. The main authentication
+flow of this plugin is to allow you to authenticate your users against any Spring Security-compatible user directory
+(like a DB or an LDAP server).</p>
+</div>
+<div class="paragraph">
+<p>However, there might be situations where you want to delegate the authentication against a third-party provider, like
+Google or Facebook. Unfortunately, your pure Javascript front-end application cannot request the providers directly using
+OAuth, because then the access keys will be made public.</p>
+</div>
+<div class="paragraph">
+<p>So is this plugin&#8217;s responsibility to provide endpoints so your Grails backend acts as a proxy for your front-end client.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>The flow is something like the following:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="pluginDocs/oauth.png" alt="oauth">
+</div>
+<div class="title">Figure 2. OAuth delegation protocol</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The client application requests and endpoint that requires authentication, so the server responds with a 401 response.</p>
+</li>
+<li>
+<p>The client redirects the user to the login form.</p>
+</li>
+<li>
+<p>This time, instead of using username and password, the user clicks on "Login with Google" button.</p>
+</li>
+<li>
+<p>Browser navigates to a Grails URL. Grails will generate a Google Login URL, giving Google a Grails callback URL.</p>
+</li>
+<li>
+<p>Browser navigates to Google Login. User logs in, and Google redirects the browser to the Grails callback URL.</p>
+</li>
+</ol>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="olist arabic">
+<ol class="arabic" start="6">
+<li>
+<p>Browser navigates to that Grails callback URL. Then, Grails will use OAuth to fetch user information (like email) from
+Google. Based on that, will generate a REST API token and fetch and store principal information. The response from
+Grails will be a front-end URL where the token is a parameter.</p>
+</li>
+<li>
+<p>The browser will navigate to that URL, and the Javascript logic will read the token from the URL and store it locally.</p>
+</li>
+<li>
+<p>The client sends again a request to the protected resource, passing the token as an HTTP header.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The plugin must provide configurable support to delegate the authentication to, at least, Google, Facebook and Twitter.</p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_design">Design</h3>
+<div class="paragraph">
+<p>As this project is not an application, but a plugin to create other applications, there are no use cases to be listed
+here. Therefore, below ar specified the class diagrams
+of the different components of the system.</p>
+</div>
+<div class="sect3">
+<h4 id="_filters">Filters</h4>
+<div class="imageblock">
+<div class="content">
+<img src="class-filters.png" alt="class filters">
+</div>
+<div class="title">Figure 3. Filters class diagram</div>
+</div>
+<div class="paragraph">
+<p>The provided filters, as specified in the user stories, implement the interface <code>javax.servlet.Filter</code>, where the
+important method is <code>doFilter(...)</code>.</p>
+</div>
 <div style="page-break-after: always;"></div>
+</div>
+<div class="sect3">
+<h4 id="_events_and_listeners">Events and listeners</h4>
+<div class="imageblock">
+<div class="content">
+<img src="class-events.png" alt="class events">
+</div>
+<div class="title">Figure 4. Events and listeners class diagram</div>
+</div>
+<div class="paragraph">
+<p>Spring framework provides an eventing system, allowing application to register custom listeners. Spring Security
+implements such interface, defining a generic <code>SecurityEventListener</code>. This plugin provides a concrete
+<code>RestSecurityEventListener</code>, that handles <code>RestTokenCreationEvent</code>'s.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect3">
+<h4 id="_providers_and_handlers">Providers and handlers</h4>
+<div class="imageblock">
+<div class="content">
+<img src="class-provider.png" alt="class provider">
+</div>
+<div class="title">Figure 5. Providers and handlers class diagram</div>
+</div>
+<div class="paragraph">
+<p><code>AuthenticationProvider</code> is a Spring Security interface to define pluggable authentication mechanisms. This plugin
+provides one <code>RestAuthenticationProvider</code> to authenticate requests based on an access token.</p>
+</div>
+<div class="paragraph">
+<p>Depending on the result of the authentication, it might be delegated to either <code>RestAuthenticationSuccessHandler</code> or
+to <code>RestAuthenticationFailureHandler</code>.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_development">Development</h3>
@@ -602,7 +915,7 @@ Content-Type: application/json
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-09-27 19:40:11 UTC
+Last updated 2015-10-03 20:33:26 UTC
 </div>
 </div>
 </body>
