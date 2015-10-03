@@ -25,3 +25,13 @@
 - [[[spring-security]]] http://projects.spring.io/spring-security/[Spring Security].
 
 - [[[ss-core]]] http://grails.org/plugin/spring-security-core[Spring Security Core Grails plugin].
+
+- [[[rfc6750]]] Internet Engineering Task Force (IETF) Request for Comments 6750.
+  https://tools.ietf.org/html/rfc6749[The OAuth 2.0 Authorization Framework: Bearer Token Usage].
+  October 2012.
+
+- [[[angular-js]]] https://angularjs.org[Angular JS Javascript framework].
+
+- [[[cors]]] World Wide Web Consortium (W3C).
+  http://www.w3.org/TR/cors[Cross-Origin Resource Sharing].
+  16 January 2014.

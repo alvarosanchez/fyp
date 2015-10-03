@@ -48,7 +48,7 @@ Scrum defines the following concepts:
 
 <<<
 
-=== Analysis
+=== Product Backlog
 
 The software requirements are defined through Scrum's *user stories*.
 
@@ -64,13 +64,13 @@ In fact, these discussions are more important than whatever text is written.
 
 ==== User stories
 
-===== #{counter:us}. As a user, I want to authenticate, so that I can access protected resources
+===== #1. As a user, I want to authenticate, so that I can access protected resources
 
 The authentication endpoint must enable a client application to login using credentials such as username and password.
 It should be RESTful, i.e.: it should consume and produce JSON over HTTP. An example request is like:
 
 [source,javascript]
-.Listing {counter:listing}. User Story {us}: authentication endpoint.
+.Listing {counter:listing}. User Story 1: authentication endpoint.
 ----
 POST /login HTTP/1.1
 Host: api.example.com
@@ -86,7 +86,7 @@ Content-Type: application/json
 If the authentication is successful, the response should be like:
 
 [source,javascript]
-.Listing {counter:listing}. User Story {us}: successful authentication response.
+.Listing {counter:listing}. User Story 1: successful authentication response
 ----
 200 OK HTTP/1.1
 Content-Type: application/json
@@ -103,37 +103,273 @@ Content-Type: application/json
 }
 ----
 
-If the authentication fails, the response should be a `401` HTTP status code.
+If the authentication fails, the response should be a `401 Unauthorized` HTTP status code.
 
-If the request is invalid, the response shall be a `400` HTTP status code.
+If the HTTP method in the request is not `POST`, the response must be a `405 Method Not Allowed` HTTP status code.
 
-<<<
-
-===== #{counter:us}. As a user, I want to logout, so that my token is no longer valid
+If the request is invalid, the response shall be a `400 Bad Request` HTTP status code.
 
 <<<
 
-===== #{counter:us}. As a developer, I want to configure how access tokens are generated
+===== #2. As a user, I want to logout, so that my token is no longer valid
+
+NOTE: Logout is only possible with stateful token storages.
+
+There must be a logout endpoint to allow users remove their token from the token storage. An example request would be
+like this:
+
+[source,javascript]
+.Listing {counter:listing}. User Story 2: logout endpoint
+----
+POST /logout HTTP/1.1
+Host: api.example.com
+Authorization: Bearer eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ...
+----
+
+Note that the token is passed in the `Authorization` HTTP Header, as specified in the RFC 6750 <<rfc6750>>.
+
+If the token is found and removed, the response should be a `200 OK` HTTP status code. Otherwise, it will be a
+`404 Not Found`.
+
+If the HTTP method in the request is not `POST`, the response must be a `405 Method Not Allowed` HTTP status code.
+
+If the request is invalid, the response shall be a `400 Bad Request` HTTP status code.
 
 <<<
 
-===== #{counter:us}. As a developer, I want to store tokens on multiple storages, including the client itself
+===== #3. As a developer, I want to configure how access tokens are generated
+
+Token generation should be configurable by users. There are 2 scenarios:
+
+. If using JWT, generated tokens will conform to the RFC 6750 <<rfc6750>> specification, and therefore it won't be
+  possible to override it. In this case, token will have a fixed expiration time, that must be also configurable. The
+  tokens will expire after the indicated period, regardless of having being accessed or not.
+
+. Otherwise, tokens will be a set of random alphanumeric characters of 32 char length, stored in any token storage
+  (see next user story). In this case, tokens will have a configurable expiration time, that might be refreshed on
+  every access, depending on the underlying storage support for such action.
+
+The plugin must provide at least one implementation for each scenario.
+
+
+===== #4. As a developer, I want to store tokens on multiple storages, including the client itself
+
+If using JWT, tokens will be stored on the client. Assuming the client is a front-end application using a Javascript MVC
+framework like Angular JS <<angular-js>>, the place to store such token would be HTML 5's `localStorage`.
+
+Otherwise, the plugin must enable the developer to configure a stateful storage to store the tokens into. The plugin
+must provide at least one implementation for storing tokens in a relational database, and in an in-memory storage
+solution.
 
 <<<
 
-===== #{counter:us}. As a user, I want to validate whether my access token is still valid or not
+===== #5. As a user, I want to validate whether my access token is still valid or not
+
+====== Token validation filter
+
+The plugin must provide a Spring Security Filter (based on Java EE Servlet filters) that will validate the token
+received on every request. If the validation is successful, the plugin will restore the user principal into the
+Spring Security's `SecurityContext`.
+
+This will enable developers to transparently secure their endpoints using Spring Security utils like the
+`@Secured` annotation or the `SpringSecurityService`:
+
+[source,groovy]
+.Listing {counter:listing}. User Story 5: securing a controller action
+----
+import grails.converters.JSON
+
+class UserController {
+    SpringSecurityService springSecurityService
+
+    @Secured
+    def me() {
+        render [username: springSecurityService.principal.username] as JSON
+    }
+}
+----
+
+The above action might be accessed like this:
+
+[source,javascript]
+.Listing {counter:listing}. User Story 5: accessing a protected endpoint
+----
+GET /user/me HTTP/1.1
+Host: api.example.com
+Authorization: Bearer eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ...
+----
+
+Assuming the token is valid, the response might be like this:
+
+[source,javascript]
+.Listing {counter:listing}. User Story 5: successful protected endpoint response
+----
+200 OK HTTP/1.1
+Content-Type: application/json
+{ "username": "raul.gonzalez" }
+----
+
+If the token is invalid, the response should be a `401 Unauthorized` HTTP status code, indicating that the request is
+not sufficiently authenticated.
 
 <<<
 
-===== #{counter:us}. As a developer, I want to expose CORS headers in the responses, so that the system can be used from separated front-end applications
+====== Token validation endpoint
+
+There must be a token validation endpoint available for users to check whether a token is still valid or not.
+
+Example usage:
+
+[source,javascript]
+.Listing {counter:listing}. User Story 5: token validation endpoint request
+----
+POST /validate HTTP/1.1
+Host: api.example.com
+Authorization: Bearer eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ...
+----
+
+If the token is valid, the response should be like:
+
+[source,javascript]
+.Listing {counter:listing}. User Story 5: token validation endpoint response
+----
+200 OK HTTP/1.1
+Content-Type: application/json
+{
+   "username": "admin",
+   "roles": [
+      "ROLE_ADMIN",
+      "ROLE_USER"
+   ],
+   "expires_in": 3600,
+   "token_type": "Bearer",
+   "refresh_token": "eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ...",
+   "access_token": "eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ..."
+}
+----
 
 <<<
 
-===== #{counter:us}. As a user, I want to authenticate using external OAuth providers such as Google or Facebook
+===== #6. As a developer, I want to expose CORS headers in the responses, so that the system can be used from separated front-end applications
+
+Cross-Origin Resource Sharing <<cors>> is a mechanism that allows restricted resources on a web page to be requested
+from another domain outside the domain from which the resource originated.
+
+In the context of separated front-ends and backends, it might be possible that the front-end is running on a different
+domain (`www.example.com`) than the backend (`api.example.com`).
+
+When CORS request is needed, the browser will issue first a so-called pre-flight request, asking the server for its
+CORS capabilities:
+
+[source,javascript]
+.Listing {counter:listing}. User Story 6: pre-flight request in CORS.
+----
+OPTIONS /user/me HTTP/1.1
+Origin: http://www.example.com
+Access-Control-Request-Method: GET
+Host: api.example.com
+Accept-Language: en-GB
+Connection: keep-alive
+User-Agent: Mozilla/5.0...
+----
+
+If the server has CORS enabled, it will indicated allowed origins and HTTP methods in the response:
+
+[source,javascript]
+.Listing {counter:listing}. User Story 6: pre-flight response in CORS.
+----
+Access-Control-Allow-Origin: http://www.example.com
+Access-Control-Allow-Methods: GET, POST, PUT
+----
+
+The browser will then check if the origin domain and the HTTP is allowed, and will make the actual request. If the
+server disallows any of them, the browser will halt the request, throwing an error in the console.
+
+The plugin must offer support for enabling CORS.
+
+<<<
+
+===== #7. As a user, I want to authenticate using external OAuth providers such as Google or Facebook
+
+This plugin is meant to be used in applications serving a REST API's to pure Javascript clients. The main authentication
+flow of this plugin is to allow you to authenticate your users against any Spring Security-compatible user directory
+(like a DB or an LDAP server).
+
+However, there might be situations where you want to delegate the authentication against a third-party provider, like
+Google or Facebook. Unfortunately, your pure Javascript front-end application cannot request the providers directly using
+OAuth, because then the access keys will be made public.
+
+So is this plugin's responsibility to provide endpoints so your Grails backend acts as a proxy for your front-end client.
+
+<<<
+
+The flow is something like the following:
+
+.OAuth delegation protocol
+image::pluginDocs/oauth.png[]
+
+. The client application requests and endpoint that requires authentication, so the server responds with a 401 response.
+
+. The client redirects the user to the login form.
+
+. This time, instead of using username and password, the user clicks on "Login with Google" button.
+
+. Browser navigates to a Grails URL. Grails will generate a Google Login URL, giving Google a Grails callback URL.
+
+. Browser navigates to Google Login. User logs in, and Google redirects the browser to the Grails callback URL.
+
+<<<
+
+[start=6]
+. Browser navigates to that Grails callback URL. Then, Grails will use OAuth to fetch user information (like email) from
+  Google. Based on that, will generate a REST API token and fetch and store principal information. The response from
+  Grails will be a front-end URL where the token is a parameter.
+
+. The browser will navigate to that URL, and the Javascript logic will read the token from the URL and store it locally.
+
+. The client sends again a request to the protected resource, passing the token as an HTTP header.
+
+The plugin must provide configurable support to delegate the authentication to, at least, Google, Facebook and Twitter.
 
 <<<
 
 === Design
+
+As this project is not an application, but a plugin to create other applications, there are no use cases to be listed
+here. Therefore, below ar specified the class diagrams
+of the different components of the system.
+
+==== Filters
+
+.Filters class diagram
+image::class-filters.png[]
+
+The provided filters, as specified in the user stories, implement the interface `javax.servlet.Filter`, where the
+important method is `doFilter(...)`.
+
+<<<
+
+==== Events and listeners
+
+.Events and listeners class diagram
+image::class-events.png[]
+
+Spring framework provides an eventing system, allowing application to register custom listeners. Spring Security
+implements such interface, defining a generic `SecurityEventListener`. This plugin provides a concrete
+`RestSecurityEventListener`, that handles `RestTokenCreationEvent`'s.
+
+<<<
+
+==== Providers and handlers
+
+.Providers and handlers class diagram
+image::class-provider.png[]
+
+`AuthenticationProvider` is a Spring Security interface to define pluggable authentication mechanisms. This plugin
+provides one `RestAuthenticationProvider` to authenticate requests based on an access token.
+
+Depending on the result of the authentication, it might be delegated to either `RestAuthenticationSuccessHandler` or
+to `RestAuthenticationFailureHandler`.
 
 <<<
 
