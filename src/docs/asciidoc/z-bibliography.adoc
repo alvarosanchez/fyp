@@ -35,3 +35,11 @@
 - [[[cors]]] World Wide Web Consortium (W3C).
   http://www.w3.org/TR/cors[Cross-Origin Resource Sharing].
   16 January 2014.
+
+- [[[travis]]] http://travis-ci.org[Travis CI].
+
+- [[[spock]]] http://docs.spockframework.org/[Spock testing framework].
+
+- [[[geb]]] http://www.gebish.org/[Geb browser automation framwework].
+
+- [[[phantom-js]]] http://phantomjs.org/[Phantom JS headless browser].

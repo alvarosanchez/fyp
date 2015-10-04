@@ -1,3 +1,7 @@
+[.lead]
+This chapter contains a detailed description of the analysis performed, the user stories extracted and implemented, as
+well as some notes about the development process.
+
 === Introduction
 
 The methodology used to develop this project is *Scrum*.
@@ -9,6 +13,8 @@ Scrum is an agile process most commonly used for product development, especially
 project management framework that is applicable to any project with aggressive deadlines, complex requirements and a
 degree of uniqueness. In Scrum, projects move forward via a series of iterations called sprints. Each sprint is typically
 two to four weeks long.
+
+<<<
 
 Scrum defines the following concepts:
 
@@ -33,6 +39,8 @@ Scrum defines the following concepts:
   owner presents the top items on the product backlog to the team. The Scrum team selects the work they can complete
   during the coming sprint. That work is then moved from the product backlog to a sprint backlog, which is the list of
   tasks needed to complete the product backlog items the team has committed to complete in the sprint.
+
+<<<
 
 * *Daily Scrum*: Each day during the sprint, a brief meeting called the daily scrum is conducted. This meeting helps set
   the context for each day’s work and helps the team stay on track. All team members are required to attend the daily scrum.
@@ -62,9 +70,7 @@ User stories are often written on index cards or sticky notes, stored in a shoe 
 facilitate planning and discussion. As such, they strongly shift the focus from writing about features to discussing them.
 In fact, these discussions are more important than whatever text is written.
 
-==== User stories
-
-===== #1. As a user, I want to authenticate, so that I can access protected resources
+==== #1. As a user, I want to authenticate, so that I can access protected resources
 
 The authentication endpoint must enable a client application to login using credentials such as username and password.
 It should be RESTful, i.e.: it should consume and produce JSON over HTTP. An example request is like:
@@ -111,7 +117,7 @@ If the request is invalid, the response shall be a `400 Bad Request` HTTP status
 
 <<<
 
-===== #2. As a user, I want to logout, so that my token is no longer valid
+==== #2. As a user, I want to logout, so that my token is no longer valid
 
 NOTE: Logout is only possible with stateful token storages.
 
@@ -137,7 +143,7 @@ If the request is invalid, the response shall be a `400 Bad Request` HTTP status
 
 <<<
 
-===== #3. As a developer, I want to configure how access tokens are generated
+==== #3. As a developer, I want to configure how access tokens are generated
 
 Token generation should be configurable by users. There are 2 scenarios:
 
@@ -152,7 +158,7 @@ Token generation should be configurable by users. There are 2 scenarios:
 The plugin must provide at least one implementation for each scenario.
 
 
-===== #4. As a developer, I want to store tokens on multiple storages, including the client itself
+==== #4. As a developer, I want to store tokens on multiple storages, including the client itself
 
 If using JWT, tokens will be stored on the client. Assuming the client is a front-end application using a Javascript MVC
 framework like Angular JS <<angular-js>>, the place to store such token would be HTML 5's `localStorage`.
@@ -163,9 +169,9 @@ solution.
 
 <<<
 
-===== #5. As a user, I want to validate whether my access token is still valid or not
+==== #5. As a user, I want to validate whether my access token is still valid or not
 
-====== Token validation filter
+===== Token validation filter
 
 The plugin must provide a Spring Security Filter (based on Java EE Servlet filters) that will validate the token
 received on every request. If the validation is successful, the plugin will restore the user principal into the
@@ -214,7 +220,7 @@ not sufficiently authenticated.
 
 <<<
 
-====== Token validation endpoint
+===== Token validation endpoint
 
 There must be a token validation endpoint available for users to check whether a token is still valid or not.
 
@@ -250,7 +256,7 @@ Content-Type: application/json
 
 <<<
 
-===== #6. As a developer, I want to expose CORS headers in the responses, so that the system can be used from separated front-end applications
+==== #6. As a developer, I want to expose CORS headers in the responses, so that the system can be used from separated front-end applications
 
 Cross-Origin Resource Sharing <<cors>> is a mechanism that allows restricted resources on a web page to be requested
 from another domain outside the domain from which the resource originated.
@@ -289,7 +295,7 @@ The plugin must offer support for enabling CORS.
 
 <<<
 
-===== #7. As a user, I want to authenticate using external OAuth providers such as Google or Facebook
+==== #7. As a user, I want to authenticate using external OAuth providers such as Google or Facebook
 
 This plugin is meant to be used in applications serving a REST API's to pure Javascript clients. The main authentication
 flow of this plugin is to allow you to authenticate your users against any Spring Security-compatible user directory
@@ -335,11 +341,88 @@ The plugin must provide configurable support to delegate the authentication to, 
 
 === Design
 
-As this project is not an application, but a plugin to create other applications, there are no use cases to be listed
-here. Therefore, below ar specified the class diagrams
-of the different components of the system.
+==== Use cases
 
-==== Filters
+In software and systems engineering, a use case is a list of action or event steps, typically defining the interactions
+between a role (known in UML as an *actor*) and a system, to achieve a goal. The actor can be a human, an external system,
+or time. In systems engineering, use cases are used at a higher level than within software engineering, often
+representing missions or stakeholder goals.
+
+In UML, use cases are represented through use cases diagrams. They containg the following key elements:
+
+* *Use cases*. A use case describes a sequence of actions that provide something of measurable value to an actor and is
+  drawn as a horizontal ellipse.
+
+* *Actors*. An actor is a person, organization, or external system that plays a role in one or more interactions with
+  your system. Actors are drawn as stick figures.
+
+* *Associations*. Associations between actors and use cases are indicated in use case diagrams by solid lines. An
+  association exists whenever an actor is involved with an interaction described by a use case. Associations are modeled
+  as lines connecting use cases and actors to one another, with an optional arrowhead on one end of the line. The
+  arrowhead is often used to indicating the direction of the initial invocation of the relationship or to indicate the
+  primary actor within the use case. The arrowheads are typically confused with data flow and as a result
+  some people avoid their use.
+
+Example:
+
+ifdef::generate-diagrams[]
+[plantuml, use-case-example, png]
+....
+User -> (Login)
+....
+endif::[]
+
+.Use case example
+image::use-case-example.png[]
+
+<<<
+
+===== User use cases
+
+ifdef::generate-diagrams[]
+[plantuml, use-cases-user, png]
+....
+left to right direction
+skinparam packageStyle rect
+
+User --> (Authenticate)
+User --> (Logout)
+User --> (Validate)
+User --> (Access protected resource)
+User --> (Use OAuth provider)
+
+(Access protected resource) .> (Validate) : include
+(Use OAuth provider) .> (Authenticate) : extends
+....
+endif::[]
+
+.User use cases
+image::use-cases-user.png[]
+
+===== Developer use cases
+
+ifdef::generate-diagrams[]
+[plantuml, use-cases-developer, png]
+....
+left to right direction
+skinparam packageStyle rect
+
+(Access token generation) <-- Developer
+(Store tokens) <-- Developer
+(Expose CORS headers) <-- Developer
+....
+endif::[]
+
+.Developer use cases
+image::use-cases-developer.png[]
+
+<<<
+
+==== Class diagrams
+
+Below are included some class diagrams of the most important parts of the system.
+
+===== Filters
 
 .Filters class diagram
 image::class-filters.png[]
@@ -347,9 +430,7 @@ image::class-filters.png[]
 The provided filters, as specified in the user stories, implement the interface `javax.servlet.Filter`, where the
 important method is `doFilter(...)`.
 
-<<<
-
-==== Events and listeners
+===== Events and listeners
 
 .Events and listeners class diagram
 image::class-events.png[]
@@ -360,7 +441,7 @@ implements such interface, defining a generic `SecurityEventListener`. This plug
 
 <<<
 
-==== Providers and handlers
+===== Providers and handlers
 
 .Providers and handlers class diagram
 image::class-provider.png[]
@@ -373,8 +454,112 @@ to `RestAuthenticationFailureHandler`.
 
 <<<
 
-=== Development
+===== Credentials extraction
+
+.Credentials extraction class diagram
+image::class-credentials.png[]
+
+In the authentication filter (login), credentials can be extracted from different sources. Mainly, from a JSON payload
+and from request parameters. However, the plugin is flexible enough to allow the users to plug in their own
+implementation.
 
 <<<
 
-=== Deployment
+===== Token generation
+
+.Token generation class diagram
+image::class-token-generation.png[]
+
+As specified in the user stories, token generation is also pluggable. The plugin offers implementation for both
+stateless tokens (JWT) and non-stateless. In the case of JWT, there are also 2 options: signed and encrypted tokens.
+
+<<<
+
+===== Token storage
+
+.Token storage class diagram
+image::class-token-storage.png[]
+
+Here we can see the different implementations for token storage:
+
+* *Stateless*: JWT.
+* *Stateful*: Memcached, GORM (database), Grails cache plugin (which uses Spring Cache abstraction) and Redis.
+
+<<<
+
+=== Development
+
+Creating the plugin to its current state has taken 2 years and 37 releases. It has been an enormous effort.
+
+The first stages of the development were invested in learning the internals of Spring Security. I had previous experience
+with it as a user, and in fact, is not the fist plugin I have created on top of it (in 2011 I wrote a plugin for
+Spring Security SAML). Spring Security is a very well designed yet complex library, with a lot of custom concepts and
+interfaces, such as `Authentication`, `AuthenticationProvider`, `Filter` and so on. It took me a while to figure out
+the best way to achieve my goals.
+
+My initial approach was to strip down many things I didn't need nor want from Spring Security, such as the form-based
+authentication or the dependency on the HTTP Session. That resulted in a plugin that was perfectly fitted for being
+used from a separated front-end application. As a consequence, it effectively disabled old Spring Security ways of
+authentication.
+
+However, it turned out that users were including it in applications where both traditional and REST authentication was
+used. Thus, I revisited my approach and allowed the users to use my features on a per filter-chain basis (see
+Chapter A.4 in the appendix).
+
+==== Testing
+
+Considering that it's a plugin that people use in their applications, stability and robustness has always been a key
+factor. And they use it for one of the most critical aspects in an application: security.
+
+I have invested a significantly amount of time of the development in writing tests, at all levels: unit, integration
+and functional.
+
+It's important to note that, in a HTTP-based security system you need to test using an HTTP client. If you mock such
+interfaces, you have the risk of not testing the system under real conditions, and this is not acceptable for a security
+component.
+
+<<<
+
+The functional testing part of the project is composed of 3 full Grails applications with the plugin installed that perform
+hundreds of HTTP requests and specifies assertions on the results. Not only there are a considerable amount of tests
+across the project, but also they all run automatically on every push to GitHub, so I can ensure that no regressions
+are introduced by having an automated Continuous Integration system running on Travis CI <<travis>>.
+
+Tests are written using Spock <<spock>> and Geb <<geb>>. This is how a functional test look like:
+
+[source,groovy]
+.Listing {counter:listing}. Sample functional test
+----
+@IgnoreIf({ !SpringSecurityUtils.securityConfig.rest.oauth.facebook || !System.getenv('FB_PASSWORD') })
+class FacebookSpec extends GebReportingSpec {
+
+    void "it can sign users in with Facebook"() {
+        when: "a user clicks on a 'Sign In with Facebook' button"
+        go "/jwt/oauth/authenticate/facebook"
+
+        then: "its redirected to Facebook Sign In page"
+        FacebookSignInPage facebookSignInPage = at FacebookSignInPage
+
+        when: "credentials are entered"
+        facebookSignInPage.login 'open_pmazedy_user@tfbnw.net', System.getenv('FB_PASSWORD')
+
+        then: "is redirected to the frontend callback URL, with a token"
+        FrontendCallbackPage frontendCallbackPage = at FrontendCallbackPage
+        frontendCallbackPage.jsUrl.contains("token")
+    }
+
+}
+----
+
+The above test executes over a running testing Grails application with the plugin installed, opens a session in the
+headless browser Phantom JS <<phantom-js>>, and interacts with the web as if it were a real user, filling forms, clicking
+buttons, etc.
+
+<<<
+
+=== Installation and usage
+
+Documentation has been one of the key factors contributing to the success of this plugin. It's comprehensive, covers
+all features, has configuration examples and it's also automatically published online on every release.
+
+For reference, it has been included in the appendix of this document. Please refer to that section for more information.
