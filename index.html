@@ -572,35 +572,59 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_introduction_3">3.1. Introduction</a></li>
 <li><a href="#_product_backlog">3.2. Product Backlog</a>
 <ul class="sectlevel3">
-<li><a href="#_user_stories">3.2.1. User stories</a>
+<li><a href="#__1_as_a_user_i_want_to_authenticate_so_that_i_can_access_protected_resources">3.2.1. #1. As a user, I want to authenticate, so that I can access protected resources</a></li>
+<li><a href="#__2_as_a_user_i_want_to_logout_so_that_my_token_is_no_longer_valid">3.2.2. #2. As a user, I want to logout, so that my token is no longer valid</a></li>
+<li><a href="#__3_as_a_developer_i_want_to_configure_how_access_tokens_are_generated">3.2.3. #3. As a developer, I want to configure how access tokens are generated</a></li>
+<li><a href="#__4_as_a_developer_i_want_to_store_tokens_on_multiple_storages_including_the_client_itself">3.2.4. #4. As a developer, I want to store tokens on multiple storages, including the client itself</a></li>
+<li><a href="#__5_as_a_user_i_want_to_validate_whether_my_access_token_is_still_valid_or_not">3.2.5. #5. As a user, I want to validate whether my access token is still valid or not</a>
 <ul class="sectlevel4">
-<li><a href="#__1_as_a_user_i_want_to_authenticate_so_that_i_can_access_protected_resources">#1. As a user, I want to authenticate, so that I can access protected resources</a></li>
-<li><a href="#__2_as_a_user_i_want_to_logout_so_that_my_token_is_no_longer_valid">#2. As a user, I want to logout, so that my token is no longer valid</a></li>
-<li><a href="#__3_as_a_developer_i_want_to_configure_how_access_tokens_are_generated">#3. As a developer, I want to configure how access tokens are generated</a></li>
-<li><a href="#__4_as_a_developer_i_want_to_store_tokens_on_multiple_storages_including_the_client_itself">#4. As a developer, I want to store tokens on multiple storages, including the client itself</a></li>
-<li><a href="#__5_as_a_user_i_want_to_validate_whether_my_access_token_is_still_valid_or_not">#5. As a user, I want to validate whether my access token is still valid or not</a></li>
-<li><a href="#__6_as_a_developer_i_want_to_expose_cors_headers_in_the_responses_so_that_the_system_can_be_used_from_separated_front_end_applications">#6. As a developer, I want to expose CORS headers in the responses, so that the system can be used from separated front-end applications</a></li>
-<li><a href="#__7_as_a_user_i_want_to_authenticate_using_external_oauth_providers_such_as_google_or_facebook">#7. As a user, I want to authenticate using external OAuth providers such as Google or Facebook</a></li>
+<li><a href="#_token_validation_filter">Token validation filter</a></li>
+<li><a href="#_token_validation_endpoint">Token validation endpoint</a></li>
 </ul>
 </li>
+<li><a href="#__6_as_a_developer_i_want_to_expose_cors_headers_in_the_responses_so_that_the_system_can_be_used_from_separated_front_end_applications">3.2.6. #6. As a developer, I want to expose CORS headers in the responses, so that the system can be used from separated front-end applications</a></li>
+<li><a href="#__7_as_a_user_i_want_to_authenticate_using_external_oauth_providers_such_as_google_or_facebook">3.2.7. #7. As a user, I want to authenticate using external OAuth providers such as Google or Facebook</a></li>
 </ul>
 </li>
 <li><a href="#_design">3.3. Design</a>
 <ul class="sectlevel3">
-<li><a href="#_filters">3.3.1. Filters</a></li>
-<li><a href="#_events_and_listeners">3.3.2. Events and listeners</a></li>
-<li><a href="#_providers_and_handlers">3.3.3. Providers and handlers</a></li>
+<li><a href="#_use_cases">3.3.1. Use cases</a>
+<ul class="sectlevel4">
+<li><a href="#_user_use_cases">User use cases</a></li>
+<li><a href="#_developer_use_cases">Developer use cases</a></li>
 </ul>
 </li>
-<li><a href="#_development">3.4. Development</a></li>
-<li><a href="#_deployment">3.5. Deployment</a></li>
+<li><a href="#_class_diagrams">3.3.2. Class diagrams</a>
+<ul class="sectlevel4">
+<li><a href="#_filters">Filters</a></li>
+<li><a href="#_events_and_listeners">Events and listeners</a></li>
+<li><a href="#_providers_and_handlers">Providers and handlers</a></li>
+<li><a href="#_credentials_extraction">Credentials extraction</a></li>
+<li><a href="#_token_generation">Token generation</a></li>
+<li><a href="#_token_storage">Token storage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_development">3.4. Development</a>
+<ul class="sectlevel3">
+<li><a href="#_testing">3.4.1. Testing</a></li>
+</ul>
+</li>
+<li><a href="#_installation_and_usage">3.5. Installation and usage</a></li>
 </ul>
 </li>
 <li><a href="#_evaluation">4. Evaluation</a></li>
 <li><a href="#_planning_and_budget">5. Planning and budget</a>
 <ul class="sectlevel2">
 <li><a href="#_planning">5.1. Planning</a></li>
-<li><a href="#_budget">5.2. Budget</a></li>
+<li><a href="#_budget">5.2. Budget</a>
+<ul class="sectlevel3">
+<li><a href="#_human_resources">5.2.1. Human resources</a></li>
+<li><a href="#_equipment_servers_and_software_licenses">5.2.2. Equipment, servers and software licenses</a></li>
+<li><a href="#_summary">5.2.3. Summary</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_conclusions_and_future_improvements">6. Conclusions and future improvements</a>
@@ -612,7 +636,12 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_personal">6.1.3. Personal</a></li>
 </ul>
 </li>
-<li><a href="#_personal_improvements">6.2. Personal improvements</a></li>
+<li><a href="#_future_improvements">6.2. Future improvements</a>
+<ul class="sectlevel3">
+<li><a href="#_upgrade_to_grails_3">6.2.1. Upgrade to Grails 3</a></li>
+<li><a href="#_jwt_token_fingerprinting">6.2.2. JWT Token fingerprinting</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_official_documentation">Appendix A: Official Documentation</a>
@@ -667,8 +696,8 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_logout">A.6.2. Logout</a></li>
 </ul>
 </li>
-<li><a href="#_token_generation">A.7. Token Generation</a></li>
-<li><a href="#_token_storage">A.8. Token Storage</a>
+<li><a href="#_token_generation_2">A.7. Token Generation</a></li>
+<li><a href="#_token_storage_2">A.8. Token Storage</a>
 <ul class="sectlevel3">
 <li><a href="#_json_web_token">A.8.1. JSON Web Token</a>
 <ul class="sectlevel4">
@@ -1983,6 +2012,10 @@ is an actual need for the development community.</p>
 <div class="sect1">
 <h2 id="_analysis_design_development_and_deployment">3. Analysis, design, development and deployment</h2>
 <div class="sectionbody">
+<div class="paragraph lead">
+<p>This chapter contains a detailed description of the analysis performed, the user stories extracted and implemented, as
+well as some notes about the development process.</p>
+</div>
 <div class="sect2">
 <h3 id="_introduction_3">3.1. Introduction</h3>
 <div class="paragraph">
@@ -2000,6 +2033,7 @@ project management framework that is applicable to any project with aggressive d
 degree of uniqueness. In Scrum, projects move forward via a series of iterations called sprints. Each sprint is typically
 two to four weeks long.</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>Scrum defines the following concepts:</p>
 </div>
@@ -2032,6 +2066,11 @@ owner presents the top items on the product backlog to the team. The Scrum team 
 during the coming sprint. That work is then moved from the product backlog to a sprint backlog, which is the list of
 tasks needed to complete the product backlog items the team has committed to complete in the sprint.</p>
 </li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="ulist">
+<ul>
 <li>
 <p><strong>Daily Scrum</strong>: Each day during the sprint, a brief meeting called the daily scrum is conducted. This meeting helps set
 the context for each day’s work and helps the team stay on track. All team members are required to attend the daily scrum.</p>
@@ -2071,9 +2110,7 @@ facilitate planning and discussion. As such, they strongly shift the focus from 
 In fact, these discussions are more important than whatever text is written.</p>
 </div>
 <div class="sect3">
-<h4 id="_user_stories">3.2.1. User stories</h4>
-<div class="sect4">
-<h5 id="__1_as_a_user_i_want_to_authenticate_so_that_i_can_access_protected_resources">#1. As a user, I want to authenticate, so that I can access protected resources</h5>
+<h4 id="__1_as_a_user_i_want_to_authenticate_so_that_i_can_access_protected_resources">3.2.1. #1. As a user, I want to authenticate, so that I can access protected resources</h4>
 <div class="paragraph">
 <p>The authentication endpoint must enable a client application to login using credentials such as username and password.
 It should be RESTful, i.e.: it should consume and produce JSON over HTTP. An example request is like:</p>
@@ -2123,8 +2160,8 @@ Content-Type: application/json
 </div>
 <div style="page-break-after: always;"></div>
 </div>
-<div class="sect4">
-<h5 id="__2_as_a_user_i_want_to_logout_so_that_my_token_is_no_longer_valid">#2. As a user, I want to logout, so that my token is no longer valid</h5>
+<div class="sect3">
+<h4 id="__2_as_a_user_i_want_to_logout_so_that_my_token_is_no_longer_valid">3.2.2. #2. As a user, I want to logout, so that my token is no longer valid</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -2164,8 +2201,8 @@ Authorization: Bearer eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ...</code></
 </div>
 <div style="page-break-after: always;"></div>
 </div>
-<div class="sect4">
-<h5 id="__3_as_a_developer_i_want_to_configure_how_access_tokens_are_generated">#3. As a developer, I want to configure how access tokens are generated</h5>
+<div class="sect3">
+<h4 id="__3_as_a_developer_i_want_to_configure_how_access_tokens_are_generated">3.2.3. #3. As a developer, I want to configure how access tokens are generated</h4>
 <div class="paragraph">
 <p>Token generation should be configurable by users. There are 2 scenarios:</p>
 </div>
@@ -2187,8 +2224,8 @@ every access, depending on the underlying storage support for such action.</p>
 <p>The plugin must provide at least one implementation for each scenario.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="__4_as_a_developer_i_want_to_store_tokens_on_multiple_storages_including_the_client_itself">#4. As a developer, I want to store tokens on multiple storages, including the client itself</h5>
+<div class="sect3">
+<h4 id="__4_as_a_developer_i_want_to_store_tokens_on_multiple_storages_including_the_client_itself">3.2.4. #4. As a developer, I want to store tokens on multiple storages, including the client itself</h4>
 <div class="paragraph">
 <p>If using JWT, tokens will be stored on the client. Assuming the client is a front-end application using a Javascript MVC
 framework like Angular JS <a href="#angular-js">[angular-js]</a>, the place to store such token would be HTML 5&#8217;s <code>localStorage</code>.</p>
@@ -2200,10 +2237,10 @@ solution.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
+<div class="sect3">
+<h4 id="__5_as_a_user_i_want_to_validate_whether_my_access_token_is_still_valid_or_not">3.2.5. #5. As a user, I want to validate whether my access token is still valid or not</h4>
 <div class="sect4">
-<h5 id="__5_as_a_user_i_want_to_validate_whether_my_access_token_is_still_valid_or_not">#5. As a user, I want to validate whether my access token is still valid or not</h5>
-<div class="sect5">
-<h6 id="_token_validation_filter">Token validation filter</h6>
+<h5 id="_token_validation_filter">Token validation filter</h5>
 <div class="paragraph">
 <p>The plugin must provide a Spring Security Filter (based on Java EE Servlet filters) that will validate the token
 received on every request. If the validation is successful, the plugin will restore the user principal into the
@@ -2256,8 +2293,8 @@ not sufficiently authenticated.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
-<div class="sect5">
-<h6 id="_token_validation_endpoint">Token validation endpoint</h6>
+<div class="sect4">
+<h5 id="_token_validation_endpoint">Token validation endpoint</h5>
 <div class="paragraph">
 <p>There must be a token validation endpoint available for users to check whether a token is still valid or not.</p>
 </div>
@@ -2296,8 +2333,8 @@ Content-Type: application/json
 <div style="page-break-after: always;"></div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="__6_as_a_developer_i_want_to_expose_cors_headers_in_the_responses_so_that_the_system_can_be_used_from_separated_front_end_applications">#6. As a developer, I want to expose CORS headers in the responses, so that the system can be used from separated front-end applications</h5>
+<div class="sect3">
+<h4 id="__6_as_a_developer_i_want_to_expose_cors_headers_in_the_responses_so_that_the_system_can_be_used_from_separated_front_end_applications">3.2.6. #6. As a developer, I want to expose CORS headers in the responses, so that the system can be used from separated front-end applications</h4>
 <div class="paragraph">
 <p>Cross-Origin Resource Sharing <a href="#cors">[cors]</a> is a mechanism that allows restricted resources on a web page to be requested
 from another domain outside the domain from which the resource originated.</p>
@@ -2341,8 +2378,8 @@ server disallows any of them, the browser will halt the request, throwing an err
 </div>
 <div style="page-break-after: always;"></div>
 </div>
-<div class="sect4">
-<h5 id="__7_as_a_user_i_want_to_authenticate_using_external_oauth_providers_such_as_google_or_facebook">#7. As a user, I want to authenticate using external OAuth providers such as Google or Facebook</h5>
+<div class="sect3">
+<h4 id="__7_as_a_user_i_want_to_authenticate_using_external_oauth_providers_such_as_google_or_facebook">3.2.7. #7. As a user, I want to authenticate using external OAuth providers such as Google or Facebook</h4>
 <div class="paragraph">
 <p>This plugin is meant to be used in applications serving a REST API&#8217;s to pure Javascript clients. The main authentication
 flow of this plugin is to allow you to authenticate your users against any Spring Security-compatible user directory
@@ -2407,35 +2444,94 @@ Grails will be a front-end URL where the token is a parameter.</p>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
-</div>
 <div class="sect2">
 <h3 id="_design">3.3. Design</h3>
+<div class="sect3">
+<h4 id="_use_cases">3.3.1. Use cases</h4>
 <div class="paragraph">
-<p>As this project is not an application, but a plugin to create other applications, there are no use cases to be listed
-here. Therefore, below ar specified the class diagrams
-of the different components of the system.</p>
+<p>In software and systems engineering, a use case is a list of action or event steps, typically defining the interactions
+between a role (known in UML as an <strong>actor</strong>) and a system, to achieve a goal. The actor can be a human, an external system,
+or time. In systems engineering, use cases are used at a higher level than within software engineering, often
+representing missions or stakeholder goals.</p>
+</div>
+<div class="paragraph">
+<p>In UML, use cases are represented through use cases diagrams. They containg the following key elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Use cases</strong>. A use case describes a sequence of actions that provide something of measurable value to an actor and is
+drawn as a horizontal ellipse.</p>
+</li>
+<li>
+<p><strong>Actors</strong>. An actor is a person, organization, or external system that plays a role in one or more interactions with
+your system. Actors are drawn as stick figures.</p>
+</li>
+<li>
+<p><strong>Associations</strong>. Associations between actors and use cases are indicated in use case diagrams by solid lines. An
+association exists whenever an actor is involved with an interaction described by a use case. Associations are modeled
+as lines connecting use cases and actors to one another, with an optional arrowhead on one end of the line. The
+arrowhead is often used to indicating the direction of the initial invocation of the relationship or to indicate the
+primary actor within the use case. The arrowheads are typically confused with data flow and as a result
+some people avoid their use.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="use-case-example.png" alt="use case example">
+</div>
+<div class="title">Figure 4. Use case example</div>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="sect4">
+<h5 id="_user_use_cases">User use cases</h5>
+<div class="imageblock">
+<div class="content">
+<img src="use-cases-user.png" alt="use cases user">
+</div>
+<div class="title">Figure 5. User use cases</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_developer_use_cases">Developer use cases</h5>
+<div class="imageblock">
+<div class="content">
+<img src="use-cases-developer.png" alt="use cases developer">
+</div>
+<div class="title">Figure 6. Developer use cases</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="_filters">3.3.1. Filters</h4>
+<h4 id="_class_diagrams">3.3.2. Class diagrams</h4>
+<div class="paragraph">
+<p>Below are included some class diagrams of the most important parts of the system.</p>
+</div>
+<div class="sect4">
+<h5 id="_filters">Filters</h5>
 <div class="imageblock">
 <div class="content">
 <img src="class-filters.png" alt="class filters">
 </div>
-<div class="title">Figure 4. Filters class diagram</div>
+<div class="title">Figure 7. Filters class diagram</div>
 </div>
 <div class="paragraph">
 <p>The provided filters, as specified in the user stories, implement the interface <code>javax.servlet.Filter</code>, where the
 important method is <code>doFilter(...)</code>.</p>
 </div>
-<div style="page-break-after: always;"></div>
 </div>
-<div class="sect3">
-<h4 id="_events_and_listeners">3.3.2. Events and listeners</h4>
+<div class="sect4">
+<h5 id="_events_and_listeners">Events and listeners</h5>
 <div class="imageblock">
 <div class="content">
 <img src="class-events.png" alt="class events">
 </div>
-<div class="title">Figure 5. Events and listeners class diagram</div>
+<div class="title">Figure 8. Events and listeners class diagram</div>
 </div>
 <div class="paragraph">
 <p>Spring framework provides an eventing system, allowing application to register custom listeners. Spring Security
@@ -2444,13 +2540,13 @@ implements such interface, defining a generic <code>SecurityEventListener</code>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
-<div class="sect3">
-<h4 id="_providers_and_handlers">3.3.3. Providers and handlers</h4>
+<div class="sect4">
+<h5 id="_providers_and_handlers">Providers and handlers</h5>
 <div class="imageblock">
 <div class="content">
 <img src="class-provider.png" alt="class provider">
 </div>
-<div class="title">Figure 6. Providers and handlers class diagram</div>
+<div class="title">Figure 9. Providers and handlers class diagram</div>
 </div>
 <div class="paragraph">
 <p><code>AuthenticationProvider</code> is a Spring Security interface to define pluggable authentication mechanisms. This plugin
@@ -2462,21 +2558,185 @@ to <code>RestAuthenticationFailureHandler</code>.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
+<div class="sect4">
+<h5 id="_credentials_extraction">Credentials extraction</h5>
+<div class="imageblock">
+<div class="content">
+<img src="class-credentials.png" alt="class credentials">
+</div>
+<div class="title">Figure 10. Credentials extraction class diagram</div>
+</div>
+<div class="paragraph">
+<p>In the authentication filter (login), credentials can be extracted from different sources. Mainly, from a JSON payload
+and from request parameters. However, the plugin is flexible enough to allow the users to plug in their own
+implementation.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="_token_generation">Token generation</h5>
+<div class="imageblock">
+<div class="content">
+<img src="class-token-generation.png" alt="class token generation">
+</div>
+<div class="title">Figure 11. Token generation class diagram</div>
+</div>
+<div class="paragraph">
+<p>As specified in the user stories, token generation is also pluggable. The plugin offers implementation for both
+stateless tokens (JWT) and non-stateless. In the case of JWT, there are also 2 options: signed and encrypted tokens.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="_token_storage">Token storage</h5>
+<div class="imageblock">
+<div class="content">
+<img src="class-token-storage.png" alt="class token storage">
+</div>
+<div class="title">Figure 12. Token storage class diagram</div>
+</div>
+<div class="paragraph">
+<p>Here we can see the different implementations for token storage:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Stateless</strong>: JWT.</p>
+</li>
+<li>
+<p><strong>Stateful</strong>: Memcached, GORM (database), Grails cache plugin (which uses Spring Cache abstraction) and Redis.</p>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_development">3.4. Development</h3>
+<div class="paragraph">
+<p>Creating the plugin to its current state has taken 2 years and 37 releases. It has been an enormous effort.</p>
+</div>
+<div class="paragraph">
+<p>The first stages of the development were invested in learning the internals of Spring Security. I had previous experience
+with it as a user, and in fact, is not the fist plugin I have created on top of it (in 2011 I wrote a plugin for
+Spring Security SAML). Spring Security is a very well designed yet complex library, with a lot of custom concepts and
+interfaces, such as <code>Authentication</code>, <code>AuthenticationProvider</code>, <code>Filter</code> and so on. It took me a while to figure out
+the best way to achieve my goals.</p>
+</div>
+<div class="paragraph">
+<p>My initial approach was to strip down many things I didn&#8217;t need nor want from Spring Security, such as the form-based
+authentication or the dependency on the HTTP Session. That resulted in a plugin that was perfectly fitted for being
+used from a separated front-end application. As a consequence, it effectively disabled old Spring Security ways of
+authentication.</p>
+</div>
+<div class="paragraph">
+<p>However, it turned out that users were including it in applications where both traditional and REST authentication was
+used. Thus, I revisited my approach and allowed the users to use my features on a per filter-chain basis (see
+Chapter A.4 in the appendix).</p>
+</div>
+<div class="sect3">
+<h4 id="_testing">3.4.1. Testing</h4>
+<div class="paragraph">
+<p>Considering that it&#8217;s a plugin that people use in their applications, stability and robustness has always been a key
+factor. And they use it for one of the most critical aspects in an application: security.</p>
+</div>
+<div class="paragraph">
+<p>I have invested a significantly amount of time of the development in writing tests, at all levels: unit, integration
+and functional.</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s important to note that, in a HTTP-based security system you need to test using an HTTP client. If you mock such
+interfaces, you have the risk of not testing the system under real conditions, and this is not acceptable for a security
+component.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>The functional testing part of the project is composed of 3 full Grails applications with the plugin installed that perform
+hundreds of HTTP requests and specifies assertions on the results. Not only there are a considerable amount of tests
+across the project, but also they all run automatically on every push to GitHub, so I can ensure that no regressions
+are introduced by having an automated Continuous Integration system running on Travis CI <a href="#travis">[travis]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Tests are written using Spock <a href="#spock">[spock]</a> and Geb <a href="#geb">[geb]</a>. This is how a functional test look like:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 41. Sample functional test</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="annotation">@IgnoreIf</span>({ !SpringSecurityUtils.securityConfig.rest.oauth.facebook || !<span class="predefined-type">System</span>.getenv(<span class="string"><span class="delimiter">'</span><span class="content">FB_PASSWORD</span><span class="delimiter">'</span></span>) })
+<span class="type">class</span> <span class="class">FacebookSpec</span> <span class="directive">extends</span> GebReportingSpec {
+
+    <span class="type">void</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">it can sign users in with Facebook</span><span class="delimiter">&quot;</span></span>() {
+        <span class="key">when</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">a user clicks on a 'Sign In with Facebook' button</span><span class="delimiter">&quot;</span></span>
+        go <span class="string"><span class="delimiter">&quot;</span><span class="content">/jwt/oauth/authenticate/facebook</span><span class="delimiter">&quot;</span></span>
+
+        <span class="key">then</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">its redirected to Facebook Sign In page</span><span class="delimiter">&quot;</span></span>
+        FacebookSignInPage facebookSignInPage = at FacebookSignInPage
+
+        <span class="key">when</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">credentials are entered</span><span class="delimiter">&quot;</span></span>
+        facebookSignInPage.login <span class="string"><span class="delimiter">'</span><span class="content">open_pmazedy_user@tfbnw.net</span><span class="delimiter">'</span></span>, <span class="predefined-type">System</span>.getenv(<span class="string"><span class="delimiter">'</span><span class="content">FB_PASSWORD</span><span class="delimiter">'</span></span>)
+
+        <span class="key">then</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">is redirected to the frontend callback URL, with a token</span><span class="delimiter">&quot;</span></span>
+        FrontendCallbackPage frontendCallbackPage = at FrontendCallbackPage
+        frontendCallbackPage.jsUrl.contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">token</span><span class="delimiter">&quot;</span></span>)
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above test executes over a running testing Grails application with the plugin installed, opens a session in the
+headless browser Phantom JS <a href="#phantom-js">[phantom-js]</a>, and interacts with the web as if it were a real user, filling forms, clicking
+buttons, etc.</p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="_deployment">3.5. Deployment</h3>
-
+<h3 id="_installation_and_usage">3.5. Installation and usage</h3>
+<div class="paragraph">
+<p>Documentation has been one of the key factors contributing to the success of this plugin. It&#8217;s comprehensive, covers
+all features, has configuration examples and it&#8217;s also automatically published online on every release.</p>
+</div>
+<div class="paragraph">
+<p>For reference, it has been included in the appendix of this document. Please refer to that section for more information.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_evaluation">4. Evaluation</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>As this project is not an application, but a plugin to be used in other applications, it&#8217;s hard to tell how much people
+is using it. In my personal experience, the plugin was used in an authentication microservice which is already in
+production.</p>
+</div>
+<div class="paragraph">
+<p>I have spoken about the plugin in 7 conferences across 5 countries. In all of them I have found a bunch of thankful
+users. Some of them have also expressed their gratitude publicly on Twitter:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="twitter-users.png" alt="twitter users">
+</div>
+</div>
+<div class="paragraph">
+<p>Having a look at the statistics on GitHub, we can also conclude that it&#8217;s a very successful project:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>99 people starred the project.</p>
+</li>
+<li>
+<p>66 have forked it.</p>
+</li>
+<li>
+<p>22 have sent code contributions through 44 pull requests.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2484,11 +2744,168 @@ to <code>RestAuthenticationFailureHandler</code>.</p>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_planning">5.1. Planning</h3>
+<div class="paragraph">
+<p>The initial Gantt diagram of the project is shown below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="gantt.png" alt="gantt">
+</div>
+<div class="title">Figure 13. Initial Gantt diagram</div>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
 <h3 id="_budget">5.2. Budget</h3>
-
+<div class="paragraph">
+<p>This section analyses the different costs incurred while developing this project.</p>
+</div>
+<div class="sect3">
+<h4 id="_human_resources">5.2.1. Human resources</h4>
+<div class="paragraph">
+<p>To calculate the human resources cost, we are considering a cost of <strong>296 € per day</strong>. The breakdown of such amount is the
+following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Annual salary of a senior developer with 10+ years of experience: 45,000 €.</p>
+</li>
+<li>
+<p>Company costs (social security, supplies): 22,000 €.</p>
+</li>
+<li>
+<p>Total cost: 67,000 €.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This information is coming from the personal experience of the author running a consulting company and understanding
+the job market in Spain and the United Kingdom.</p>
+</div>
+<div class="paragraph">
+<p>The maximum amount of working hours per year in Spain in the IT market is 1.808. That&#8217;s 226 working days.
+67,000 / 226 =~ 296 €.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Human resources budget</caption>
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top"><strong>Phase</strong></th>
+<th class="tableblock halign-center valign-top"><strong>Duration (days)</strong></th>
+<th class="tableblock halign-right valign-top"><strong>Cost (€)</strong></th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>TOTAL</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">119</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">35,224.00 €</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Evaluation</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">296.00 €</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Analysis</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1,480.00 €</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Design</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">4,440.00 €</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Development</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">95</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">28,120.00 €</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect3">
+<h4 id="_equipment_servers_and_software_licenses">5.2.2. Equipment, servers and software licenses</h4>
+<div class="paragraph">
+<p>The equipments costs accounted are considering depreciation and amortization, under the following formula:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>Cost = A/B * C * D</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Where:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>A</code>: number of months elapsed since product is first purchased and used.</p>
+</li>
+<li>
+<p><code>B</code>: depreciation period (36 months for equipments, 12 months for licenses).</p>
+</li>
+<li>
+<p><code>C</code>: item cost.</p>
+</li>
+<li>
+<p><code>D</code>: percentage usage dedicated to this project (usually 100%).</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. Equipment, servers and software licenses budget</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top"><strong>Item</strong></th>
+<th class="tableblock halign-right valign-top"><strong>Cost (€)</strong></th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>TOTAL</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">399.66 €</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">MacBook Pro Retina 15 inches early 2013</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">333.33 €</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">IntelliJ IDEA Personal License</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">66.33 €</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">GitHub git hosting</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">0.00 €</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Travis CI</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">0.00 €</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_summary">5.2.3. Summary</h4>
+<div class="paragraph">
+<p>The total cost of this project has been estimated in <strong>35,623.66 €</strong></p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2499,20 +2916,127 @@ to <code>RestAuthenticationFailureHandler</code>.</p>
 <h3 id="_conclusions">6.1. Conclusions</h3>
 <div class="sect3">
 <h4 id="_product">6.1.1. Product</h4>
-
+<div class="paragraph">
+<p>Let&#8217;s consider if the initial goals have been met:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Provide an implementation for the Grails framework</strong>. The plugin is published in the Grails plugin portal at
+<a href="http://grails.org/plugin/spring-security-rest" class="bare">http://grails.org/plugin/spring-security-rest</a>. It&#8217;s stable, mature, and many users are already using it in production
+applications.</p>
+</li>
+<li>
+<p><strong>Make core Spring Security, which only offered form-based authentication using the HTTP Session, more REST-friendly</strong>.
+Spring Security REST provides clear and easy-to-use REST endpoints for authentication, logout (when possible) and token
+validation. It also no longer uses the HTTP session to store the tokens, but provides a variety of options to use:
+from database to Memcached or Redis. Users can even provide their own implementation.</p>
+</li>
+<li>
+<p><strong>Offer developers a way to implement authentication and authorization in a stateless way</strong>. JWT support is completed,
+and users can use it out-of-the-box with almost no configuration. They can also easily switch between signed and
+encrypted JWT&#8217;s.</p>
+</li>
+<li>
+<p><strong>Analise, design, implement and test a robust solution, stable and highly covered by tests</strong>. Testing has been one of
+the core requirements for this project. The plugin has 85 unit tests, 7 integration tests and 138 functional tests
+running across 3 complete testing applications. Everything is running automatically on every push at
+<a href="https://travis-ci.org/alvarosanchez/grails-spring-security-rest">Travis CI</a>.</p>
+</li>
+<li>
+<p><strong>Contributing back to the community by creating an open-source solution</strong>. Not only the plugin is open source
+(licensed under the terms of the Apache License, Version 2.0), but also a successful and popular plugin, with 99 stars
+on GitHub, 66 forks, 22 contributors and 44 pull requests.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Considering all the above items, we can conclude that all the goals have been met.</p>
+</div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
 <h4 id="_process">6.1.2. Process</h4>
-
+<div class="paragraph">
+<p>Working alone in a large and complex project like this is not an easy task. Also we need to take into consideration
+the fact that the requirements are needs weren&#8217;t requested by anybody in particular. This hasn&#8217;t been a classical
+software development project where a customer has some needs, and a solution is created to solve his problems.</p>
+</div>
+<div class="paragraph">
+<p>In my case, my research across the years, talking to and with the community and real experiences at work led to the
+conclusion that this plugin was needed. I drove the requirements and I implemented  and tested them. And the open source
+community validated my approach by using it in production and expressing their gratitude publicly.</p>
+</div>
+<div class="paragraph">
+<p>Given also that I have been working on this plugin almost entirely on my spare time, it&#8217;s hard to follow any methodology,
+even an agile one such as Scrum. Many of the practices of software methodologies are meant for teams, not for a single
+person. Fortunately, I already know how they work in teams after having been working for some years.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_personal">6.1.3. Personal</h4>
+<div class="paragraph">
+<p>Creating an open source solution that is also useful for others is very grateful. I have done open source development
+before this one for many years, and I hope I will continue doing it.</p>
+</div>
+<div class="paragraph">
+<p>Regarding the university subjects being useful for this work, making an imagination effort I would say that the
+programming subjects in the first course, plus some computer engineering subjects in second course, might have been
+useful. But being honest I would make more important my personal effort in constantly learning new things and my career
+development during more than 14 years.</p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_personal_improvements">6.2. Personal improvements</h3>
+<h3 id="_future_improvements">6.2. Future improvements</h3>
+<div class="paragraph">
+<p>The plugin is fairly stable and mature, and from my point of view is probably feature complete. However, if I were to
+analyse how can it be improved, I would outline 2 main areas where it can completed.</p>
+</div>
+<div class="sect3">
+<h4 id="_upgrade_to_grails_3">6.2.1. Upgrade to Grails 3</h4>
+<div class="paragraph">
+<p>The plugin is compatible with Grails 2 applications. Grails 2 was the latest version back in 2013. However, on 30 March
+2015, Grails 3.0.0 was released.</p>
+</div>
+<div class="paragraph">
+<p>Many people is already interested in an upgrade to Grails 3, as seen in
+<a href="https://github.com/alvarosanchez/grails-spring-security-rest/issues/233">issue 233</a>, so therefore I will work on it in the
+near future.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_jwt_token_fingerprinting">6.2.2. JWT Token fingerprinting</h4>
+<div class="paragraph">
+<p>Fingerprinting tokens is the process of storing in the token additional information coming from the original request.
+Examples of this additional attributes are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>IP address.</p>
+</li>
+<li>
+<p>Session ID.</p>
+</li>
+<li>
+<p>Browser headers: Agent, Accept-Language, Accept, Accept-Encoding.</p>
+</li>
+<li>
+<p>Browser information: Screen size, OS, TimeZone.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When a token is received for validation, apart from the standard checks (validating the signature if the token is signed,
+decrypting if the token is encrypted, etc), the attributes will be tested against the ones originally stored in the JWT.</p>
+</div>
+<div class="paragraph">
+<p>This is an additional layer of security that prevents tampering, man-in-the-middle attacks, etc.</p>
+</div>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 </div>
@@ -2567,7 +3091,7 @@ RESTful scenario, we need to make sure our server is stateless.</p>
 <div class="content">
 <img src="rest.png" alt="rest">
 </div>
-<div class="title">Figure 7. Sequence diagram overview of the plugin behavior</div>
+<div class="title">Figure 14. Sequence diagram overview of the plugin behavior</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -3007,7 +3531,7 @@ and Grails Cache support for token storage.</p>
 (such as Memcached or GORM), make sure you explicitly set to <code>true</code> one of the following properties:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. New configuration values in 1.5</caption>
+<caption class="title">Table 3. New configuration values in 1.5</caption>
 <colgroup>
 <col style="width: 80%;">
 <col style="width: 20%;">
@@ -3180,7 +3704,7 @@ core, so the trick is to identify what URL patterns have to be stateless, and wh
 <p>To configure the chains properly, you can use the <code>grails.plugin.springsecurity.filterChain.chainMap</code> property:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 41. <code>grails.plugin.springsecurity.filterChain.chainMap</code></div>
+<div class="title">Listing 42. <code>grails.plugin.springsecurity.filterChain.chainMap</code></div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">grails.plugin.springsecurity.filterChain.chainMap = [
     <span class="string"><span class="delimiter">'</span><span class="content">/api/**</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">JOINED_FILTERS,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter</span><span class="delimiter">'</span></span>,  <span class="comment">// Stateless chain</span>
@@ -3289,7 +3813,7 @@ The event is fired whenever a new token is created. See <code>grails.plugin.spri
 classes, for example:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 42. Custom event listener</div>
+<div class="title">Listing 43. Custom event listener</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">package</span> com.foo.bar
 
@@ -3309,7 +3833,7 @@ classes, for example:</p>
 <p>Register the class in <code>grails-app/conf/spring/resources.groovy</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 43. Event listener registration</div>
+<div class="title">Listing 44. Event listener registration</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">import</span> <span class="include">com.foo.bar.MySecurityEventListener</span>
 
@@ -3330,7 +3854,7 @@ more callback closure(s) in <code>grails-app/conf/Config.groovy</code> and let <
 <p>Implement the event handlers that you need, for example:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 44. Callback closures</div>
+<div class="title">Listing 45. Callback closures</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">grails.plugin.springsecurity.useSecurityEventListener = <span class="predefined-constant">true</span>
 
@@ -3385,7 +3909,7 @@ for more information.</p>
 <p>The following are the <code>Config.groovy</code> properties available:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 2. Authentication configuration options</caption>
+<caption class="title">Table 4. Authentication configuration options</caption>
 <colgroup>
 <col style="width: 80%;">
 <col style="width: 20%;">
@@ -3421,7 +3945,7 @@ To align with the RESTful principles, JSON payload is the default behaviour.</p>
 <div class="sect4">
 <h5 id="_from_a_json_request">From a JSON request</h5>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 3. JSON credentials extraction configuration properties</caption>
+<caption class="title">Table 5. JSON credentials extraction configuration properties</caption>
 <colgroup>
 <col style="width: 80%;">
 <col style="width: 20%;">
@@ -3451,7 +3975,7 @@ To align with the RESTful principles, JSON payload is the default behaviour.</p>
 <p>The default implementation expects a request like this:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 45. Example JSON authentication request</div>
+<div class="title">Listing 46. Example JSON authentication request</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="javascript">{
     <span class="key"><span class="delimiter">&quot;</span><span class="content">username</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">john.doe</span><span class="delimiter">&quot;</span></span>,
@@ -3463,7 +3987,7 @@ To align with the RESTful principles, JSON payload is the default behaviour.</p>
 <p>If you use <code>usernamePropertyName</code> and <code>passwordPropertyName</code> properties mentioned above, your JSON request can look like:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 46. Custom JSON authentication request</div>
+<div class="title">Listing 47. Custom JSON authentication request</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="javascript">{
     <span class="key"><span class="delimiter">&quot;</span><span class="content">login</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">john.doe</span><span class="delimiter">&quot;</span></span>,
@@ -3476,7 +4000,7 @@ To align with the RESTful principles, JSON payload is the default behaviour.</p>
 </div>
 <div style="page-break-after: always;"></div>
 <div class="listingblock">
-<div class="title">Listing 47. Custom JSON authentication configuration properties</div>
+<div class="title">Listing 48. Custom JSON authentication configuration properties</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">grails.plugin.springsecurity.rest.login.usernamePropertyName = <span class="string"><span class="delimiter">'</span><span class="content">login</span><span class="delimiter">'</span></span>
 grails.plugin.springsecurity.rest.login.passwordPropertyName = <span class="string"><span class="delimiter">'</span><span class="content">pwd</span><span class="delimiter">'</span></span></code></pre>
@@ -3488,7 +4012,7 @@ grails.plugin.springsecurity.rest.login.passwordPropertyName = <span class="stri
 The default implementation looks like this:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 48. <code>DefaultJsonPayloadCredentialsExtractor</code></div>
+<div class="title">Listing 49. <code>DefaultJsonPayloadCredentialsExtractor</code></div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="annotation">@Slf4j</span>
 <span class="type">class</span> <span class="class">DefaultJsonPayloadCredentialsExtractor</span> <span class="directive">extends</span> AbstractJsonPayloadCredentialsExtractor {
@@ -3526,7 +4050,7 @@ The default implementation looks like this:</p>
 <p>Note that the name of the parameters can also be customised:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 4. Parameter extraction configuration options</caption>
+<caption class="title">Table 6. Parameter extraction configuration options</caption>
 <colgroup>
 <col style="width: 80%;">
 <col style="width: 20%;">
@@ -3591,7 +4115,7 @@ storage, sending a 200 response. Otherwise, it will send a 404 response.</p>
 <p>You can configure it in <code>Config.groovy</code> using this properties:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 5. Logout configuration options</caption>
+<caption class="title">Table 7. Logout configuration options</caption>
 <colgroup>
 <col style="width: 80%;">
 <col style="width: 20%;">
@@ -3617,7 +4141,7 @@ storage, sending a 200 response. Otherwise, it will send a 404 response.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_token_generation">A.7. Token Generation</h3>
+<h3 id="_token_generation_2">A.7. Token Generation</h3>
 <div class="paragraph">
 <p>By default, the plugin generates JWT tokens. Note that when using JWT, you can&#8217;t plug any other token generator.</p>
 </div>
@@ -3638,7 +4162,7 @@ storage, sending a 200 response. Otherwise, it will send a 404 response.</p>
 <p>The strategy used is configurable in <code>Config.groovy</code>:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 6. Token generation configuration options</caption>
+<caption class="title">Table 8. Token generation configuration options</caption>
 <colgroup>
 <col style="width: 80%;">
 <col style="width: 20%;">
@@ -3672,7 +4196,7 @@ and wire it up in <code>resources.groovy</code> as <code>tokenGenerator</code>.<
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect2">
-<h3 id="_token_storage">A.8. Token Storage</h3>
+<h3 id="_token_storage_2">A.8. Token Storage</h3>
 <div class="paragraph">
 <p>The tokens are stored on the server using a <code>tokenStorageService</code> bean. The plugin comes with out-of-the-box support
 for JWT, Memcached, GORM and <a href="http://grails.org/plugin/cache">Grails Cache</a>, but you can use your own strategy implementing the
@@ -3726,7 +4250,7 @@ principal information is stored directly in the JWT.</p>
 <div class="content">
 <img src="jwt.png" alt="jwt">
 </div>
-<div class="title">Figure 8. JWT example</div>
+<div class="title">Figure 15. JWT example</div>
 </div>
 <div class="sect5">
 <h6 id="_header">Header</h6>
@@ -3734,7 +4258,7 @@ principal information is stored directly in the JWT.</p>
 <p>A base64-encoded JSON like:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 49. JWT header</div>
+<div class="title">Listing 50. JWT header</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="javascript">{
     <span class="key"><span class="delimiter">&quot;</span><span class="content">alg</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HS256</span><span class="delimiter">&quot;</span></span>,
@@ -3749,7 +4273,7 @@ principal information is stored directly in the JWT.</p>
 <p>A base64-encoded JSON like:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 50. JWT claims</div>
+<div class="title">Listing 51. JWT claims</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="javascript">{
     <span class="key"><span class="delimiter">&quot;</span><span class="content">exp</span><span class="delimiter">&quot;</span></span>: <span class="integer">1422990129</span>,
@@ -3780,7 +4304,7 @@ or an encryption of them using RSA.</p>
 the algorithm used is HMAC SHA-256 with a specified shared secret. The relevant configuration properties are:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 7. JWT configuration options for signing</caption>
+<caption class="title">Table 9. JWT configuration options for signing</caption>
 <colgroup>
 <col style="width: 80%;">
 <col style="width: 20%;">
@@ -3826,7 +4350,7 @@ the algorithm used is HMAC SHA-256 with a specified shared secret. The relevant 
 into the classpath. To avoid the problem, you have to override explicitly that dependency:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 51. Excluding BouncyCastle&#8217;s libraries</div>
+<div class="title">Listing 52. Excluding BouncyCastle&#8217;s libraries</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">build(<span class="string"><span class="delimiter">&quot;</span><span class="content">com.lowagie:itext:2.0.8</span><span class="delimiter">&quot;</span></span>) { excludes <span class="string"><span class="delimiter">&quot;</span><span class="content">bouncycastle:bcprov-jdk14:138</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">org.bouncycastle:bcprov-jdk14:1.38</span><span class="delimiter">&quot;</span></span> }
 {code}</code></pre>
@@ -3852,7 +4376,7 @@ for content encryption.</p>
 won&#8217;t be decrypted across executions of the application. So better create your own key pair using OpenSSL:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 52. Certificate generation for JWT</div>
+<div class="title">Listing 53. Certificate generation for JWT</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">openssl genrsa -out private_key.pem 2048
 openssl pkcs8 -topk8 -inform PEM -outform DER -in private_key.pem -out private_key.der -nocrypt
@@ -3864,7 +4388,7 @@ openssl rsa -in private_key.pem -pubout -outform DER -out public_key.der</code><
 <p>Then, configure the keys properly, along with the rest of the configuration:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 8. JWT configuration options for signing</caption>
+<caption class="title">Table 10. JWT configuration options for signing</caption>
 <colgroup>
 <col style="width: 80%;">
 <col style="width: 20%;">
@@ -3898,7 +4422,7 @@ openssl rsa -in private_key.pem -pubout -outform DER -out public_key.der</code><
 <p>Example configuration:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 53. JWT encryption example configuration</div>
+<div class="title">Listing 54. JWT encryption example configuration</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">grails.plugin.springsecurity.rest.token.storage.jwt.useEncryptedJwt = <span class="predefined-constant">true</span>
 grails.plugin.springsecurity.rest.token.storage.jwt.privateKeyPath = <span class="string"><span class="delimiter">'</span><span class="content">/path/to/private_key.der</span><span class="delimiter">'</span></span>
@@ -3928,7 +4452,7 @@ you JWT&#8217;s, think if you really need it.</p>
 <p>When using JWT, issued access tokens expire after a period of time, and they are paired with refresh tokens, eg:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 54. Sample access token response, including refresh token</div>
+<div class="title">Listing 55. Sample access token response, including refresh token</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="javascript">{
    <span class="key"><span class="delimiter">&quot;</span><span class="content">username</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">jimi</span><span class="delimiter">&quot;</span></span>,
@@ -3949,7 +4473,7 @@ you JWT&#8217;s, think if you really need it.</p>
 <code>/oauth/access_token</code> endpoint:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 55. Sample HTTP request to obtain an access token</div>
+<div class="title">Listing 56. Sample HTTP request to obtain an access token</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="javascript">POST /myApp/oauth/access_token HTTP/<span class="float">1.1</span>
 Host: server.example.com
@@ -3994,7 +4518,7 @@ grant_type=refresh_token&amp;refresh_token=eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyN
 <p>To use Memcached, simply define the following configuration properties to match your environments accordingly:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 9. Memcached configuration options</caption>
+<caption class="title">Table 11. Memcached configuration options</caption>
 <colgroup>
 <col style="width: 80%;">
 <col style="width: 20%;">
@@ -4044,7 +4568,7 @@ They get refreshed on every access</p>
 <p>To use GORM, these are the relevant configuration properties:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 10. GORM configuration options</caption>
+<caption class="title">Table 12. GORM configuration options</caption>
 <colgroup>
 <col style="width: 80%;">
 <col style="width: 20%;">
@@ -4078,7 +4602,7 @@ They get refreshed on every access</p>
 <p>The relevant domain class should look something like this:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 56. Authentication token domain class example</div>
+<div class="title">Listing 57. Authentication token domain class example</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">package</span> org.example.product
 
@@ -4211,7 +4735,7 @@ be something you would prefer to avoid for the sake of performance.</p>
 <p>Configuration options for Redis:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 11. Redis configuration options</caption>
+<caption class="title">Table 13. Redis configuration options</caption>
 <colgroup>
 <col style="width: 80%;">
 <col style="width: 20%;">
@@ -4242,7 +4766,7 @@ be something you would prefer to avoid for the sake of performance.</p>
 <p>To use <a href="http://grails.org/plugin/cache">Grails Cache</a>, simply define a cache name:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 12. Redis configuration options</caption>
+<caption class="title">Table 14. Redis configuration options</caption>
 <colgroup>
 <col style="width: 80%;">
 <col style="width: 20%;">
@@ -4360,7 +4884,7 @@ Pragma: no-cache
 <p>The JSON structure can be customised with the following configuration keys:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 13. Token rendering configuration options</caption>
+<caption class="title">Table 15. Token rendering configuration options</caption>
 <colgroup>
 <col style="width: 80%;">
 <col style="width: 20%;">
@@ -4417,7 +4941,7 @@ grails.plugin.springsecurity.rest.token.rendering.authoritiesPropertyName = <spa
 property:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 14. Token rendering configuration options</caption>
+<caption class="title">Table 16. Token rendering configuration options</caption>
 <colgroup>
 <col style="width: 80%;">
 <col style="width: 20%;">
@@ -4521,7 +5045,7 @@ domain classes to store the users. Use <code>springSecurityService.principal</co
 <p>The token can be sent in the <code>Authorization</code> request header:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 57. Accessing a protected resource using <code>Authorization</code> request header</div>
+<div class="title">Listing 58. Accessing a protected resource using <code>Authorization</code> request header</div>
 <div class="content">
 <pre class="CodeRay highlight"><code>GET /protectedResource HTTP/1.1
 Host: server.example.com
@@ -4532,7 +5056,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MjI5OTU5MjIsInN1YiI6Imppb
 <p>Or using form-encoded body parameters:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 58. Accessing a protected resource using body parameters</div>
+<div class="title">Listing 59. Accessing a protected resource using body parameters</div>
 <div class="content">
 <pre class="CodeRay highlight"><code>POST /protectedResource HTTP/1.1
 Host: server.example.com
@@ -4653,7 +5177,7 @@ If the token does not exist, it will render a <code>grails.plugin.springsecurity
 <p>The relevant configuration properties for the validation endpoint are:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 15. Validation endpoint configuration options</caption>
+<caption class="title">Table 17. Validation endpoint configuration options</caption>
 <colgroup>
 <col style="width: 80%;">
 <col style="width: 20%;">
@@ -4703,7 +5227,7 @@ will be <code>Bearer TOKEN_VALUE</code>.</p>
 when defining this plugin in your <code>BuildConfig.groovy</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 59. Excluding the CORS plugin</div>
+<div class="title">Listing 60. Excluding the CORS plugin</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">compile <span class="string"><span class="delimiter">'</span><span class="content">:spring-security-rest:{{VERSION}}</span><span class="delimiter">'</span></span>, {
     exclude <span class="string"><span class="delimiter">'</span><span class="content">cors</span></span><span class="error">
@@ -4748,7 +5272,7 @@ OAuth, because then the access keys will be made public.</p>
 <div class="content">
 <img src="oauth.png" alt="oauth">
 </div>
-<div class="title">Figure 9. OAuth delegation protocol</div>
+<div class="title">Figure 16. OAuth delegation protocol</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -4868,7 +5392,7 @@ delegates to the configured <code>userDetailsService</code> bean, passing the pr
 </div>
 <div style="page-break-after: always;"></div>
 <div class="listingblock">
-<div class="title">Listing 60. DefaultOauthUserDetailsService</div>
+<div class="title">Listing 61. DefaultOauthUserDetailsService</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy"><span class="comment">/**
  * Builds an {`link OauthUser}. Delegates to the default {`link UserDetailsService.loadUserByUsername(java.lang.String)}
@@ -4919,7 +5443,7 @@ implementation. This is useful if you want to allow your corporate users to log 
 account. In this case, you should decide based on OAuth20Profile.getEmail(), for instance:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 61. Custom loadUserByUserProfile implementation</div>
+<div class="title">Listing 62. Custom loadUserByUserProfile implementation</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">OauthUser loadUserByUserProfile(OAuth20Profile userProfile, <span class="predefined-type">Collection</span>&lt;GrantedAuthority&gt; defaultRoles) <span class="directive">throws</span> UsernameNotFoundException {
     <span class="keyword">if</span> (userProfile.email.endsWith(<span class="string"><span class="delimiter">'</span><span class="content">example.org</span><span class="delimiter">'</span></span>)) {
@@ -4948,7 +5472,7 @@ parameter will be empty, and both <code>error</code> and <code>message</code> pa
 <p>Define the following block in your <code>Config.groovy</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 62. Google OAuth sample configuration</div>
+<div class="title">Listing 63. Google OAuth sample configuration</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">grails {
     plugin {
@@ -5000,7 +5524,7 @@ uses the profile ID as the username, and that is only returned by Google if <cod
 <p>Define the following block in your <code>Config.groovy</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 63. Facebook OAuth sample configuration</div>
+<div class="title">Listing 64. Facebook OAuth sample configuration</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">grails {
     plugin {
@@ -5048,7 +5572,7 @@ information you don&#8217;t need.</p>
 <p>Define the following block in your <code>Config.groovy</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 64. Twitter OAuth sample configuration</div>
+<div class="title">Listing 65. Twitter OAuth sample configuration</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">grails {
     plugin {
@@ -5085,7 +5609,7 @@ information you don&#8217;t need.</p>
 <p>Define the following block in your <code>Config.groovy</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 65. CAS sample configuration</div>
+<div class="title">Listing 66. CAS sample configuration</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">grails {
     plugin {
@@ -5121,7 +5645,7 @@ information you don&#8217;t need.</p>
 <p>If you need debug information, you can specify the following entries in <code>Config.groovy</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">Listing 66. Logging setup</div>
+<div class="title">Listing 67. Logging setup</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">log4j = {
     ...
@@ -5296,6 +5820,18 @@ October 2012.</p>
 <a href="http://www.w3.org/TR/cors">Cross-Origin Resource Sharing</a>.
 16 January 2014.</p>
 </li>
+<li>
+<p><a id="travis"></a>[travis] <a href="http://travis-ci.org">Travis CI</a>.</p>
+</li>
+<li>
+<p><a id="spock"></a>[spock] <a href="http://docs.spockframework.org/">Spock testing framework</a>.</p>
+</li>
+<li>
+<p><a id="geb"></a>[geb] <a href="http://www.gebish.org/">Geb browser automation framwework</a>.</p>
+</li>
+<li>
+<p><a id="phantom-js"></a>[phantom-js] <a href="http://phantomjs.org/">Phantom JS headless browser</a>.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -5304,7 +5840,7 @@ October 2012.</p>
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2015-10-03 20:33:26 UTC
+Last updated 2015-10-04 18:08:33 UTC
 </div>
 </div>
 </body>

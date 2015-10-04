@@ -419,11 +419,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_product_backlog">Product Backlog</a></li>
 <li><a href="#_design">Design</a></li>
 <li><a href="#_development">Development</a></li>
-<li><a href="#_deployment">Deployment</a></li>
+<li><a href="#_installation_and_usage">Installation and usage</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>This chapter contains a detailed description of the analysis performed, the user stories extracted and implemented, as
+well as some notes about the development process.</p>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_introduction">Introduction</h3>
 <div class="paragraph">
@@ -441,6 +449,7 @@ project management framework that is applicable to any project with aggressive d
 degree of uniqueness. In Scrum, projects move forward via a series of iterations called sprints. Each sprint is typically
 two to four weeks long.</p>
 </div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>Scrum defines the following concepts:</p>
 </div>
@@ -473,6 +482,11 @@ owner presents the top items on the product backlog to the team. The Scrum team 
 during the coming sprint. That work is then moved from the product backlog to a sprint backlog, which is the list of
 tasks needed to complete the product backlog items the team has committed to complete in the sprint.</p>
 </li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="ulist">
+<ul>
 <li>
 <p><strong>Daily Scrum</strong>: Each day during the sprint, a brief meeting called the daily scrum is conducted. This meeting helps set
 the context for each day’s work and helps the team stay on track. All team members are required to attend the daily scrum.</p>
@@ -512,9 +526,7 @@ facilitate planning and discussion. As such, they strongly shift the focus from 
 In fact, these discussions are more important than whatever text is written.</p>
 </div>
 <div class="sect3">
-<h4 id="_user_stories">User stories</h4>
-<div class="sect4">
-<h5 id="__1_as_a_user_i_want_to_authenticate_so_that_i_can_access_protected_resources">#1. As a user, I want to authenticate, so that I can access protected resources</h5>
+<h4 id="__1_as_a_user_i_want_to_authenticate_so_that_i_can_access_protected_resources">#1. As a user, I want to authenticate, so that I can access protected resources</h4>
 <div class="paragraph">
 <p>The authentication endpoint must enable a client application to login using credentials such as username and password.
 It should be RESTful, i.e.: it should consume and produce JSON over HTTP. An example request is like:</p>
@@ -564,8 +576,8 @@ Content-Type: application/json
 </div>
 <div style="page-break-after: always;"></div>
 </div>
-<div class="sect4">
-<h5 id="__2_as_a_user_i_want_to_logout_so_that_my_token_is_no_longer_valid">#2. As a user, I want to logout, so that my token is no longer valid</h5>
+<div class="sect3">
+<h4 id="__2_as_a_user_i_want_to_logout_so_that_my_token_is_no_longer_valid">#2. As a user, I want to logout, so that my token is no longer valid</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -605,8 +617,8 @@ Authorization: Bearer eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ...</code></
 </div>
 <div style="page-break-after: always;"></div>
 </div>
-<div class="sect4">
-<h5 id="__3_as_a_developer_i_want_to_configure_how_access_tokens_are_generated">#3. As a developer, I want to configure how access tokens are generated</h5>
+<div class="sect3">
+<h4 id="__3_as_a_developer_i_want_to_configure_how_access_tokens_are_generated">#3. As a developer, I want to configure how access tokens are generated</h4>
 <div class="paragraph">
 <p>Token generation should be configurable by users. There are 2 scenarios:</p>
 </div>
@@ -628,8 +640,8 @@ every access, depending on the underlying storage support for such action.</p>
 <p>The plugin must provide at least one implementation for each scenario.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="__4_as_a_developer_i_want_to_store_tokens_on_multiple_storages_including_the_client_itself">#4. As a developer, I want to store tokens on multiple storages, including the client itself</h5>
+<div class="sect3">
+<h4 id="__4_as_a_developer_i_want_to_store_tokens_on_multiple_storages_including_the_client_itself">#4. As a developer, I want to store tokens on multiple storages, including the client itself</h4>
 <div class="paragraph">
 <p>If using JWT, tokens will be stored on the client. Assuming the client is a front-end application using a Javascript MVC
 framework like Angular JS <a href="#angular-js">[angular-js]</a>, the place to store such token would be HTML 5&#8217;s <code>localStorage</code>.</p>
@@ -641,10 +653,10 @@ solution.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
+<div class="sect3">
+<h4 id="__5_as_a_user_i_want_to_validate_whether_my_access_token_is_still_valid_or_not">#5. As a user, I want to validate whether my access token is still valid or not</h4>
 <div class="sect4">
-<h5 id="__5_as_a_user_i_want_to_validate_whether_my_access_token_is_still_valid_or_not">#5. As a user, I want to validate whether my access token is still valid or not</h5>
-<div class="sect5">
-<h6 id="_token_validation_filter">Token validation filter</h6>
+<h5 id="_token_validation_filter">Token validation filter</h5>
 <div class="paragraph">
 <p>The plugin must provide a Spring Security Filter (based on Java EE Servlet filters) that will validate the token
 received on every request. If the validation is successful, the plugin will restore the user principal into the
@@ -697,8 +709,8 @@ not sufficiently authenticated.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
-<div class="sect5">
-<h6 id="_token_validation_endpoint">Token validation endpoint</h6>
+<div class="sect4">
+<h5 id="_token_validation_endpoint">Token validation endpoint</h5>
 <div class="paragraph">
 <p>There must be a token validation endpoint available for users to check whether a token is still valid or not.</p>
 </div>
@@ -737,8 +749,8 @@ Content-Type: application/json
 <div style="page-break-after: always;"></div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="__6_as_a_developer_i_want_to_expose_cors_headers_in_the_responses_so_that_the_system_can_be_used_from_separated_front_end_applications">#6. As a developer, I want to expose CORS headers in the responses, so that the system can be used from separated front-end applications</h5>
+<div class="sect3">
+<h4 id="__6_as_a_developer_i_want_to_expose_cors_headers_in_the_responses_so_that_the_system_can_be_used_from_separated_front_end_applications">#6. As a developer, I want to expose CORS headers in the responses, so that the system can be used from separated front-end applications</h4>
 <div class="paragraph">
 <p>Cross-Origin Resource Sharing <a href="#cors">[cors]</a> is a mechanism that allows restricted resources on a web page to be requested
 from another domain outside the domain from which the resource originated.</p>
@@ -782,8 +794,8 @@ server disallows any of them, the browser will halt the request, throwing an err
 </div>
 <div style="page-break-after: always;"></div>
 </div>
-<div class="sect4">
-<h5 id="__7_as_a_user_i_want_to_authenticate_using_external_oauth_providers_such_as_google_or_facebook">#7. As a user, I want to authenticate using external OAuth providers such as Google or Facebook</h5>
+<div class="sect3">
+<h4 id="__7_as_a_user_i_want_to_authenticate_using_external_oauth_providers_such_as_google_or_facebook">#7. As a user, I want to authenticate using external OAuth providers such as Google or Facebook</h4>
 <div class="paragraph">
 <p>This plugin is meant to be used in applications serving a REST API&#8217;s to pure Javascript clients. The main authentication
 flow of this plugin is to allow you to authenticate your users against any Spring Security-compatible user directory
@@ -848,35 +860,94 @@ Grails will be a front-end URL where the token is a parameter.</p>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
-</div>
 <div class="sect2">
 <h3 id="_design">Design</h3>
+<div class="sect3">
+<h4 id="_use_cases">Use cases</h4>
 <div class="paragraph">
-<p>As this project is not an application, but a plugin to create other applications, there are no use cases to be listed
-here. Therefore, below ar specified the class diagrams
-of the different components of the system.</p>
+<p>In software and systems engineering, a use case is a list of action or event steps, typically defining the interactions
+between a role (known in UML as an <strong>actor</strong>) and a system, to achieve a goal. The actor can be a human, an external system,
+or time. In systems engineering, use cases are used at a higher level than within software engineering, often
+representing missions or stakeholder goals.</p>
+</div>
+<div class="paragraph">
+<p>In UML, use cases are represented through use cases diagrams. They containg the following key elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Use cases</strong>. A use case describes a sequence of actions that provide something of measurable value to an actor and is
+drawn as a horizontal ellipse.</p>
+</li>
+<li>
+<p><strong>Actors</strong>. An actor is a person, organization, or external system that plays a role in one or more interactions with
+your system. Actors are drawn as stick figures.</p>
+</li>
+<li>
+<p><strong>Associations</strong>. Associations between actors and use cases are indicated in use case diagrams by solid lines. An
+association exists whenever an actor is involved with an interaction described by a use case. Associations are modeled
+as lines connecting use cases and actors to one another, with an optional arrowhead on one end of the line. The
+arrowhead is often used to indicating the direction of the initial invocation of the relationship or to indicate the
+primary actor within the use case. The arrowheads are typically confused with data flow and as a result
+some people avoid their use.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="use-case-example.png" alt="use case example">
+</div>
+<div class="title">Figure 3. Use case example</div>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="sect4">
+<h5 id="_user_use_cases">User use cases</h5>
+<div class="imageblock">
+<div class="content">
+<img src="use-cases-user.png" alt="use cases user">
+</div>
+<div class="title">Figure 4. User use cases</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_developer_use_cases">Developer use cases</h5>
+<div class="imageblock">
+<div class="content">
+<img src="use-cases-developer.png" alt="use cases developer">
+</div>
+<div class="title">Figure 5. Developer use cases</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="_filters">Filters</h4>
+<h4 id="_class_diagrams">Class diagrams</h4>
+<div class="paragraph">
+<p>Below are included some class diagrams of the most important parts of the system.</p>
+</div>
+<div class="sect4">
+<h5 id="_filters">Filters</h5>
 <div class="imageblock">
 <div class="content">
 <img src="class-filters.png" alt="class filters">
 </div>
-<div class="title">Figure 3. Filters class diagram</div>
+<div class="title">Figure 6. Filters class diagram</div>
 </div>
 <div class="paragraph">
 <p>The provided filters, as specified in the user stories, implement the interface <code>javax.servlet.Filter</code>, where the
 important method is <code>doFilter(...)</code>.</p>
 </div>
-<div style="page-break-after: always;"></div>
 </div>
-<div class="sect3">
-<h4 id="_events_and_listeners">Events and listeners</h4>
+<div class="sect4">
+<h5 id="_events_and_listeners">Events and listeners</h5>
 <div class="imageblock">
 <div class="content">
 <img src="class-events.png" alt="class events">
 </div>
-<div class="title">Figure 4. Events and listeners class diagram</div>
+<div class="title">Figure 7. Events and listeners class diagram</div>
 </div>
 <div class="paragraph">
 <p>Spring framework provides an eventing system, allowing application to register custom listeners. Spring Security
@@ -885,13 +956,13 @@ implements such interface, defining a generic <code>SecurityEventListener</code>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
-<div class="sect3">
-<h4 id="_providers_and_handlers">Providers and handlers</h4>
+<div class="sect4">
+<h5 id="_providers_and_handlers">Providers and handlers</h5>
 <div class="imageblock">
 <div class="content">
 <img src="class-provider.png" alt="class provider">
 </div>
-<div class="title">Figure 5. Providers and handlers class diagram</div>
+<div class="title">Figure 8. Providers and handlers class diagram</div>
 </div>
 <div class="paragraph">
 <p><code>AuthenticationProvider</code> is a Spring Security interface to define pluggable authentication mechanisms. This plugin
@@ -903,19 +974,154 @@ to <code>RestAuthenticationFailureHandler</code>.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
+<div class="sect4">
+<h5 id="_credentials_extraction">Credentials extraction</h5>
+<div class="imageblock">
+<div class="content">
+<img src="class-credentials.png" alt="class credentials">
+</div>
+<div class="title">Figure 9. Credentials extraction class diagram</div>
+</div>
+<div class="paragraph">
+<p>In the authentication filter (login), credentials can be extracted from different sources. Mainly, from a JSON payload
+and from request parameters. However, the plugin is flexible enough to allow the users to plug in their own
+implementation.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="_token_generation">Token generation</h5>
+<div class="imageblock">
+<div class="content">
+<img src="class-token-generation.png" alt="class token generation">
+</div>
+<div class="title">Figure 10. Token generation class diagram</div>
+</div>
+<div class="paragraph">
+<p>As specified in the user stories, token generation is also pluggable. The plugin offers implementation for both
+stateless tokens (JWT) and non-stateless. In the case of JWT, there are also 2 options: signed and encrypted tokens.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect4">
+<h5 id="_token_storage">Token storage</h5>
+<div class="imageblock">
+<div class="content">
+<img src="class-token-storage.png" alt="class token storage">
+</div>
+<div class="title">Figure 11. Token storage class diagram</div>
+</div>
+<div class="paragraph">
+<p>Here we can see the different implementations for token storage:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Stateless</strong>: JWT.</p>
+</li>
+<li>
+<p><strong>Stateful</strong>: Memcached, GORM (database), Grails cache plugin (which uses Spring Cache abstraction) and Redis.</p>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_development">Development</h3>
+<div class="paragraph">
+<p>Creating the plugin to its current state has taken 2 years and 37 releases. It has been an enormous effort.</p>
+</div>
+<div class="paragraph">
+<p>The first stages of the development were invested in learning the internals of Spring Security. I had previous experience
+with it as a user, and in fact, is not the fist plugin I have created on top of it (in 2011 I wrote a plugin for
+Spring Security SAML). Spring Security is a very well designed yet complex library, with a lot of custom concepts and
+interfaces, such as <code>Authentication</code>, <code>AuthenticationProvider</code>, <code>Filter</code> and so on. It took me a while to figure out
+the best way to achieve my goals.</p>
+</div>
+<div class="paragraph">
+<p>My initial approach was to strip down many things I didn&#8217;t need nor want from Spring Security, such as the form-based
+authentication or the dependency on the HTTP Session. That resulted in a plugin that was perfectly fitted for being
+used from a separated front-end application. As a consequence, it effectively disabled old Spring Security ways of
+authentication.</p>
+</div>
+<div class="paragraph">
+<p>However, it turned out that users were including it in applications where both traditional and REST authentication was
+used. Thus, I revisited my approach and allowed the users to use my features on a per filter-chain basis (see
+Chapter A.4 in the appendix).</p>
+</div>
+<div class="sect3">
+<h4 id="_testing">Testing</h4>
+<div class="paragraph">
+<p>Considering that it&#8217;s a plugin that people use in their applications, stability and robustness has always been a key
+factor. And they use it for one of the most critical aspects in an application: security.</p>
+</div>
+<div class="paragraph">
+<p>I have invested a significantly amount of time of the development in writing tests, at all levels: unit, integration
+and functional.</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s important to note that, in a HTTP-based security system you need to test using an HTTP client. If you mock such
+interfaces, you have the risk of not testing the system under real conditions, and this is not acceptable for a security
+component.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>The functional testing part of the project is composed of 3 full Grails applications with the plugin installed that perform
+hundreds of HTTP requests and specifies assertions on the results. Not only there are a considerable amount of tests
+across the project, but also they all run automatically on every push to GitHub, so I can ensure that no regressions
+are introduced by having an automated Continuous Integration system running on Travis CI <a href="#travis">[travis]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Tests are written using Spock <a href="#spock">[spock]</a> and Geb <a href="#geb">[geb]</a>. This is how a functional test look like:</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 11. Sample functional test</div>
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">@IgnoreIf({ !SpringSecurityUtils.securityConfig.rest.oauth.facebook || !System.getenv('FB_PASSWORD') })
+class FacebookSpec extends GebReportingSpec {
+
+    void "it can sign users in with Facebook"() {
+        when: "a user clicks on a 'Sign In with Facebook' button"
+        go "/jwt/oauth/authenticate/facebook"
+
+        then: "its redirected to Facebook Sign In page"
+        FacebookSignInPage facebookSignInPage = at FacebookSignInPage
+
+        when: "credentials are entered"
+        facebookSignInPage.login 'open_pmazedy_user@tfbnw.net', System.getenv('FB_PASSWORD')
+
+        then: "is redirected to the frontend callback URL, with a token"
+        FrontendCallbackPage frontendCallbackPage = at FrontendCallbackPage
+        frontendCallbackPage.jsUrl.contains("token")
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above test executes over a running testing Grails application with the plugin installed, opens a session in the
+headless browser Phantom JS <a href="#phantom-js">[phantom-js]</a>, and interacts with the web as if it were a real user, filling forms, clicking
+buttons, etc.</p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="_deployment">Deployment</h3>
-
+<h3 id="_installation_and_usage">Installation and usage</h3>
+<div class="paragraph">
+<p>Documentation has been one of the key factors contributing to the success of this plugin. It&#8217;s comprehensive, covers
+all features, has configuration examples and it&#8217;s also automatically published online on every release.</p>
+</div>
+<div class="paragraph">
+<p>For reference, it has been included in the appendix of this document. Please refer to that section for more information.</p>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-10-03 20:33:26 UTC
+Last updated 2015-10-04 18:08:33 UTC
 </div>
 </div>
 </body>

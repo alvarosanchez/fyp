@@ -416,7 +416,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel2">
 <li><a href="#_conclusions">Conclusions</a></li>
-<li><a href="#_personal_improvements">Personal improvements</a></li>
+<li><a href="#_future_improvements">Future improvements</a></li>
 </ul>
 </div>
 </div>
@@ -425,25 +425,131 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_conclusions">Conclusions</h3>
 <div class="sect3">
 <h4 id="_product">Product</h4>
-
+<div class="paragraph">
+<p>Let&#8217;s consider if the initial goals have been met:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Provide an implementation for the Grails framework</strong>. The plugin is published in the Grails plugin portal at
+<a href="http://grails.org/plugin/spring-security-rest" class="bare">http://grails.org/plugin/spring-security-rest</a>. It&#8217;s stable, mature, and many users are already using it in production
+applications.</p>
+</li>
+<li>
+<p><strong>Make core Spring Security, which only offered form-based authentication using the HTTP Session, more REST-friendly</strong>.
+Spring Security REST provides clear and easy-to-use REST endpoints for authentication, logout (when possible) and token
+validation. It also no longer uses the HTTP session to store the tokens, but provides a variety of options to use:
+from database to Memcached or Redis. Users can even provide their own implementation.</p>
+</li>
+<li>
+<p><strong>Offer developers a way to implement authentication and authorization in a stateless way</strong>. JWT support is completed,
+and users can use it out-of-the-box with almost no configuration. They can also easily switch between signed and
+encrypted JWT&#8217;s.</p>
+</li>
+<li>
+<p><strong>Analise, design, implement and test a robust solution, stable and highly covered by tests</strong>. Testing has been one of
+the core requirements for this project. The plugin has 85 unit tests, 7 integration tests and 138 functional tests
+running across 3 complete testing applications. Everything is running automatically on every push at
+<a href="https://travis-ci.org/alvarosanchez/grails-spring-security-rest">Travis CI</a>.</p>
+</li>
+<li>
+<p><strong>Contributing back to the community by creating an open-source solution</strong>. Not only the plugin is open source
+(licensed under the terms of the Apache License, Version 2.0), but also a successful and popular plugin, with 99 stars
+on GitHub, 66 forks, 22 contributors and 44 pull requests.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Considering all the above items, we can conclude that all the goals have been met.</p>
+</div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
 <h4 id="_process">Process</h4>
-
+<div class="paragraph">
+<p>Working alone in a large and complex project like this is not an easy task. Also we need to take into consideration
+the fact that the requirements are needs weren&#8217;t requested by anybody in particular. This hasn&#8217;t been a classical
+software development project where a customer has some needs, and a solution is created to solve his problems.</p>
+</div>
+<div class="paragraph">
+<p>In my case, my research across the years, talking to and with the community and real experiences at work led to the
+conclusion that this plugin was needed. I drove the requirements and I implemented  and tested them. And the open source
+community validated my approach by using it in production and expressing their gratitude publicly.</p>
+</div>
+<div class="paragraph">
+<p>Given also that I have been working on this plugin almost entirely on my spare time, it&#8217;s hard to follow any methodology,
+even an agile one such as Scrum. Many of the practices of software methodologies are meant for teams, not for a single
+person. Fortunately, I already know how they work in teams after having been working for some years.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_personal">Personal</h4>
+<div class="paragraph">
+<p>Creating an open source solution that is also useful for others is very grateful. I have done open source development
+before this one for many years, and I hope I will continue doing it.</p>
+</div>
+<div class="paragraph">
+<p>Regarding the university subjects being useful for this work, making an imagination effort I would say that the
+programming subjects in the first course, plus some computer engineering subjects in second course, might have been
+useful. But being honest I would make more important my personal effort in constantly learning new things and my career
+development during more than 14 years.</p>
+</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_personal_improvements">Personal improvements</h3>
-
+<h3 id="_future_improvements">Future improvements</h3>
+<div class="paragraph">
+<p>The plugin is fairly stable and mature, and from my point of view is probably feature complete. However, if I were to
+analyse how can it be improved, I would outline 2 main areas where it can completed.</p>
+</div>
+<div class="sect3">
+<h4 id="_upgrade_to_grails_3">Upgrade to Grails 3</h4>
+<div class="paragraph">
+<p>The plugin is compatible with Grails 2 applications. Grails 2 was the latest version back in 2013. However, on 30 March
+2015, Grails 3.0.0 was released.</p>
+</div>
+<div class="paragraph">
+<p>Many people is already interested in an upgrade to Grails 3, as seen in
+<a href="https://github.com/alvarosanchez/grails-spring-security-rest/issues/233">issue 233</a>, so therefore I will work on it in the
+near future.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_jwt_token_fingerprinting">JWT Token fingerprinting</h4>
+<div class="paragraph">
+<p>Fingerprinting tokens is the process of storing in the token additional information coming from the original request.
+Examples of this additional attributes are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>IP address.</p>
+</li>
+<li>
+<p>Session ID.</p>
+</li>
+<li>
+<p>Browser headers: Agent, Accept-Language, Accept, Accept-Encoding.</p>
+</li>
+<li>
+<p>Browser information: Screen size, OS, TimeZone.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When a token is received for validation, apart from the standard checks (validating the signature if the token is signed,
+decrypting if the token is encrypted, etc), the attributes will be tested against the ones originally stored in the JWT.</p>
+</div>
+<div class="paragraph">
+<p>This is an additional layer of security that prevents tampering, man-in-the-middle attacks, etc.</p>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-10-03 20:33:26 UTC
+Last updated 2015-10-04 18:08:33 UTC
 </div>
 </div>
 </body>
