@@ -339,6 +339,37 @@ The plugin must provide configurable support to delegate the authentication to, 
 
 <<<
 
+=== Legal framework
+
+The applicable legislation to any software application using this plugin is the Data Protection Act: _"Ley Orgánica 15/1999,
+de 13 de diciembre, de Protección de Datos de Carácter Personal"_ <<lopd>>. The law stablishes a series of protection levels
+depending on how sensitive is the data stored.
+
+Basically, any data subject to the most basic security level (_"nivel básico"_) must be accessed by uniquely identified
+users. Organisations have also the obligation to grant confidentiality and integrity of the passwords stored.
+
+In the case of Spring Security, the library offers sufficient mechanism to be compliant with the lay restrictions.
+However, is the developer's responsibility to ensure that the configuration applied matches the required security
+restrictions by the law.
+
+Spring Security Core plugin (foundation for the Spring Security REST plugin) uses the *bcrypt* <<bcrypt>> algorithm to hash passwords.
+In addition, developers can increase the security of the passwords by adding a salt.
+
+Bcrypt is a much more secure alternative to the message digest approaches since it supports a customizable work level
+which when increased takes more computation time to hash the users' passwords, but also dramatically increases the cost
+of brute force attacks. Given how easy it is to use GPUs to crack passwords, developers should definitely consider using
+bcrypt for new projects and switching to it for existing projects. Note that due to the approach used by bcrypt,
+developers cannot add an additional salt like with the message digest algorithms.
+
+It can be enabled by using the `bcrypt` value for the algorithm config attribute:
+
+[source,groovy]
+----
+grails.plugin.springsecurity.password.algorithm = 'bcrypt'
+----
+
+<<<
+
 === Design
 
 ==== Use cases
@@ -512,7 +543,8 @@ Considering that it's a plugin that people use in their applications, stability 
 factor. And they use it for one of the most critical aspects in an application: security.
 
 I have invested a significantly amount of time of the development in writing tests, at all levels: unit, integration
-and functional.
+and functional. Nothing can prove the absence of all bugs, true. However, it's certainly possible to prove the absence
+of many common classes of bugs.
 
 It's important to note that, in a HTTP-based security system you need to test using an HTTP client. If you mock such
 interfaces, you have the risk of not testing the system under real conditions, and this is not acceptable for a security
@@ -557,9 +589,27 @@ buttons, etc.
 
 <<<
 
+.Unit test report
+image::tests.png[]
+
+<<<
+
+==== Continuous integration and automated release
+
+The continuous integration pipeline is a complex process, totally automated. It runs all the suite of tests across all
+the testing applications whenever something is pushed to GitHub. This ensures that the branches are stable all the time.
+
+Current status of the build can be seen at https://travis-ci.org/alvarosanchez/grails-spring-security-rest[]:
+
+.Travis build status
+image::travis.png[]
+
 === Installation and usage
 
 Documentation has been one of the key factors contributing to the success of this plugin. It's comprehensive, covers
-all features, has configuration examples and it's also automatically published online on every release.
+all features, has configuration examples and it's also automatically published online on every release. Its publishing
+is also automated and versioned: http://alvarosanchez.github.io/grails-spring-security-rest[]
+
+image::docs.png[]
 
 For reference, it has been included in the appendix of this document. Please refer to that section for more information.

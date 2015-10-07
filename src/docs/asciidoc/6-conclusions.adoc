@@ -30,7 +30,7 @@ Considering all the above items, we can conclude that all the goals have been me
 
 <<<
 
-==== Process
+==== Software development process
 
 Working alone in a large and complex project like this is not an easy task. Also we need to take into consideration
 the fact that the requirements are needs weren't requested by anybody in particular. This hasn't been a classical
@@ -56,7 +56,7 @@ development during more than 14 years.
 
 <<<
 
-=== Future improvements
+=== Future works
 
 The plugin is fairly stable and mature, and from my point of view is probably feature complete. However, if I were to
 analyse how can it be improved, I would outline 2 main areas where it can completed.

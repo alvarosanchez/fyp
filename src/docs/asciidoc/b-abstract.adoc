@@ -6,5 +6,5 @@ One of the restrictions of REST is that the systems must be *stateless*, in such
 its state to the server on every request. In this scenario, doing authentication and authorisation in a stateless way is
 tricky, as the vast majority of the existing solutions are stateful implementations based on the HTTP session.
 
-For this reason was created *Spring Security REST*, a plugin for the Grails framework based on Spring Security that
+For this reason I designed and developed *Spring Security REST*, a plugin for the Grails framework based on Spring Security that
 enables developers to secure their applications in a pure REST, stateless way.
