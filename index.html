@@ -586,15 +586,16 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#__7_as_a_user_i_want_to_authenticate_using_external_oauth_providers_such_as_google_or_facebook">3.2.7. #7. As a user, I want to authenticate using external OAuth providers such as Google or Facebook</a></li>
 </ul>
 </li>
-<li><a href="#_design">3.3. Design</a>
+<li><a href="#_legal_framework">3.3. Legal framework</a></li>
+<li><a href="#_design">3.4. Design</a>
 <ul class="sectlevel3">
-<li><a href="#_use_cases">3.3.1. Use cases</a>
+<li><a href="#_use_cases">3.4.1. Use cases</a>
 <ul class="sectlevel4">
 <li><a href="#_user_use_cases">User use cases</a></li>
 <li><a href="#_developer_use_cases">Developer use cases</a></li>
 </ul>
 </li>
-<li><a href="#_class_diagrams">3.3.2. Class diagrams</a>
+<li><a href="#_class_diagrams">3.4.2. Class diagrams</a>
 <ul class="sectlevel4">
 <li><a href="#_filters">Filters</a></li>
 <li><a href="#_events_and_listeners">Events and listeners</a></li>
@@ -606,12 +607,13 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 </ul>
 </li>
-<li><a href="#_development">3.4. Development</a>
+<li><a href="#_development">3.5. Development</a>
 <ul class="sectlevel3">
-<li><a href="#_testing">3.4.1. Testing</a></li>
+<li><a href="#_testing">3.5.1. Testing</a></li>
+<li><a href="#_continuous_integration_and_automated_release">3.5.2. Continuous integration and automated release</a></li>
 </ul>
 </li>
-<li><a href="#_installation_and_usage">3.5. Installation and usage</a></li>
+<li><a href="#_installation_and_usage">3.6. Installation and usage</a></li>
 </ul>
 </li>
 <li><a href="#_evaluation">4. Evaluation</a></li>
@@ -632,11 +634,11 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_conclusions">6.1. Conclusions</a>
 <ul class="sectlevel3">
 <li><a href="#_product">6.1.1. Product</a></li>
-<li><a href="#_process">6.1.2. Process</a></li>
+<li><a href="#_software_development_process">6.1.2. Software development process</a></li>
 <li><a href="#_personal">6.1.3. Personal</a></li>
 </ul>
 </li>
-<li><a href="#_future_improvements">6.2. Future improvements</a>
+<li><a href="#_future_works">6.2. Future works</a>
 <ul class="sectlevel3">
 <li><a href="#_upgrade_to_grails_3">6.2.1. Upgrade to Grails 3</a></li>
 <li><a href="#_jwt_token_fingerprinting">6.2.2. JWT Token fingerprinting</a></li>
@@ -785,7 +787,7 @@ its state to the server on every request. In this scenario, doing authentication
 tricky, as the vast majority of the existing solutions are stateful implementations based on the HTTP session.</p>
 </div>
 <div class="paragraph">
-<p>For this reason was created <strong>Spring Security REST</strong>, a plugin for the Grails framework based on Spring Security that
+<p>For this reason I designed and developed <strong>Spring Security REST</strong>, a plugin for the Grails framework based on Spring Security that
 enables developers to secure their applications in a pure REST, stateless way.</p>
 </div>
 </div>
@@ -2445,9 +2447,46 @@ Grails will be a front-end URL where the token is a parameter.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_design">3.3. Design</h3>
+<h3 id="_legal_framework">3.3. Legal framework</h3>
+<div class="paragraph">
+<p>The applicable legislation to any software application using this plugin is the Data Protection Act: <em>"Ley Orgánica 15/1999,
+de 13 de diciembre, de Protección de Datos de Carácter Personal"</em> <a href="#lopd">[lopd]</a>. The law stablishes a series of protection levels
+depending on how sensitive is the data stored.</p>
+</div>
+<div class="paragraph">
+<p>Basically, any data subject to the most basic security level (<em>"nivel básico"</em>) must be accessed by uniquely identified
+users. Organisations have also the obligation to grant confidentiality and integrity of the passwords stored.</p>
+</div>
+<div class="paragraph">
+<p>In the case of Spring Security, the library offers sufficient mechanism to be compliant with the lay restrictions.
+However, is the developer&#8217;s responsibility to ensure that the configuration applied matches the required security
+restrictions by the law.</p>
+</div>
+<div class="paragraph">
+<p>Spring Security Core plugin (foundation for the Spring Security REST plugin) uses the <strong>bcrypt</strong> <a href="#bcrypt">[bcrypt]</a> algorithm to hash passwords.
+In addition, developers can increase the security of the passwords by adding a salt.</p>
+</div>
+<div class="paragraph">
+<p>Bcrypt is a much more secure alternative to the message digest approaches since it supports a customizable work level
+which when increased takes more computation time to hash the users' passwords, but also dramatically increases the cost
+of brute force attacks. Given how easy it is to use GPUs to crack passwords, developers should definitely consider using
+bcrypt for new projects and switching to it for existing projects. Note that due to the approach used by bcrypt,
+developers cannot add an additional salt like with the message digest algorithms.</p>
+</div>
+<div class="paragraph">
+<p>It can be enabled by using the <code>bcrypt</code> value for the algorithm config attribute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">grails.plugin.springsecurity.password.algorithm = <span class="string"><span class="delimiter">'</span><span class="content">bcrypt</span><span class="delimiter">'</span></span></code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="_design">3.4. Design</h3>
 <div class="sect3">
-<h4 id="_use_cases">3.3.1. Use cases</h4>
+<h4 id="_use_cases">3.4.1. Use cases</h4>
 <div class="paragraph">
 <p>In software and systems engineering, a use case is a list of action or event steps, typically defining the interactions
 between a role (known in UML as an <strong>actor</strong>) and a system, to achieve a goal. The actor can be a human, an external system,
@@ -2508,7 +2547,7 @@ some people avoid their use.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_class_diagrams">3.3.2. Class diagrams</h4>
+<h4 id="_class_diagrams">3.4.2. Class diagrams</h4>
 <div class="paragraph">
 <p>Below are included some class diagrams of the most important parts of the system.</p>
 </div>
@@ -2613,7 +2652,7 @@ stateless tokens (JWT) and non-stateless. In the case of JWT, there are also 2 o
 </div>
 </div>
 <div class="sect2">
-<h3 id="_development">3.4. Development</h3>
+<h3 id="_development">3.5. Development</h3>
 <div class="paragraph">
 <p>Creating the plugin to its current state has taken 2 years and 37 releases. It has been an enormous effort.</p>
 </div>
@@ -2636,14 +2675,15 @@ used. Thus, I revisited my approach and allowed the users to use my features on 
 Chapter A.4 in the appendix).</p>
 </div>
 <div class="sect3">
-<h4 id="_testing">3.4.1. Testing</h4>
+<h4 id="_testing">3.5.1. Testing</h4>
 <div class="paragraph">
 <p>Considering that it&#8217;s a plugin that people use in their applications, stability and robustness has always been a key
 factor. And they use it for one of the most critical aspects in an application: security.</p>
 </div>
 <div class="paragraph">
 <p>I have invested a significantly amount of time of the development in writing tests, at all levels: unit, integration
-and functional.</p>
+and functional. Nothing can prove the absence of all bugs, true. However, it&#8217;s certainly possible to prove the absence
+of many common classes of bugs.</p>
 </div>
 <div class="paragraph">
 <p>It&#8217;s important to note that, in a HTTP-based security system you need to test using an HTTP client. If you mock such
@@ -2690,13 +2730,42 @@ headless browser Phantom JS <a href="#phantom-js">[phantom-js]</a>, and interact
 buttons, etc.</p>
 </div>
 <div style="page-break-after: always;"></div>
+<div class="imageblock">
+<div class="content">
+<img src="tests.png" alt="tests">
+</div>
+<div class="title">Figure 13. Unit test report</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect3">
+<h4 id="_continuous_integration_and_automated_release">3.5.2. Continuous integration and automated release</h4>
+<div class="paragraph">
+<p>The continuous integration pipeline is a complex process, totally automated. It runs all the suite of tests across all
+the testing applications whenever something is pushed to GitHub. This ensures that the branches are stable all the time.</p>
+</div>
+<div class="paragraph">
+<p>Current status of the build can be seen at <a href="https://travis-ci.org/alvarosanchez/grails-spring-security-rest" class="bare">https://travis-ci.org/alvarosanchez/grails-spring-security-rest</a>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="travis.png" alt="travis">
+</div>
+<div class="title">Figure 14. Travis build status</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_installation_and_usage">3.5. Installation and usage</h3>
+<h3 id="_installation_and_usage">3.6. Installation and usage</h3>
 <div class="paragraph">
 <p>Documentation has been one of the key factors contributing to the success of this plugin. It&#8217;s comprehensive, covers
-all features, has configuration examples and it&#8217;s also automatically published online on every release.</p>
+all features, has configuration examples and it&#8217;s also automatically published online on every release. Its publishing
+is also automated and versioned: <a href="http://alvarosanchez.github.io/grails-spring-security-rest" class="bare">http://alvarosanchez.github.io/grails-spring-security-rest</a></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="docs.png" alt="docs">
+</div>
 </div>
 <div class="paragraph">
 <p>For reference, it has been included in the appendix of this document. Please refer to that section for more information.</p>
@@ -2751,7 +2820,7 @@ users. Some of them have also expressed their gratitude publicly on Twitter:</p>
 <div class="content">
 <img src="gantt.png" alt="gantt">
 </div>
-<div class="title">Figure 13. Initial Gantt diagram</div>
+<div class="title">Figure 15. Initial Gantt diagram</div>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -2956,7 +3025,7 @@ on GitHub, 66 forks, 22 contributors and 44 pull requests.</p>
 <div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
-<h4 id="_process">6.1.2. Process</h4>
+<h4 id="_software_development_process">6.1.2. Software development process</h4>
 <div class="paragraph">
 <p>Working alone in a large and complex project like this is not an easy task. Also we need to take into consideration
 the fact that the requirements are needs weren&#8217;t requested by anybody in particular. This hasn&#8217;t been a classical
@@ -2989,7 +3058,7 @@ development during more than 14 years.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_future_improvements">6.2. Future improvements</h3>
+<h3 id="_future_works">6.2. Future works</h3>
 <div class="paragraph">
 <p>The plugin is fairly stable and mature, and from my point of view is probably feature complete. However, if I were to
 analyse how can it be improved, I would outline 2 main areas where it can completed.</p>
@@ -3091,7 +3160,7 @@ RESTful scenario, we need to make sure our server is stateless.</p>
 <div class="content">
 <img src="rest.png" alt="rest">
 </div>
-<div class="title">Figure 14. Sequence diagram overview of the plugin behavior</div>
+<div class="title">Figure 16. Sequence diagram overview of the plugin behavior</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -4250,7 +4319,7 @@ principal information is stored directly in the JWT.</p>
 <div class="content">
 <img src="jwt.png" alt="jwt">
 </div>
-<div class="title">Figure 15. JWT example</div>
+<div class="title">Figure 17. JWT example</div>
 </div>
 <div class="sect5">
 <h6 id="_header">Header</h6>
@@ -5272,7 +5341,7 @@ OAuth, because then the access keys will be made public.</p>
 <div class="content">
 <img src="oauth.png" alt="oauth">
 </div>
-<div class="title">Figure 16. OAuth delegation protocol</div>
+<div class="title">Figure 18. OAuth delegation protocol</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -5832,6 +5901,14 @@ October 2012.</p>
 <li>
 <p><a id="phantom-js"></a>[phantom-js] <a href="http://phantomjs.org/">Phantom JS headless browser</a>.</p>
 </li>
+<li>
+<p><a id="lopd"></a>[lopd] Spanish Goverment.
+<a href="http://www.agpd.es/portalwebAGPD/canaldocumentacion/legislacion/estatal/common/pdfs/2014/Ley_Organica_15-1999_de_13_de_diciembre_de_Proteccion_de_Datos_Consolidado.pdf">Ley Orgánica 15/1999, de 13 de diciembre, de Protección de Datos de Carácter Personal</a>.
+5 March 2011.</p>
+</li>
+<li>
+<p><a id="bcrypt"></a>[bcrypt] <a href="https://en.wikipedia.org/wiki/Bcrypt">Bcrypt hashing algorithm</a>.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -5840,7 +5917,7 @@ October 2012.</p>
 <div id="footer">
 <div id="footer-text">
 Version 0.1<br>
-Last updated 2015-10-04 18:08:33 UTC
+Last updated 2015-10-07 12:53:16 UTC
 </div>
 </div>
 </body>
